@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>What Circle earns under different assumptions | Milton Lens charts</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Lora:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+.controls{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:8px 0 14px}
+.ctl{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:10px 12px}
+.ctl label{display:block;font-size:.85rem;color:var(--muted)}
+.ctl output{display:block;font-family:"Libre Baskerville",Georgia,serif;color:var(--navy);font-size:1.35rem;font-weight:700;font-variant-numeric:tabular-nums}
+.ctl input[type=range]{width:100%;accent-color:var(--navy);margin-top:4px}
+.presets{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 14px}
+.presets .btn{margin-top:0}
+.presets .btn.on{background:var(--navy);color:#fff}
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:14px 0 4px}
+.tile{border-top:3px solid var(--gold);padding:8px 0 0}
+.tile.main{border-top-color:var(--navy)}
+.tile .k{font-size:.8rem;color:var(--muted);line-height:1.3}
+.tile .v{font-family:"Libre Baskerville",Georgia,serif;color:var(--navy);font-size:1.3rem;font-weight:700;font-variant-numeric:tabular-nums}
+.tile .v.neg{color:var(--red)}
+.chart-wrap{height:380px}
+@media (max-width:700px){.controls{grid-template-columns:1fr}.tiles{grid-template-columns:repeat(2,1fr)}.chart-wrap{height:320px}}
+</style>
+</head><body>
+<header class="site"><a href="../">Milton Lens · Charts</a></header>
+<main>
+<div class="kicker">Circle Internet Group · Calculator</div>
+<h1>What Circle earns under different assumptions</h1>
+<p class="sub">Move the three numbers the angel and the demon disagree about. Everything else is held at the level of the third quarter of 2026. Dollar figures are per year.</p>
+
+<div class="presets" role="group" aria-label="Presets">
+  <button class="btn" data-p="q3">Third quarter of 2026</button>
+  <button class="btn" data-p="angel">The angel's assumptions</button>
+  <button class="btn" data-p="demon">The demon's assumptions</button>
+</div>
+
+<div class="controls">
+  <div class="ctl"><label for="size">USDC in circulation</label><output id="o-size"></output><input id="size" type="range" min="40" max="200" step="1"></div>
+  <div class="ctl"><label for="yield">Yield on the reserve</label><output id="o-yield"></output><input id="yield" type="range" min="2" max="5.5" step="0.05"></div>
+  <div class="ctl"><label for="share">Partners' share of reserve income, at today's yield</label><output id="o-share"></output><input id="share" type="range" min="50" max="75" step="0.5"></div>
+</div>
+
+<div class="chart-wrap"><canvas id="chart" role="img" aria-label="Waterfall from reserve income to adjusted EBITDA"></canvas></div>
+
+<div class="tiles">
+  <div class="tile"><div class="k">Reserve income</div><div class="v" id="t-ri"></div></div>
+  <div class="tile"><div class="k">Paid to partners</div><div class="v" id="t-cost"></div></div>
+  <div class="tile main"><div class="k">Adjusted EBITDA, without token sales</div><div class="v" id="t-e"></div></div>
+  <div class="tile main"><div class="k">Market value of $16.6 billion as a multiple of it</div><div class="v" id="t-m"></div></div>
+</div>
+<p id="article" class="sub" style="margin-top:12px"></p>
+
+<div class="notes">
+<p><strong>How it works.</strong> Reserve income is USDC in circulation times the yield on the reserve. Partners are paid a part that rises with circulation and a part that rises with reserve income. Circle's quarterly filing says a one-point change in rates moves reserve income by $739 million and distribution costs by $371 million with circulation held at $73.9 billion, so the calculator passes 50.2 percent of each extra dollar of interest to partners, and sets the rest of the payment so that the third quarter comes out as reported. The third slider scales the whole payment up or down. It is labeled with the share partners would take at the third quarter's yield of 3.59 percent.</p>
+<p><strong>What is held fixed.</strong> Other revenue stays at $102 million a year and running costs at $555 million a year, both the third quarter of 2026 times four. Running costs are Circle's adjusted operating expenses, which leave out stock-based pay, depreciation and restructuring. Holding them fixed flatters the cases where USDC grows a great deal. Token sales such as the ARC presale are left out.</p>
+<p><strong>The presets.</strong> The two sets of assumptions are the author's, chosen to show how far apart the two cases are. They are not forecasts by Circle or by anyone else. The angel's set uses two years of the 40 percent annual growth in Circle's guidance. The market value is 256.2 million shares at the closing price of $64.98 on November 10, 2026.</p>
+</div>
+
+<h2>Data</h2>
+<div class="table-wrap"><table id="table"></table></div>
+<a class="btn" id="csv" href="#">Download CSV</a>
+<h2>Sources</h2>
+<ul class="sources">
+<li><a href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001876042&type=10-Q&dateb=&owner=include&count=40" target="_blank" rel="noopener">Circle Form 10-Q for the quarter ended September 30, 2026</a> — reserve income, distribution, transaction and other costs, average USDC in circulation, and the interest-rate sensitivity table</li>
+<li><a href="https://www.sec.gov/Archives/edgar/data/1876042/000187604226000309/finalq3epr-110326.htm" target="_blank" rel="noopener">Circle Q3 2026 earnings release (Form 8-K, Exhibit 99.1)</a> — adjusted operating expenses and guidance</li>
+</ul>
+<footer>Data as of September 30, 2026; share price as of November 10, 2026. Personal research and opinion, not investment advice.</footer>
+</main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script>
+(function(){
+  // Third quarter of 2026, annualized, in $ billions
+  const Q = {S:73.264, RI:2.630496, COST:1.646536, OTHER:0.102, OPEX:0.5552, MCAP:16.648};
+  const B = 371/739;                       // share of each extra dollar of interest passed on (10-Q sensitivity table)
+  const A = (Q.COST - B*Q.RI)/Q.S;         // part of the payment that scales with circulation
+  const D0 = Q.COST/Q.RI;                  // partners' share in Q3 2026
+  const PRESETS = {
+    q3:    {size:73, yield:3.6, share:62.5, name:'Third quarter of 2026'},
+    angel: {size:145, yield:4.0, share:58, name:"The angel's assumptions"},
+    demon: {size:60, yield:3.0, share:68, name:"The demon's assumptions"}
+  };
+  const P = {navy:'#0E2340', gold:'#B8A57A', grey:'#9AA0A6', red:'#8B2E2E'};
+  const el = id => document.getElementById(id);
+  const money = v => (v<0?'-':'') + (Math.abs(v)>=1 ? '$'+Math.abs(v).toFixed(2)+' billion' : '$'+Math.round(Math.abs(v)*1000)+' million');
+  function calc(size, yld, share){
+    const ri = size*yld/100;
+    const cost = (share/100/D0) * size * (A + B*yld/100);
+    const keeps = ri - cost;
+    const e = keeps + Q.OTHER - Q.OPEX;
+    return {ri, cost, keeps, e, mult: e>0 ? Q.MCAP/e : null};
+  }
+  const chart = new Chart(el('chart'), {type:'bar',
+    data:{labels:['Reserve income','Paid to partners','Circle keeps','Other revenue','Running costs','Adjusted EBITDA'], datasets:[{data:[], backgroundColor:[], borderWidth:0, barPercentage:.8}]},
+    options:{maintainAspectRatio:false, animation:{duration:150}, plugins:{legend:{display:false}, tooltip:{callbacks:{label:ctx=>money(ctx.chart.$vals[ctx.dataIndex])}}},
+      scales:{y:{title:{display:true,text:'$ billions a year'}, grid:{color:'#eee'}}, x:{grid:{display:false}, ticks:{autoSkip:false, maxRotation:0}}}}});
+  function render(){
+    const size=+el('size').value, yld=+el('yield').value, share=+el('share').value;
+    el('o-size').textContent = '$'+size+' billion';
+    el('o-yield').textContent = yld.toFixed(2)+'%';
+    el('o-share').textContent = share.toFixed(1)+'%';
+    const r = calc(size,yld,share);
+    const after = r.keeps + Q.OTHER;
+    chart.data.datasets[0].data = [[0,r.ri],[r.keeps,r.ri],[0,r.keeps],[r.keeps,after],[Math.min(r.e,after),Math.max(r.e,after)],[Math.min(0,r.e),Math.max(0,r.e)]];
+    chart.data.datasets[0].backgroundColor = [P.gold,P.grey,P.navy,P.gold,P.grey, r.e<0?P.red:P.navy];
+    chart.$vals = [r.ri,-r.cost,r.keeps,Q.OTHER,-Q.OPEX,r.e];
+    chart.update();
+    el('t-ri').textContent = money(r.ri);
+    el('t-cost').textContent = money(r.cost);
+    el('t-e').textContent = money(r.e); el('t-e').className = 'v'+(r.e<0?' neg':'');
+    el('t-m').textContent = r.mult ? (r.mult>=100? Math.round(r.mult) : r.mult.toFixed(1))+' times' : 'no profit';
+    document.querySelectorAll('.presets .btn').forEach(b=>{const p=PRESETS[b.dataset.p]; b.classList.toggle('on', p.size===size && Math.abs(p.yield-yld)<1e-9 && p.share===share);});
+  }
+  function setP(k){const p=PRESETS[k]; el('size').value=p.size; el('yield').value=p.yield; el('share').value=p.share; render();}
+  document.querySelectorAll('.presets .btn').forEach(b=>b.addEventListener('click',()=>setP(b.dataset.p)));
+  ['size','yield','share'].forEach(id=>el(id).addEventListener('input',render));
+  // table + CSV of the presets
+  const head = ['Case','USDC in circulation ($bn)','Yield on reserve (%)','Partners\' share at today\'s yield (%)','Reserve income ($bn)','Paid to partners ($bn)','Adjusted EBITDA ($bn)','Market value as a multiple'];
+  const rows = Object.values(PRESETS).map(p=>{const r=calc(p.size,p.yield,p.share); return [p.name,p.size,p.yield.toFixed(2),p.share.toFixed(1),r.ri.toFixed(2),r.cost.toFixed(2),r.e.toFixed(2), r.mult? r.mult.toFixed(1):'n/a'];});
+  el('table').innerHTML = '<thead><tr>'+head.map((h,i)=>`<th class="${i?'num':''}">${h}</th>`).join('')+'</tr></thead><tbody>'+rows.map(r=>'<tr>'+r.map((c,i)=>`<td class="${i?'num':''}">${c}</td>`).join('')+'</tr>').join('')+'</tbody>';
+  const csv = [head,...rows].map(r=>r.map(c=>/[",]/.test(String(c))?'"'+String(c).replace(/"/g,'""')+'"':c).join(',')).join('\n');
+  el('csv').href = 'data:text/csv;charset=utf-8,'+encodeURIComponent(csv); el('csv').download = 'circle-c4-calculator.csv';
+  setP('q3');
+})();
+</script>
+</body></html>
