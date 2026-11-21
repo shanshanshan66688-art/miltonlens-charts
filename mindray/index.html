@@ -1,0 +1,921 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>迈瑞：沿八个剧本往下推 | Milton Lens</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme:light;
+  --navy:#0E2340;--gold:#B8A57A;--ink:#1d2430;--muted:#5f6670;--faint:#8a9099;
+  --line:#e3e1dc;--grid:#ebe9e3;--axis:#c9c6bd;--bg:#ffffff;--panel:#faf9f6;
+  --b1:#cde2fb;--b2:#9ec5f4;--b3:#6da7ec;--b4:#3987e5;--b5:#1c5cab;
+  --r1:#fbd5d1;--r2:#f3ada6;--r3:#e7837b;--r4:#da544f;--r5:#a1302f;--mid:#f0efec;
+  --s1:#2a78d6;--s2:#eb6834;--s3:#1baf7a;
+  --serif:"Libre Baskerville","Songti SC","Noto Serif CJK SC","Noto Serif SC","Source Han Serif SC","STSong",Georgia,serif;
+  --sans:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Noto Sans CJK SC","Noto Sans SC","Microsoft YaHei","Segoe UI",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:56px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--ink);font:16.5px/1.75 var(--sans);-webkit-font-smoothing:antialiased;-webkit-text-size-adjust:100%}
+a{color:var(--navy)}
+:focus-visible{outline:2px solid var(--navy);outline-offset:2px}
+
+header.site{display:flex;justify-content:space-between;align-items:baseline;gap:12px;border-bottom:1px solid var(--line);padding:14px 20px}
+header.site a{color:var(--navy);text-decoration:none;font-family:var(--serif);font-weight:700;letter-spacing:.02em}
+header.site span{color:var(--faint);font-size:.8rem}
+
+nav.toc{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch}
+nav.toc div{max-width:920px;margin:0 auto;padding:0 12px}
+nav.toc a{display:inline-block;padding:11px 9px;color:var(--muted);text-decoration:none;font-size:.86rem}
+nav.toc a:hover{color:var(--navy)}
+
+main{max-width:920px;margin:0 auto;padding:0 20px 90px}
+.prose{max-width:41em}
+.hero{display:grid;grid-template-columns:minmax(0,1fr) 420px;gap:44px;align-items:start;padding:46px 0 6px}
+h1{font-family:var(--serif);color:var(--navy);font-size:2.9rem;line-height:1.15;margin:6px 0 20px;letter-spacing:.01em;font-weight:700}
+.dek{font-size:1.14rem;line-height:1.85;margin:0 0 18px}
+.meta{color:var(--muted);font-size:.86rem;line-height:1.7;margin:0 0 22px}
+.readme{border-left:3px solid var(--gold);padding:2px 0 2px 16px;margin:0;font-size:.95rem;line-height:1.8}
+.readme li{list-style:none;margin:0}
+.readme ul{margin:0;padding:0}
+.sw{display:inline-block;width:.85em;height:.85em;border-radius:2px;vertical-align:-.08em;margin-right:.45em}
+dl.facts{display:grid;grid-template-columns:1fr 1fr;gap:0 28px;margin:30px 0 0}
+dl.facts div{border-top:1px solid var(--line);padding:11px 0 12px}
+dl.facts dt{font-size:.82rem;color:var(--muted);line-height:1.4}
+dl.facts dd{margin:0;font-size:1.3rem;font-weight:650;color:var(--navy);line-height:1.35}
+dl.facts dd.s{font-size:.82rem;font-weight:400;color:var(--muted);line-height:1.5}
+
+section{padding-top:58px}
+h2{font-family:var(--serif);color:var(--navy);font-size:1.6rem;line-height:1.3;margin:0 0 20px;padding-top:20px;border-top:1px solid var(--line);display:flex;gap:14px;align-items:baseline;font-weight:700}
+h2 .no{color:var(--gold);font-size:1.5rem;flex:none;font-weight:400;min-width:.9em}
+h3{font-family:var(--serif);color:var(--navy);font-size:1.14rem;line-height:1.4;margin:34px 0 10px;font-weight:700}
+p{margin:0 0 14px}
+strong{font-weight:650;color:var(--navy)}
+.num{font-variant-numeric:tabular-nums}
+
+ol.verdict{margin:0;padding:0;counter-reset:v;max-width:43em}
+ol.verdict li{list-style:none;counter-increment:v;position:relative;padding:0 0 18px 46px}
+ol.verdict li::before{content:counter(v);position:absolute;left:0;top:.05em;width:30px;height:30px;border-radius:50%;border:1px solid var(--gold);color:var(--navy);font-family:var(--serif);font-weight:700;display:flex;align-items:center;justify-content:center;font-size:.95rem;line-height:1}
+ol.verdict b{color:var(--navy);font-weight:650}
+
+.aside{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:18px 22px;margin:22px 0 0;max-width:43em}
+.aside h3{margin:0 0 8px}
+.aside ul{margin:0;padding-left:1.15em}
+.aside li{margin:0 0 8px}
+
+ol.steps{margin:24px 0 6px;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:0;counter-reset:s}
+ol.steps li{list-style:none;counter-increment:s;padding:14px 16px 14px 0;border-top:2px solid var(--navy);margin-right:14px;font-size:.93rem;line-height:1.65}
+ol.steps li::before{content:counter(s);display:block;font-family:var(--serif);font-weight:700;color:var(--gold);font-size:1.1rem;margin-bottom:4px}
+
+figure{margin:28px 0 32px}
+figcaption{margin-bottom:12px}
+figcaption b{display:block;font-family:var(--serif);color:var(--navy);font-size:1.06rem;line-height:1.45;font-weight:700}
+figcaption span{display:block;color:var(--muted);font-size:.88rem;line-height:1.55;margin-top:3px}
+.plot{position:relative}
+.plot svg{display:block;max-width:100%;overflow:visible}
+svg text{font-family:var(--sans)}
+.src{color:var(--faint);font-size:.78rem;line-height:1.55;margin:10px 0 0}
+details.tv{margin-top:10px;font-size:.86rem}
+details.tv summary{cursor:pointer;color:var(--muted);display:inline-block}
+details.tv .table-wrap{margin-top:8px;max-height:320px;overflow:auto}
+.legend{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:.86rem;color:var(--ink);margin:0 0 10px}
+.legend i{display:inline-block;width:16px;height:3px;border-radius:2px;vertical-align:middle;margin-right:6px}
+.legend i.box{width:.85em;height:.85em;border-radius:2px;vertical-align:-.08em}
+
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.table-wrap+.prose,.src+.prose,.table-wrap+.table-wrap,.prose+.table-wrap,.src+.table-wrap,.table-wrap+p.note{margin-top:22px}
+table{border-collapse:collapse;width:100%;font-size:.9rem;line-height:1.55}
+th,td{border-bottom:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{color:var(--muted);font-weight:500;font-size:.82rem;white-space:nowrap}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+table td:first-child{color:var(--navy);font-weight:650}
+table.plain td:first-child,table.tide td:first-child{white-space:nowrap}
+tr.now td{background:#fbf8ef;border-top:1px solid var(--gold);border-bottom:1px solid var(--gold)}
+.swipe{display:none;color:var(--faint);font-size:.78rem;margin:0 0 6px}
+.tagk{display:inline-block;border:1px solid var(--axis);border-radius:3px;padding:0 6px;font-size:.76rem;color:var(--muted);white-space:nowrap;font-weight:400}
+.formula{font-family:var(--serif);color:var(--navy);font-size:1.02rem;line-height:1.7;border-top:1px solid var(--gold);border-bottom:1px solid var(--gold);padding:14px 2px;margin:22px 0 14px;max-width:43em}
+
+/* two seas */
+.seas{display:grid;grid-template-columns:1fr .82fr 1fr;gap:12px;margin:22px 0 8px}
+.seas.two{grid-template-columns:1fr 1fr}
+.seas.two .sea{min-height:350px}
+.sea{position:relative;border:1px solid var(--line);border-radius:10px;overflow:hidden;min-height:430px;background:#fff}
+.sea .water{position:absolute;left:0;right:0;bottom:0;height:var(--h);background:linear-gradient(to top,#b7d3f6,#dcebfc);border-top:2px solid var(--b3)}
+.sea .in{position:relative;padding:14px 16px 12px}
+.sea h4{margin:0 0 2px;font-family:var(--serif);color:var(--navy);font-size:1.06rem}
+.sea .dir{font-size:.84rem;color:var(--muted);margin:0 0 10px}
+.sea ul{margin:0;padding:0;font-size:.86rem;line-height:1.6}
+.sea li{list-style:none;display:flex;justify-content:space-between;gap:10px;border-bottom:1px solid rgba(14,35,64,.08);padding:3px 0}
+.sea li b{font-weight:650;color:var(--navy);white-space:nowrap;font-variant-numeric:tabular-nums}
+.sea .boats{position:absolute;left:14px;right:14px;bottom:calc(var(--h) - 9px);display:flex;flex-wrap:wrap;gap:6px}
+.boat{background:#fff;border:1px solid var(--navy);color:var(--navy);border-radius:999px;padding:2px 10px;font-size:.8rem;line-height:1.5;white-space:nowrap}
+.boat::before{content:"⛵ "}
+
+/* hero position bars */
+.pos{margin:0}
+.pos .row{padding:11px 0 13px;border-top:1px solid var(--line)}
+.pos .row:first-of-type{border-top:0;padding-top:2px}
+.pos .hd{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:6px}
+.pos .hd b{color:var(--navy);font-weight:650;font-size:.95rem}
+.pos .hd span{color:var(--muted);font-size:.8rem;white-space:nowrap}
+.pos .ft{font-size:.78rem;color:var(--muted);line-height:1.45;margin-top:5px}
+
+.tool{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:22px}
+.presets{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px;align-items:center}
+.presets span{font-size:.84rem;color:var(--muted);margin-right:2px}
+.chip{border:1px solid var(--axis);background:#fff;color:var(--navy);border-radius:999px;padding:5px 13px;font:inherit;font-size:.84rem;cursor:pointer;line-height:1.5}
+.chip:hover{border-color:var(--navy)}
+.chip[aria-pressed=true]{background:var(--navy);color:#fff;border-color:var(--navy)}
+.knobs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.knob label{display:block;font-size:.86rem;color:var(--muted)}
+.knob output{display:block;font-size:1.55rem;font-weight:650;color:var(--navy);line-height:1.35}
+.knob input[type=range]{width:100%;accent-color:var(--navy);margin:4px 0 2px;height:22px}
+.knob small{display:block;color:var(--faint);font-size:.76rem;line-height:1.45}
+.out{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:20px;padding-top:18px;border-top:1px solid var(--line);align-items:start}
+.stat .k{font-size:.84rem;color:var(--muted);line-height:1.4}
+.stat .v{font-size:1.4rem;font-weight:650;color:var(--navy);line-height:1.3}
+.stat.big .v{font-size:2.6rem;line-height:1.1;margin:2px 0 4px}
+.stat .d{font-size:.84rem;line-height:1.5;color:var(--muted)}
+.note{font-size:.84rem;color:var(--muted);line-height:1.6;margin-top:12px}
+
+table.scn{min-width:820px}
+table.scn th,table.scn td{padding-left:7px;padding-right:7px}
+table.scn td.st{min-width:13em;font-weight:400;color:var(--ink)}
+table.scn td.st b{color:var(--navy);font-weight:650}
+table.scn td.st small{display:block;color:var(--muted);font-size:.8rem;line-height:1.5;font-weight:400}
+table.scn input[type=range]{width:78px;accent-color:var(--navy);vertical-align:middle}
+table.scn td.c{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+table.scn td.c span{display:inline-block;min-width:3.6em;padding:1px 6px;border-radius:4px}
+.ev4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;margin-top:18px;padding-top:16px;border-top:1px solid var(--line)}
+.ev4 .stat .v{font-size:1.5rem}
+.ev4 .stat .d b{color:var(--navy);font-weight:650}
+
+.rulers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin:22px 0 6px}
+.rulers div{border-top:2px solid var(--navy);padding:14px 18px 6px 0;margin-right:14px;font-size:.93rem;line-height:1.65}
+.rulers b{display:block;font-family:var(--serif);color:var(--navy);font-size:1rem;margin-bottom:4px}
+.rulers .big{display:block;font-size:1.45rem;font-weight:650;color:var(--navy);line-height:1.3;margin:2px 0 4px}
+
+table.zones{min-width:640px}
+table.zones td:first-child{white-space:nowrap;font-weight:400;color:var(--ink)}
+.gridform{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px;margin-bottom:18px}
+.gridform label{display:block;font-size:.82rem;color:var(--muted);line-height:1.4;margin-bottom:4px}
+.gridform input[type=number]{width:100%;font:inherit;font-size:1rem;padding:6px 8px;border:1px solid var(--axis);border-radius:5px;background:#fff;color:var(--navy);font-variant-numeric:tabular-nums}
+.gridform input[type=range]{width:100%;accent-color:var(--navy)}
+.gridform output{font-size:.84rem;color:var(--navy)}
+table.grid{min-width:700px}
+table.grid th,table.grid td{padding-left:7px;padding-right:7px}
+table.grid td{vertical-align:middle;white-space:nowrap}
+table.grid td:first-child{font-weight:400;color:var(--muted)}
+.meter{display:flex;align-items:center;gap:8px}
+.meter i{display:block;height:8px;border-radius:4px;background:var(--navy)}
+table.chk{min-width:700px}
+table.chk td:first-child{white-space:nowrap}
+table.sell{width:auto;min-width:min(100%,560px)}
+table.sell td:first-child{white-space:nowrap}
+.lights{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.lights h3{margin-top:6px;display:flex;align-items:center;gap:8px}
+.lights ul{margin:0;padding-left:1.1em}
+.lights li{margin:0 0 9px;font-size:.94rem}
+.lamp{width:12px;height:12px;border-radius:50%;display:inline-block;flex:none}
+.cal{margin:0;padding:0}
+.cal li{list-style:none;display:grid;grid-template-columns:11.5em 1fr;gap:14px;padding:9px 0;border-bottom:1px solid var(--line);font-size:.94rem}
+.cal li b{color:var(--navy);font-weight:650}
+ul.sources{margin:0;padding-left:1.1em;font-size:.86rem;line-height:1.7;color:var(--muted)}
+ul.sources li{margin-bottom:5px}
+ul.plainlist{margin:0 0 14px;padding-left:1.15em;max-width:41em}
+ul.plainlist li{margin:0 0 8px}
+footer{color:var(--muted);font-size:.84rem;line-height:1.7;border-top:1px solid var(--line);padding-top:16px;margin-top:48px}
+
+table.vt{min-width:860px}
+table.vt td:first-child{white-space:nowrap}
+table.vt td:nth-child(4){white-space:nowrap}
+table.vt.v4{min-width:760px}
+table.vt.v4 td:nth-child(4){white-space:normal}
+table.hist{min-width:780px}
+table.hist td:first-child{white-space:nowrap}
+table.mega{min-width:640px}
+table.mega td:first-child{white-space:nowrap}
+table.mega .meter i{background:var(--navy)}
+
+#tip{position:fixed;left:0;top:0;pointer-events:none;z-index:50;background:#fff;border:1px solid var(--line);box-shadow:0 6px 22px rgba(14,35,64,.16);border-radius:6px;padding:8px 11px;font-size:.82rem;line-height:1.5;max-width:280px;opacity:0;transition:opacity .08s}
+#tip.on{opacity:1}
+#tip .t{color:var(--muted);margin-bottom:2px}
+#tip .r{white-space:nowrap}
+#tip .r i{display:inline-block;width:12px;height:3px;border-radius:2px;vertical-align:middle;margin-right:6px}
+#tip .v{font-weight:650;color:var(--navy);font-variant-numeric:tabular-nums}
+#tip .k{color:var(--muted)}
+
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr;gap:26px;padding-top:30px}
+  h1{font-size:2.2rem}
+  .pos{max-width:520px}
+  .knobs{grid-template-columns:1fr}
+  .out{grid-template-columns:1fr}
+  .ev4{grid-template-columns:1fr 1fr}
+  .gridform{grid-template-columns:1fr 1fr}
+  .lights{grid-template-columns:1fr}
+  .rulers{grid-template-columns:1fr}
+  .cal li{grid-template-columns:1fr;gap:2px}
+  .seas,.seas.two{grid-template-columns:1fr}
+  .seas.two .sea{min-height:0}
+  .sea{min-height:0}
+  .sea .water{height:var(--hm)}
+  .sea .boats{position:relative;left:auto;right:auto;bottom:auto;padding:6px 16px 0;margin-bottom:calc(var(--hm) - 9px)}
+  ol.steps{grid-template-columns:1fr}
+}
+@media (max-width:700px){
+  .swipe{display:block}
+  table.cards,table.cards.vt.v4{min-width:0}
+  table.cards thead{display:none}
+  table.cards,table.cards tbody{display:block}
+  table.cards tr{display:block;padding:12px 0;border-bottom:1px solid var(--line)}
+  table.cards tr.now{padding-left:10px;padding-right:10px;border-top:1px solid var(--gold);border-bottom:1px solid var(--gold);background:#fbf8ef}
+  table.cards tr.now td{background:none;border:0}
+  table.cards td{display:block;border:0;padding:2px 0;white-space:normal!important;text-align:left!important}
+  table.cards td:first-child{font-size:1rem}
+  table.cards td:not(:first-child)::before{content:attr(data-l) '：';color:var(--muted);font-size:.84rem}
+  table.cards td:empty{display:none}
+  .swipe.cardsoff{display:none}
+  table.scn{min-width:0}
+  table.scn,table.scn tbody{display:block}
+  table.scn thead{display:none}
+  table.scn tr{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px 6px;padding:13px 0;border-bottom:1px solid var(--line)}
+  table.scn.det tr{grid-template-columns:repeat(3,minmax(0,1fr))}
+  table.scn td{display:block;border:0;padding:0}
+  table.scn td.st{grid-column:1/-1;min-width:0}
+  table.scn td.c{text-align:left;white-space:normal}
+  table.scn td.c::before{content:attr(data-l);display:block;font-size:.72rem;color:var(--muted);line-height:1.5}
+  table.scn td.c span{min-width:0;display:block;text-align:center}
+  table.scn td.pr{grid-column:1/-1;display:flex;align-items:center;gap:10px}
+  table.scn td.pr::before{content:'概率';font-size:.8rem;color:var(--muted)}
+  table.scn td.pr input[type=range]{flex:1;width:auto}
+  table.grid{min-width:0}
+  table.grid .c-vs,table.grid .c-cum,table.grid .c-avgc,table.grid .c-pct,table.grid .meter i{display:none}
+  table.grid th,table.grid td{padding-left:4px;padding-right:4px}
+  table.grid th{white-space:normal}
+  table.chk{min-width:0}
+  table.chk .c-p,table.chk .c-avg,table.chk .c-end{display:none}
+  table.chk th{white-space:normal}
+  table.chk th,table.chk td{padding-left:4px;padding-right:4px}
+  table.chk td:first-child{white-space:normal}
+}
+@media (max-width:520px){
+  body{font-size:16px}
+  main{padding:0 16px 70px}
+  h2{font-size:1.38rem}
+  .tool{padding:16px}
+  .stat.big .v{font-size:2.2rem}
+  dl.facts{gap:0 18px}
+  dl.facts dd{font-size:1.16rem}
+}
+</style>
+</head>
+<body>
+<header class="site"><a href="../">Milton Lens · Charts</a><span>研究笔记，没有列在首页</span></header>
+<nav class="toc" aria-label="目录"><div>
+<a href="#s1">结论</a><a href="#s2">现在站在哪</a><a href="#s3">哪片海</a><a href="#s4">八个剧本</a><a href="#s5">买卖边界</a><a href="#s6">网格</a><a href="#s7">哪天有事</a><a href="#s8">来源</a>
+</div></nav>
+
+<main>
+<div class="hero">
+  <div>
+    <h1>迈瑞：沿八个剧本往下推</h1>
+    <p class="dek">迈瑞的股价五年半跌掉七成，今年 6 月最低到 130.66 元，之后五个月弹回 41%。它一半的生意在国内的医院，一半在海外，所以两片海的潮水它都沾。这一页沿着“潮汐抄底地图”的八个剧本，单独推一遍。</p>
+    <p class="meta">行情截至 2026 年 11 月 19 日收盘，11 月 20 日的收盘价我没有取到。迈瑞医疗（300760）。个人研究笔记，不是投资建议。<br>同一组剧本的其他两页：<a href="../tide/">潮汐抄底地图</a>、<a href="../moutai/">贵州茅台</a>。</p>
+    <div class="readme">
+      <ul>
+        <li><span class="sw" style="background:var(--b4)"></span>蓝色：便宜，只需要相信很少的好事。</li>
+        <li><span class="sw" style="background:var(--mid);border:1px solid var(--axis)"></span>灰色：讲得通，但没有安全边际。</li>
+        <li><span class="sw" style="background:var(--r4)"></span>红色：贵，要相信很多好事同时发生。</li>
+      </ul>
+    </div>
+    <dl class="facts">
+      <div><dt>股价</dt><dd>¥184.80</dd><dd class="s">11 月 19 日。比 6 月的最低点高 41%；比 2021 年的高点低 63%</dd></div>
+      <div><dt>市盈率</dt><dd>28.9 倍</dd><dd class="s">按过去 12 个月的利润；按 2027 年的预测是 23.1 倍</dd></div>
+      <div><dt>海外收入占比</dt><dd>53%</dd><dd class="s">前三季度海外 +11.0%，国内 −1.3%</dd></div>
+      <div><dt>股息率</dt><dd>2.27%</dd><dd class="s">过去 12 个月每股分红 4.19 元</dd></div>
+    </dl>
+  </div>
+  <figure class="pos" style="margin:0">
+    <figcaption><b>迈瑞现在站在哪一区</b><span>尺子从便宜（左）到贵（右）。金色圆点是现价。分区的道理见第 5 节。</span></figcaption>
+    <div id="pos"></div>
+    <p class="src">按“市场给 2027 年的盈利预测几倍”分区：15、19、22、28、35 倍。</p>
+    <div class="aside" style="margin-top:18px">
+      <h3>这一页和主页面的关系</h3>
+      <ul>
+        <li>八个剧本和默认概率，和<a href="../tide/#s6">潮汐抄底地图</a>完全一样。</li>
+        <li>不同的只是：每个剧本落到迈瑞身上，利润变多少、市场给几倍。</li>
+        <li>买卖边界和网格用的是同一套办法。</li>
+      </ul>
+    </div>
+  </figure>
+</div>
+
+<section id="s1">
+  <h2><span class="no">1</span>先说结论</h2>
+  <ol class="verdict">
+    <li><b>迈瑞一半在人民币海里，一半在外面。</b>53% 的收入来自海外。国内看医院的预算和集采，海外看全球需求和汇率。所以八个剧本里它两头都受影响，结果从 −28% 到 +48%，比茅台分散得多。</li>
+    <li><b>利润的坑过了，回升的坡度还不知道。</b>2025 年利润降了 30%，2026 年前三季度再降 5.1%；但剔除汇兑以后是 +6.3%。券商预测 2027 年 +18%、2028 年 +13%，不过过去两年这些预测一直在下调。</li>
+    <li><b>人民币升值是它今年最直接的“潮汐”。</b>上半年汇兑的负面影响约 7.4 亿元，三季度单季又损失约 2.79 亿元。美元强，它的报表好看，但新兴市场的客户吃紧；美元弱，成长股的倍数修复，但汇兑受伤。两头对冲。</li>
+    <li><b>股价已经从坑底弹了四成。</b>6 月最低 130.66 元，约 20 倍；现在 184.80 元，约 28.9 倍（过去 12 个月）、23.1 倍（2027 年预测）。</li>
+    <li><b>边界：</b>152 元以下认真买（19 倍），120 元以下是深水区；224 元以上分批卖（28 倍），280 元以上只留底仓。现价在持有区的下沿，176 元以下进入小额区。</li>
+  </ol>
+</section>
+
+<section id="s2">
+  <h2><span class="no">2</span>现在站在哪</h2>
+  <figure>
+    <figcaption><b>迈瑞股价：五年半跌掉七成，今年 6 月以来弹回四成</b><span>月末收盘价，元。最后一点是 11 月 19 日。两条金线是今天的买入区上沿和减仓区下沿，见第 5 节。2021 年 2 月盘中最高到过 503.51 元。</span></figcaption>
+    <div class="plot" id="px"></div>
+    <details class="tv"><summary>看数据表</summary><div class="table-wrap" id="px-t"></div></details>
+    <p class="src">来源：Equibles 月线（深交所收盘价，没有复权）。今年 6 月盘中最低 130.66 元，最低收盘 133.98 元。</p>
+  </figure>
+  <figure>
+    <figcaption><b>利润：2022、2023 年每年涨两成，2024 年停住，2025 年掉了三成</b><span>归母净利润，亿元。</span></figcaption>
+    <div class="legend" id="earn-lg"></div>
+    <div class="plot" id="earn"></div>
+    <details class="tv"><summary>看数据表</summary><div class="table-wrap" id="earn-t"></div></details>
+    <p class="src">来源：2021 到 2025 年是年报数字（经 Equibles）。2026、2027 年是华创证券、东吴证券等三家券商在三季报之后的预测均值：2026 年 83.8、79.05、83.28，2027 年 96.9、100.32、94.18（亿元）。</p>
+  </figure>
+  <div class="prose">
+    <p>2025 年是迈瑞上市以来最差的一年：收入 332.8 亿元，降 9.4%；归母净利润 81.4 亿元，降 30.3%。国内收入降了约 23%，医院预算收紧、按病种付费改革、检验试剂集采叠在了一起。</p>
+    <p>2026 年前三季度：收入 271.0 亿元，同比 +4.9%；归母净利润 71.8 亿元，同比 −5.1%。利润还在降，主要是汇率：上半年汇兑的负面影响约 7.4 亿元，三季度单季的汇兑损失约 2.79 亿元，芯片和电路板涨价又多花了约 1.1 亿元。剔除汇兑以后，前三季度的净利润是 +6.3%。</p>
+  </div>
+  <figure>
+    <figcaption><b>前三季度谁在涨、谁在跌：海外和新业务在拉，国内的老业务在拖</b><span>2026 年前三季度收入的同比变化。前两行按地区分，后四行按业务分。</span></figcaption>
+    <div class="plot" id="x3"></div>
+    <p class="src">来源：公司三季报，经中国证券报、证券之星和华创证券、中泰证券的点评转述。新兴业务包括微创外科、微创介入和动物医疗。海外按美元算是 +16.0%。</p>
+  </figure>
+  <div class="prose">
+    <p><strong>两台发动机，一个拖累。</strong>海外是第一台：前三季度收入 143.6 亿元，欧洲涨了近 20%，拉美近 18%，亚太 14%。新业务是第二台：合计 47.4 亿元，同比 +20.5%。拖累是国内的两条老产线，监护、麻醉这类设备和超声还在下滑。</p>
+    <p>公司的说法是：2026 年国内业务全年有望转正，2027 年以后回到稳定增长。前三季度国内是 −1.3%，三季度比二季度多了约 2%。</p>
+  </div>
+  <div class="table-wrap">
+    <table class="plain cards">
+      <thead><tr><th>指标</th><th>数值</th><th>怎么来的</th></tr></thead>
+      <tbody>
+        <tr><td data-l="指标">收盘价</td><td data-l="数值" class="n">¥184.80</td><td data-l="怎么来的">11 月 19 日。总市值约 2,239 亿元</td></tr>
+        <tr><td data-l="指标">过去 12 个月的利润</td><td data-l="数值" class="n">77.5 亿元</td><td data-l="怎么来的">2025 年全年 81.4 亿，减去年前三季度，加今年前三季度。对应 28.9 倍</td></tr>
+        <tr><td data-l="指标">2026、2027 年预测利润</td><td data-l="数值" class="n">82、97 亿元</td><td data-l="怎么来的">三家券商的均值。对应 27.3 倍和 23.1 倍</td></tr>
+        <tr><td data-l="指标">每股分红</td><td data-l="数值" class="n">4.19 元</td><td data-l="怎么来的">5 月 1.56 元，9 月 1.33 元，11 月 1.30 元。股息率 2.27%，约占利润的 66%</td></tr>
+        <tr><td data-l="指标">今年以来</td><td data-l="数值" class="n">−3.0%</td><td data-l="怎么来的">含分红约 −0.5%。去年收盘 190.45 元</td></tr>
+        <tr><td data-l="指标">6 月的最低点</td><td data-l="数值" class="n">130.66 元</td><td data-l="怎么来的">那时约 20 倍（过去 12 个月）。现在比它高 41%</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="s3">
+  <h2><span class="no">3</span>迈瑞是两条船</h2>
+  <div class="prose">
+    <p>主页面说，钱是水，股票是船，美元和人民币是两片海。迈瑞是两条船。一条在人民币海里，卖给国内的医院，看财政、医保和集采。一条在外面的海里，卖给 190 多个国家和地区的医院；其中新兴市场又占了海外收入的 65%。</p>
+  </div>
+  <div class="seas two" role="img" aria-label="示意图：迈瑞的海外业务在美元海，国内业务在人民币海">
+    <div class="sea" style="--h:17%;--hm:24px">
+      <div class="water"></div>
+      <div class="in">
+        <h4>外面的海（美元、欧元）</h4><p class="dir">水位在降 ↓　需求稳，但汇率在伤利润</p>
+        <ul>
+          <li><span>海外收入</span><b>143.6 亿元</b></li>
+          <li><span>同比</span><b>+11.0%</b></li>
+          <li><span>按美元算</span><b>+16.0%</b></li>
+        </ul>
+      </div>
+      <div class="boats"><span class="boat">迈瑞的海外业务 53%</span></div>
+    </div>
+    <div class="sea" style="--h:36%;--hm:62px">
+      <div class="water"></div>
+      <div class="in">
+        <h4>人民币海</h4><p class="dir">水位在涨 ↑　但医院的预算还没跟上</p>
+        <ul>
+          <li><span>国内收入</span><b>127.3 亿元</b></li>
+          <li><span>同比</span><b>−1.3%</b></li>
+          <li><span>三季度比二季度</span><b>约 +2%</b></li>
+        </ul>
+      </div>
+      <div class="boats"><span class="boat">迈瑞的国内业务 47%</span></div>
+    </div>
+  </div>
+  <p class="src">示意图。2026 年前三季度。</p>
+  <ol class="steps">
+    <li><b>国内看医院的钱。</b>财政和医保给医院多少预算，集采把价格压多低，决定国内这一半。2025 年它降了约 23%，今年前三季度降 1.3%。</li>
+    <li><b>海外看需求，也看美元。</b>美元太强的时候，新兴市场的医院买不起设备；美元走弱的时候，卖出去的货换回人民币变少。</li>
+    <li><b>汇率直接进利润表。</b>公司的外币敞口以美元为主。人民币今年对美元升了 4% 多，账面上就是汇兑损失。它让今年的利润看起来比实际经营差。</li>
+  </ol>
+  <h3>变量表</h3>
+  <div class="table-wrap">
+    <table class="vt v4 cards">
+      <thead><tr><th>变量</th><th>现在的读数</th><th>往哪边走对它好</th><th>盯什么</th></tr></thead>
+      <tbody>
+        <tr><td data-l="变量">国内招标</td><td data-l="现在的读数">9 月医疗设备招标 203 亿元，同比 +16.1%；1 到 9 月 1,268 亿元，同比 −4%。其中监护、呼吸、麻醉这一类 1 到 9 月 +1.7%</td><td data-l="往哪边走对它好">招标回暖要一两个季度才变成收入</td><td data-l="盯什么">每月的招标数据；设备更新的资金是否延续</td></tr>
+        <tr><td data-l="变量">集采和收费改革</td><td data-l="现在的读数">7 月 14 日三部门发文推进医用设备集采，搭国家、省、市三级框架，同时加了“异常低价审查”。检验试剂集采是 2025 年利润下滑的原因之一</td><td data-l="往哪边走对它好">降价幅度温和，份额向龙头集中，对迈瑞是好事；反过来是坏事</td><td data-l="盯什么">各省设备集采的中标价；检验收费的调整</td></tr>
+        <tr><td data-l="变量">海外</td><td data-l="现在的读数">前三季度 143.6 亿元，+11.0%，按美元算 +16.0%。欧洲近 +20%，拉美近 +18%，亚太 +14%</td><td data-l="往哪边走对它好">现在唯一稳定的发动机。新兴市场占海外的 65%，怕强美元</td><td data-l="盯什么">海外增速是否保持两位数</td></tr>
+        <tr><td data-l="变量">汇率</td><td data-l="现在的读数">上半年汇兑的负面影响约 7.4 亿元，三季度汇兑损失约 2.79 亿元。美元兑人民币 6.68，年初约 7.0</td><td data-l="往哪边走对它好">人民币不再升值，利润表上的拖累就消失</td><td data-l="盯什么">美元兑人民币；公司的套期保值</td></tr>
+        <tr><td data-l="变量">成本</td><td data-l="现在的读数">三季度芯片、电路板涨价多花约 1.1 亿元。前三季度毛利率 61.0%，比去年同期低 0.9 个点</td><td data-l="往哪边走对它好">AI 资本开支降温，电子元器件降价，对它是好事</td><td data-l="盯什么">毛利率</td></tr>
+        <tr><td data-l="变量">新业务和体外诊断</td><td data-l="现在的读数">新兴业务 47.4 亿元，+20.5%，占 17%。体外诊断 105.9 亿元，+7.8%，占 39%；国内化学发光等三项的市占率从 14% 升到 15%</td><td data-l="往哪边走对它好">这两块决定 2027 年以后的增速</td><td data-l="盯什么">流水线装机量；微创外科耗材</td></tr>
+        <tr><td data-l="变量">港股上市</td><td data-l="现在的读数">2025 年 11 月递表，2026 年 5 月更新材料，拟募资至少 10 亿美元，约为现在市值的 3%。到 7 月还没有聆讯</td><td data-l="往哪边走对它好">多一个按美元利率定价的市场；摊薄有限</td><td data-l="盯什么">聆讯和发行价</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="s4">
+  <h2><span class="no">4</span>八个剧本落到迈瑞身上</h2>
+  <div class="prose">
+    <p>每一行回答同一个问题：到 2027 年底，市场对迈瑞下一年利润的预测变多少、给几倍、股价在哪、中途最低到哪。</p>
+    <p>“盈利预测”现在指 2027 年的每股 8.02 元。到 2027 年底，市场看的是 2028 年；券商现在给 2028 年的预测比 2027 年高 13%。我在最顺的剧本里也只给了 +10% 到 +12%，因为这些预测过去两年一直在下调：2024 年 10 月有券商预测 2025 年利润 135 亿元，实际是 81 亿元。</p>
+    <p>默认概率是示意，不是预测。拖动滑块换成你自己的判断，下面四个数会跟着变。</p>
+  </div>
+  <div class="tool">
+    <div class="table-wrap"><table class="scn" id="scn"></table></div>
+    <div class="ev4" id="ev4"></div>
+    <p class="note" id="ev-note"></p>
+  </div>
+  <div class="prose" style="margin-top:18px">
+    <p>按默认概率读这张表：</p>
+    <ul class="plainlist">
+      <li><strong>预期回报约 +8.2%，其中股息约 2.5%。</strong>不差，但也不是坑底的价格了。</li>
+      <li><strong>结果从 −28% 到 +48%，比茅台分散得多。</strong>它对美国和中国两条轴都敏感。最好的三个剧本（中国转向、油落鹰止、资本开支刹车）概率合计 41%，最坏的三个（通缩加深、2000 式破裂、2022 重演）合计 22%。</li>
+      <li><strong>想要 10% 的预期年回报，买入价要在 180 元以下。</strong>离现价约 3%，正好在持有区和小额区的交界附近。</li>
+    </ul>
+  </div>
+</section>
+
+<section id="s5">
+  <h2><span class="no">5</span>买卖边界：模糊的正确</h2>
+  <div class="prose">
+    <p>和主页面一样，不求一个精确的数，求几把互相独立的尺子指向同一段。</p>
+  </div>
+  <div class="rulers">
+    <div><b>信念的尺子</b>2027 年的盈利预测再落空一成，市场只给 18 倍<span class="big">130 元</span>过去两年预测一直落空，所以先打九折。</div>
+    <div><b>历史的尺子</b>今年 6 月的最低点<span class="big">130.66 元</span>今年年中，它的市盈率落到上市以来约 2% 的分位。</div>
+    <div><b>股息的尺子</b>股息率 3%，接近十年期国债的两倍<span class="big">140 元</span>按过去 12 个月每股分红 4.19 元。现在是 2.27%。</div>
+  </div>
+  <div class="prose">
+    <p><strong>三把尺子落在 130 到 140 元之间。</strong>所以迈瑞的买入区定在 120 到 152 元，再往下是深水区。</p>
+  </div>
+  <figure>
+    <figcaption><b>迈瑞的分区</b><span>股价，元。金色底的格子是现价所在的区。</span></figcaption>
+    <div class="table-wrap"><table class="zones" id="zones"></table></div>
+    <p class="src">分界线是 2027 年每股盈利预测 8.02 元的 15、19、22、28、35 倍，取整。</p>
+  </figure>
+  <div class="prose">
+    <p><strong>现价在持有区的下沿。</strong>184.80 元是 23.1 倍。离小额区（176 元以下）差 5%，离买入区（152 元以下）差 18%。11 月 20 日医疗器械板块跟着大盘下跌，实际价格可能已经更靠近小额区。</p>
+    <p><strong>卖出边界。</strong>2022 和 2023 年底，按下一年实际赚到的利润算，迈瑞是 33 倍和 30 倍，那时利润每年涨两成。28 倍（224 元）要求它稳定在每年 15% 左右；35 倍（280 元）要求回到 20%。券商现在预测的是 2027 年 +18%、2028 年 +13%，其中 2027 年有一部分是从坑里爬出来。</p>
+  </div>
+
+  <h3>三个旋钮，自己拧一拧</h3>
+  <div class="prose"><p>回答三个问题：盈利预测先被砍多少，之后每年涨多少，五年后市场给几倍。左边是按现价买入、含分红的五年年化回报，中间是同期的国债，右边是要拿到你想要的回报，最高能出什么价。</p></div>
+  <div class="tool" id="calc">
+    <div class="presets" role="group" aria-label="预设" id="presets"></div>
+    <div class="knobs">
+      <div class="knob"><label for="k1" id="k1l"></label><output id="k1o"></output><input id="k1" type="range"><small id="k1s"></small></div>
+      <div class="knob"><label for="k2" id="k2l"></label><output id="k2o"></output><input id="k2" type="range"><small id="k2s"></small></div>
+      <div class="knob"><label for="k3" id="k3l"></label><output id="k3o"></output><input id="k3" type="range"><small id="k3s"></small></div>
+    </div>
+    <div class="out">
+      <div class="stat big"><div class="k">按现价买，五年年化回报</div><div class="v" id="c-ret"></div><div class="d" id="c-retd"></div></div>
+      <div class="stat"><div class="k" id="c-bondk"></div><div class="v" id="c-bond"></div><div class="d" id="c-bondd"></div></div>
+      <div class="stat"><div class="k"><label for="k4">想要的年回报 </label><output id="k4o"></output></div><input id="k4" type="range" min="4" max="20" step="1" value="10" style="width:100%;accent-color:var(--navy)"><div class="v" id="c-buy"></div><div class="d" id="c-buyd"></div></div>
+    </div>
+    <p class="note" id="c-note"></p>
+  </div>
+</section>
+
+<section id="s6">
+  <h2><span class="no">6</span>抄底网格</h2>
+  <div class="prose">
+    <p>迈瑞这架梯子从小额区的上沿 176 元开始，架到深水区的门口。一手 100 股约 1.85 万元，格子可以切细。</p>
+    <p>它和茅台不一样的地方：茅台的下限有股息率托着，迈瑞的下限靠的是利润能不能回升。所以梯子最下面两格更重要，也更需要耐心。</p>
+  </div>
+  <h3>价格通道</h3>
+  <div class="tool" id="gridtool">
+    <div class="gridform">
+      <div><label for="g-b">这只股票的总预算</label><input id="g-b" type="number" min="0" step="1000" value="200000"></div>
+      <div><label for="g-t" id="g-tl">最高一格</label><input id="g-t" type="number" step="any"></div>
+      <div><label for="g-l" id="g-ll">最低一格</label><input id="g-l" type="number" step="any"></div>
+      <div><label for="g-n">格数</label><input id="g-n" type="number" min="3" max="12" step="1" value="6"></div>
+      <div><label for="g-s">上轻下重</label><input id="g-s" type="range" min="1" max="1.8" step="0.05" value="1.25"><output id="g-so"></output></div>
+    </div>
+    <div class="table-wrap"><table class="grid" id="gridt"></table></div>
+    <p class="note" id="grid-note"></p>
+    <h3 style="margin-top:26px">拿八个剧本给这架梯子体检</h3>
+    <p class="note" style="margin-top:0">每个剧本假设了一个中途的最低点。价格高于最低点的格子算买到。概率用的是第 4 节的滑块。</p>
+    <div class="table-wrap"><table class="chk" id="chk"></table></div>
+    <p class="note" id="chk-note"></p>
+  </div>
+
+  <h3>信号通道</h3>
+  <div class="lights">
+    <div>
+      <h3><span class="lamp" style="background:var(--b4)"></span>可以提前一格</h3>
+      <ul>
+        <li>国内收入单季同比转正，并且连续两个季度。</li>
+        <li>月度招标连续三个月两位数增长。9 月是 +16.1%。</li>
+        <li>人民币不再升值，汇兑损失消失。</li>
+        <li>港股上市落地，发行价不低于 A 股太多。</li>
+      </ul>
+    </div>
+    <div>
+      <h3><span class="lamp" style="background:var(--r4)"></span>价格到了也先不买</h3>
+      <ul>
+        <li>新一轮设备或试剂集采的降价幅度超出预期。</li>
+        <li>海外增速掉到个位数。</li>
+        <li>中美之间出现针对医疗器械的关税或采购限制。</li>
+        <li>券商的盈利预测一个月内再下调 5% 以上。等它砍完。</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>卖出阶梯</h3>
+  <div class="table-wrap">
+    <table class="sell cards">
+      <thead><tr><th>到这里</th><th>相当于</th><th>做什么</th></tr></thead>
+      <tbody>
+        <tr><td data-l="到这里">176 元</td><td data-l="相当于">22 倍</td><td data-l="做什么">不再买入</td></tr>
+        <tr><td data-l="到这里">224 到 280 元</td><td data-l="相当于">28 到 35 倍</td><td data-l="做什么">梯子上买的部分分三次卖</td></tr>
+        <tr><td data-l="到这里">280 元以上</td><td data-l="相当于">35 倍以上</td><td data-l="做什么">只留底仓</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="src">价位按今天的盈利预测和分红折算。预测变了，价位跟着变，倍数的线不变。</p>
+</section>
+
+<section id="s7">
+  <h2><span class="no">7</span>哪天有事</h2>
+  <ul class="cal">
+    <li><b>12 月中上旬</b><span>中央政治局会议和中央经济工作会议。看财政对医疗卫生的投入，以及设备更新政策是否延续。</span></li>
+    <li><b>每月中旬</b><span>上个月的医疗设备招标数据，券商和第三方数据公司会更新。</span></li>
+    <li><b>2027 年 1 月</b><span>中美关税休战到期。</span></li>
+    <li><b>3 月底到 4 月</b><span>年报和一季报，今年的年报是 3 月 31 日披露的。看公司对 2027 年国内业务的说法。</span></li>
+    <li><b>时间未定</b><span>港股上市的聆讯。</span></li>
+  </ul>
+  <p class="src">日期按往年惯例和已公布的日程整理，可能变动。</p>
+</section>
+
+<section id="s8">
+  <h2><span class="no">8</span>方法、可能错的地方、来源</h2>
+  <div class="aside" style="margin-top:0;max-width:none">
+    <h3 style="margin-top:0">怎么算的</h3>
+    <ul>
+      <li><strong>股价 = 每股盈利预测 × 市盈率。</strong>盈利预测用 2027 年的每股 8.02 元，是三家券商三季报后预测的均值（97.1 亿元）除以总股本 12.12 亿股。</li>
+      <li><strong>剧本：</strong>终点是 2027 年底。每个剧本给出盈利预测的变化、市场给的倍数、中途的最低点。期望值是八个终点的概率加权；预期回报再加上持有期间的股息（按现在的股息率 2.27% 乘以 1.1 年）。</li>
+      <li><strong>五年年化回报</strong>（第 5 节的旋钮）：每年收到的分红按当年利润的 66% 算，五年后按你给的倍数卖出，求内部收益率。</li>
+      <li><strong>网格</strong>的算法和主页面相同。体检时盈亏没有加股息。</li>
+    </ul>
+    <h3>哪些地方可能错</h3>
+    <ul>
+      <li><strong>股价用的是 11 月 19 日的收盘价。</strong>11 月 20 日的收盘价我没有取到。当天医药生物板块主力资金净流出超过 30 亿元，一只医疗器械 ETF 跌了约 3%，所以实际价格可能比这里低 2% 到 3%。</li>
+      <li><strong>八个剧本里迈瑞的利润和倍数，是我的判断。</strong>它们的用处是让你看到结论对什么敏感。</li>
+      <li><strong>盈利预测只取了三家券商</strong>，2026 年从 79 亿到 84 亿元，2027 年从 94 亿到 100 亿元。这类预测过去两年一直偏高。</li>
+      <li><strong>汇率的影响只是粗略地放进了各剧本的利润里。</strong>没有单独建模。</li>
+      <li><strong>没有算港股发行的摊薄</strong>，按拟募资至少 10 亿美元估，约为现在市值的 3%。</li>
+      <li><strong>“上市以来约 2% 的分位”是 36 氪 7 月文章里的说法</strong>，我没有独立核对。国内收入 2025 年降约 23% 取自虎嗅的转述。</li>
+      <li><strong>没有算税、交易成本和你的整体仓位。</strong></li>
+    </ul>
+    <h3>来源</h3>
+    <ul class="sources">
+      <li>行情、分红、历年利润：<a href="https://equibles.com/stocks/xshe/300760/summary">Equibles</a>。</li>
+      <li>三季报：<a href="https://wap.eastmoney.com/a/202611013917736817.html">中国证券报</a>，<a href="https://stock.stockstar.com/IG2026102900064122.shtml">证券之星</a>（海外和国内），<a href="https://wap.eastmoney.com/a/202610303916189958.html">证券市场周刊</a>（分红）。</li>
+      <li>券商点评和预测：<a href="https://m.gelonghui.com/news/5340968">华创证券</a>，<a href="https://data.eastmoney.com/report/info/AP202611031831359133.html">东吴证券</a>，<a href="https://data.eastmoney.com/report/info/AP202611031831363703.html">东方财富研报页上的第三份点评</a>（毛利率、汇兑、元器件），<a href="https://m.gelonghui.com/news/5345620">中泰证券</a>（各业务线），<a href="https://pdf.dfcfw.com/pdf/H3_AP202611131831700766_1.pdf">太平洋证券</a>。</li>
+      <li>上半年和汇兑：<a href="https://wap.stockstar.com/detail/SS2026090100026714">证券之星</a>；一季报：<a href="https://caifuhao.eastmoney.com/news/20260503024001790792450">东方财富</a>。</li>
+      <li>2025 年和更早的预测：<a href="https://stock.stockstar.com/JC2026040200009216.shtml">招银国际</a>，<a href="https://www.huxiu.com/article/4865341.html">虎嗅</a>，<a href="https://pdf.dfcfw.com/pdf/H3_AP202411011640657311_1.PDF">东方证券 2024 年 10 月的预测</a>。</li>
+      <li>股价和估值：<a href="https://www.cnfin.com/gs-lb/detail/20260907/4466299_1.html">新华财经</a>，<a href="https://www.36kr.com/p/3909062747625349">36 氪</a>。</li>
+      <li>港股上市：<a href="https://www.guancha.cn/economy/2026_05_14_817029.shtml">观察者网</a>，<a href="https://news.10jqka.com.cn/20260605/c677251014.shtml">同花顺</a>。</li>
+      <li>招标和集采：<a href="https://pdf.dfcfw.com/pdf/H3_AP202610171830643267_1.pdf">西南证券</a>，<a href="https://www.cs.com.cn/ssgs/01/2026/10/24/detail_2026102410046940.html">中国证券报</a>。</li>
+      <li>11 月 20 日的市场：<a href="https://21jingji.com/article/20261120/herald/f46c377fcf9ac50107b7ecbb3a69832f.html">21 经济网</a>，<a href="https://fx168news.com/article/1118010">FX168</a>。宏观数据见<a href="../tide/#s10">主页面的来源</a>。</li>
+    </ul>
+  </div>
+  <footer>行情截至 2026 年 11 月 19 日。 个人研究和观点，不是投资建议；作者不是持牌投资顾问。<a href="https://miltonlens.substack.com/subscribe">订阅 Milton Lens</a>。</footer>
+</section>
+</main>
+<div id="tip" role="status" aria-live="polite"></div>
+<script>window.CFG={"T":1.112329,"baskets":[{"id":"s","name":"迈瑞医疗","idx":"300760","zoneHead":"股价（元）","kind":"pe","now":184.8,"E":8.0156,"carry":0.022673,"payout":0.6552,"fmt":"cny","nowTxt":"¥184.80","zones":[120,152,176,224,280],"zoneNote":{"0":"15 倍以下","1":"15 到 19 倍","2":"19 到 22 倍","3":"22 到 28 倍","4":"28 到 35 倍","5":"35 倍以上"},"posNote":"按 2027 年的盈利预测是 23.1 倍。176 元以下进入小额区，152 元以下进入买入区。","bond":{"name":"中国十年期国债","y":1.59,"note":"迈瑞现在的股息率是 2.27%。"},"knobs":{"k2min":0,"k2max":20,"k3min":10,"k3max":45,"s1":"2025 年利润降了 30%；今年前三季度再降 5.1%","s2":"券商预测 2027、2028 年涨 18% 和 13%","s3":"现在 23.1 倍。2022、2023 年底按下一年实际利润算是 33 和 30 倍","presets":[["券商的版本",0,12,23],["增速降到个位数",0,7,20],["预测再落空",15,8,20],["国内复苏",0,15,28]],"note":"含分红，按利润的 66% 派发、每年年末收到算；没有算红利税、回购和港股发行的摊薄。盈利预测用的是 2027 年的每股 8.02 元。"},"grid":{"top":176,"bot":118,"n":6,"sk":1.25},"gridNote":"最高一格在小额区的上沿，最低一格在深水区的门口。"}],"sc":[{"n":"①","name":"油落鹰止","p":15,"story":"霍尔木兹缓和，油价回到 $70 以下，通胀回落；美联储 12 月加完就停，AI 资本开支照常。","why":"美元走弱，人民币多半接着升，汇兑损失还在；但海外需求稳，成长股的倍数修复。","s":[0.1,25.0,-0.05]},{"n":"②","name":"高位磨","p":25,"story":"美联储加到 4.25%–4.5%，十年期美债在 5% 上下；不出事，盈利兑现，但倍数上不去。","why":"美元强着，汇兑不再拖累。国内招标慢慢回来，利润按券商预测的八九成兑现。","s":[0.1,22.0,-0.1]},{"n":"③","name":"资本开支刹车","p":20,"story":"超大厂 2027 年的资本开支持平或下降，芯片盈利下修；美联储停手，没有衰退。","why":"芯片和电路板不再涨价，成本松一口气；从科技里出来的钱找有业绩的防守型成长，今年下半年已经演过一遍。","s":[0.12,24.0,-0.08]},{"n":"④","name":"2022 重演","p":10,"story":"通胀黏住，美国利率加到 5% 以上，美元指数 110。","why":"成长股杀估值。强美元压新兴市场医院的预算，而新兴市场占迈瑞海外收入的 65%。人民币走弱带来汇兑收益，抵掉一部分。","s":[0.05,18.5,-0.25]},{"n":"⑤","name":"先出事，后转向","p":12,"story":"信用、日元或私募信贷出事，全球去杠杆；美联储降息，年底前收复一部分。","why":"先跟着全球一起跌，海外订单推迟。之后流动性回来，倍数修复。","s":[0.06,22.0,-0.22]},{"n":"⑥","name":"2000 式破裂","p":6,"story":"AI 资本开支砍三成以上，美国盈利塌方，衰退。","why":"全球衰退，海外医院砍设备预算，国内财政也紧。股价回到 6 月的低点附近。","s":[-0.05,18.0,-0.32]},{"n":"⑦","name":"中国转向","p":6,"story":"中国大规模扩内需，加上中美缓和。","why":"迈瑞最想要的剧本。财政补医院，设备更新重启，国内业务回到两位数增长，倍数回到 28 倍。","s":[0.22,28.0,-0.05]},{"n":"⑧","name":"中国通缩加深","p":6,"story":"中国内需更弱，盈利再砍，脱钩升级。","why":"地方财政更紧，医院预算更少，集采和检验收费改革降价更狠。国内再降，只剩海外在撑。","s":[-0.08,18.0,-0.32]}],"scnDetail":true,"ch":{"px":[188.25,239.0,261.2,256.3,275.47,305.7,346.2,342.02,348.88,388.8,337.35,426.0,448.39,418.0,399.11,466.35,483.0,480.05,390.35,328.0,385.42,376.09,358.43,380.8,323.28,327.11,307.25,312.5,302.5,313.2,289.5,298.5,299.0,325.44,324.6,315.97,332.64,314.02,311.71,311.9,300.58,299.8,296.0,270.0,269.81,286.02,290.87,290.6,268.33,289.18,279.89,304.59,290.14,290.91,257.11,250.8,293.0,266.6,260.49,255.0,232.4,252.91,234.0,219.66,225.87,224.75,231.2,242.79,245.69,215.04,204.01,190.45,189.26,185.92,164.66,168.4,151.83,135.83,158.88,165.35,161.32,181.75,184.8],"pxAria":"迈瑞医疗月末收盘价，2020 年 1 月到 2026 年 11 月","pxY":[80,520],"pxTicks":[100,200,300,400,500],"pxLast":"11 月 19 日","pxEnd":["¥184.80","11 月 19 日"],"pxLines":[[152,"买入区上沿 152",36],[224,"减仓区下沿 224",8]],"pxMarks":[[16,"2021 年 5 月","483",-23],[77,"2026 年 6 月 135.83","盘中最低 130.66",18,"end",8]],"earn":[["2021",80.0,null,0],["2022",96.1,20.1,0],["2023",115.8,20.6,0],["2024",116.7,0.7,0],["2025",81.4,-30.3,0],["2026E",82.0,0.8,1],["2027E",97.1,18.4,1]],"earnMax":140,"earnTicks":[0,40,80,120],"earnAria":"迈瑞医疗归母净利润，2021 到 2027 年","x3":{"rows":[["海外",11.0,"143.6 亿元，占 53%",0],["国内",-1.3,"127.3 亿元，占 47%",0],["体外诊断",7.8,"105.9 亿元，占 39%",0],["生命信息与支持",-1.3,"73.2 亿元，占 27%",0],["医学影像",-6.2,"43.0 亿元，占 16%",0],["新兴业务",20.5,"47.4 亿元，占 17%",0]],"fmtPct":1,"min":-12,"max":27,"ticks":[-10,0,10,20],"tipName":"前三季度收入同比","aria":"迈瑞医疗 2026 年前三季度各地区和各业务的收入同比"}}};</script>
+<script>
+(function(){
+'use strict';
+var CFG=window.CFG, B=CFG.baskets, SC=CFG.sc, T=CFG.T;
+var C={navy:'#0E2340',gold:'#B8A57A',ink:'#1d2430',muted:'#5f6670',faint:'#8a9099',line:'#e3e1dc',grid:'#ebe9e3',axis:'#c9c6bd',
+  b:['#cde2fb','#9ec5f4','#6da7ec','#3987e5','#1c5cab'],r:['#fbd5d1','#f3ada6','#e7837b','#da544f','#a1302f'],mid:'#f0efec',
+  s:['#2a78d6','#eb6834','#1baf7a'],grey:'#b9bcc2'};
+var ZN=[{n:'深水区',c:C.b[4],fg:'#fff',do:'留给最坏剧本的钱'},{n:'买入区',c:C.b[2],fg:'#0b0b0b',do:'梯子的主力'},{n:'小额区',c:C.b[0],fg:'#0b0b0b',do:'小额，慢慢买'},
+  {n:'持有区',c:C.mid,fg:'#0b0b0b',do:'不买不卖'},{n:'减仓区',c:C.r[1],fg:'#0b0b0b',do:'分批卖'},{n:'清仓区',c:C.r[3],fg:'#fff',do:'只留底仓'}];
+
+/* ---------- helpers ---------- */
+function $(s,r){return (r||document).querySelector(s);}
+var NS='http://www.w3.org/2000/svg';
+function add(e,kids){for(var i=0;i<kids.length;i++){var c=kids[i];if(c==null)continue;if(Array.isArray(c)){add(e,c);continue;}e.appendChild(typeof c==='string'?document.createTextNode(c):c);}}
+function sv(tag,at){var e=document.createElementNS(NS,tag);for(var k in at){if(at[k]!=null)e.setAttribute(k,at[k]);}add(e,Array.prototype.slice.call(arguments,2));return e;}
+function h(tag,at){var e=document.createElement(tag);at=at||{};for(var k in at){if(at[k]==null)continue;if(k==='class')e.className=at[k];else if(k==='text')e.textContent=at[k];else if(k.slice(0,2)==='on')e.addEventListener(k.slice(2),at[k]);else e.setAttribute(k,at[k]);}add(e,Array.prototype.slice.call(arguments,2));return e;}
+function txt(x,y,s,at){at=at||{};var o={x:x,y:y,'font-size':at.size||12,fill:at.fill||C.muted,'text-anchor':at.anchor||'start','font-weight':at.weight||400};var t=sv('text',o,s);if(at.tab)t.setAttribute('style','font-variant-numeric:tabular-nums');return t;}
+function halo(t){t.setAttribute('stroke','#fff');t.setAttribute('stroke-width','3.5');t.setAttribute('paint-order','stroke');t.setAttribute('stroke-linejoin','round');return t;}
+function line(x1,y1,x2,y2,stroke,w){return sv('line',{x1:x1,y1:y1,x2:x2,y2:y2,stroke:stroke||C.grid,'stroke-width':w||1});}
+function mkTable(heads,rows,num){var t=h('table');var tr=h('tr');heads.forEach(function(x,i){tr.appendChild(h('th',{class:(num&&num[i])?'n':null,text:x}));});t.appendChild(h('thead',{},tr));var tb=h('tbody');rows.forEach(function(r){var row=h('tr');r.forEach(function(x,i){row.appendChild(h('td',{class:(num&&num[i])?'n':null,text:String(x)}));});tb.appendChild(row);});t.appendChild(tb);return t;}
+function plotW(el,min){return Math.max(min||280,Math.floor(el.clientWidth||el.parentNode.clientWidth||600));}
+function nf(v,d){return v.toLocaleString('en-US',{minimumFractionDigits:d||0,maximumFractionDigits:d||0});}
+function fp(v,d){return (v*100).toFixed(d==null?0:d)+'%';}
+function fsp(v,d){var s=Math.abs(v*100).toFixed(d==null?0:d);if(parseFloat(s)===0)return '0%';return (v>=0?'+':'−')+s+'%';}
+function rightBar(x,cy,w,bh,r){r=Math.min(r,w,bh/2);return 'M'+x+','+(cy-bh/2)+' h'+(w-r)+' a'+r+','+r+' 0 0 1 '+r+','+r+' v'+(bh-2*r)+' a'+r+','+r+' 0 0 1 -'+r+','+r+' h-'+(w-r)+' Z';}
+function leftBar(x,cy,w,bh,r){r=Math.min(r,w,bh/2);return 'M'+x+','+(cy-bh/2)+' h-'+(w-r)+' a'+r+','+r+' 0 0 0 -'+r+','+r+' v'+(bh-2*r)+' a'+r+','+r+' 0 0 0 '+r+','+r+' h'+(w-r)+' Z';}
+function topBar(x,y0,w,hh,r){r=Math.min(r,hh,w/2);return 'M'+x+','+y0+' v-'+(hh-r)+' a'+r+','+r+' 0 0 1 '+r+',-'+r+' h'+(w-2*r)+' a'+r+','+r+' 0 0 1 '+r+','+r+' v'+(hh-r)+' Z';}
+
+var tip=$('#tip');
+function showTip(evt,title,rows){tip.replaceChildren();if(title)tip.appendChild(h('div',{class:'t',text:title}));
+  rows.forEach(function(r){var d=h('div',{class:'r'});if(r[2])d.appendChild(h('i',{style:'background:'+r[2]}));d.appendChild(h('span',{class:'v',text:r[1]}));d.appendChild(h('span',{class:'k',text:' '+r[0]}));tip.appendChild(d);});
+  tip.classList.add('on');moveTip(evt);}
+function moveTip(evt){var pad=14,x=evt.clientX+pad,y=evt.clientY+pad,w=tip.offsetWidth,hh=tip.offsetHeight;if(x+w>window.innerWidth-8)x=evt.clientX-w-pad;if(y+hh>window.innerHeight-8)y=evt.clientY-hh-pad;tip.style.left=Math.max(8,x)+'px';tip.style.top=Math.max(8,y)+'px';}
+function hideTip(){tip.classList.remove('on');}
+function centerEvt(el){var r=el.getBoundingClientRect();return {clientX:r.left+r.width/2,clientY:r.top+r.height/2};}
+function hover(el,fn,focusEl){el.addEventListener('pointermove',fn);el.addEventListener('pointerleave',hideTip);var f=focusEl||el;f.addEventListener('focus',function(){fn(centerEvt(f));});f.addEventListener('blur',hideTip);}
+
+/* ---------- basket maths ---------- */
+function bk(id){for(var i=0;i<B.length;i++)if(B[i].id===id)return B[i];return null;}
+function lvFmt(b,v){if(b.fmt==='idx10')return nf(Math.round(v/10)*10);if(b.fmt==='idx')return nf(Math.round(v));if(b.fmt==='usd')return '$'+v.toFixed(2);if(b.fmt==='cny')return '¥'+nf(Math.round(v));if(b.fmt==='cny1')return '¥'+v.toFixed(1);return v.toFixed(1);}
+function auxOf(b,v){return b.kind==='pe'?(v/b.E).toFixed(1)+' 倍':(b.y*b.now/v).toFixed(2)+'%';}
+function auxName(b){return b.kind==='pe'?'预期市盈率':'股息率';}
+function endLv(b,s){var a=s[b.id];return b.kind==='pe'?b.E*(1+a[0])*a[1]:b.now*(b.y/a[0])*(1+a[1]);}
+function troughLv(b,s){return b.now*(1+s[b.id][2]);}
+function zoneIx(b,p){var z=b.zones,i=0;while(i<z.length&&p>=z[i])i++;return i;}
+function evOf(b){var tot=0,e=0,up=0;SC.forEach(function(s){var l=endLv(b,s);tot+=s.p;e+=s.p*l;if(l>b.now)up+=s.p;});
+  if(tot<=0)return null;e/=tot;var carry=(b.carry||0)*T;return {ev:e,ret:e/b.now-1,total:e/b.now-1+carry,up:up/tot,buy10:(e+carry*b.now)/Math.pow(1.10,T)};}
+
+/* ---------- generic line chart ---------- */
+function lineChart(el,o){
+  var W=plotW(el),narrow=W<560,H=o.H||320,m=o.m||{t:18,r:narrow?58:84,b:30,l:46},iw=W-m.l-m.r,ih=H-m.t-m.b;
+  var xmin=o.x.min,xmax=o.x.max,ymin=o.y.min,ymax=o.y.max,lg=!!o.y.log;
+  function X(v){return m.l+(v-xmin)/(xmax-xmin)*iw;}
+  function Y(v){return lg?m.t+(Math.log(ymax)-Math.log(v))/(Math.log(ymax)-Math.log(ymin))*ih:m.t+(ymax-v)/(ymax-ymin)*ih;}
+  var svg=sv('svg',{viewBox:'0 0 '+W+' '+H,width:W,height:H,role:'img','aria-label':o.aria||''});
+  (o.bands||[]).forEach(function(b){svg.appendChild(sv('rect',{x:X(b.x0),y:m.t,width:Math.max(0,X(b.x1)-X(b.x0)),height:ih,fill:b.fill||'#f6f1e4'}));if(b.label&&!narrow)svg.appendChild(txt((X(b.x0)+X(b.x1))/2,o.bandLabelBottom?H-m.b-8:m.t+12,b.label,{size:10.5,fill:C.faint,anchor:'middle'}));});
+  (o.hbands||[]).forEach(function(b){svg.appendChild(sv('rect',{x:m.l,y:Y(b.y1),width:iw,height:Math.max(0,Y(b.y0)-Y(b.y1)),fill:b.fill}));});
+  (o.steps||[]).forEach(function(st){var d='';for(var i=0;i<st.pts.length;i++){var p=st.pts[i],nx=i+1<st.pts.length?st.pts[i+1][0]:xmax;d+='M'+X(p[0])+','+Y(p[2])+' H'+X(nx)+' V'+Y(p[1])+' H'+X(p[0])+' Z ';}svg.appendChild(sv('path',{d:d,fill:st.fill||'#e9e7e1'}));});
+  o.y.ticks.forEach(function(v){svg.appendChild(line(m.l,Y(v),W-m.r,Y(v),C.grid));svg.appendChild(txt(m.l-8,Y(v)+4,o.y.fmt?o.y.fmt(v):String(v),{size:11.5,anchor:'end',tab:1}));});
+  o.x.ticks.forEach(function(t){if(narrow&&t[2])return;svg.appendChild(line(X(t[0]),H-m.b,X(t[0]),H-m.b+5,C.axis,1));svg.appendChild(txt(X(t[0]),H-m.b+19,t[1],{size:11.5,anchor:'middle',tab:1}));});
+  svg.appendChild(line(m.l,H-m.b,W-m.r,H-m.b,C.axis,1));
+  (o.hlines||[]).forEach(function(l){svg.appendChild(line(m.l,Y(l.y),W-m.r,Y(l.y),l.color||C.gold,l.w||1.5));if(l.label)svg.appendChild(halo(txt(l.labelX==null?m.l+6:X(l.labelX),Y(l.y)-5,l.label,{size:11,fill:C.muted,anchor:l.labelX==null?'start':'middle'})));});
+  (o.texts||[]).forEach(function(t){svg.appendChild(halo(txt(X(t.x)+(t.dx||0),Y(t.y)+(t.dy||0),t.s,{size:t.size||11,fill:t.fill||C.muted,anchor:t.anchor||'start'})));});
+  o.series.forEach(function(s){var d=s.pts.map(function(p,i){return (i?'L':'M')+X(p[0]).toFixed(1)+','+Y(p[1]).toFixed(1);}).join(' ');
+    svg.appendChild(sv('path',{d:d,fill:'none',stroke:s.color,'stroke-width':s.width||2,'stroke-linejoin':'round','stroke-linecap':'round'}));
+    if(s.end){var lp=s.pts[s.pts.length-1];svg.appendChild(sv('circle',{cx:X(lp[0]),cy:Y(lp[1]),r:4.5,fill:s.endColor||s.color,stroke:'#fff','stroke-width':2}));
+      svg.appendChild(txt(W-m.r+8,Y(lp[1])+4+(s.dy||0),s.end,{size:11.5,fill:C.ink,weight:650}));if(s.end2)svg.appendChild(txt(W-m.r+8,Y(lp[1])+17+(s.dy||0),s.end2,{size:11,fill:C.muted,tab:1}));}});
+  (o.marks||[]).forEach(function(k){if(narrow&&k.wide)return;var cx=X(k.x),cy=Y(k.y);svg.appendChild(sv('circle',{cx:cx,cy:cy,r:k.r||4,fill:k.color||C.navy,stroke:'#fff','stroke-width':2}));
+    if(k.label){var t=halo(txt(cx+(k.dx||0),cy+(k.dy==null?-9:k.dy),k.label,{size:11,fill:C.ink,anchor:k.anchor||'middle'}));svg.appendChild(t);if(k.label2)svg.appendChild(halo(txt(cx+(k.dx||0),cy+(k.dy==null?-9:k.dy)+13,k.label2,{size:10.5,fill:C.muted,anchor:k.anchor||'middle'})));}});
+  var base=o.series[0].pts,cross=line(0,m.t,0,H-m.b,C.axis,1);cross.setAttribute('visibility','hidden');svg.appendChild(cross);
+  var dots=o.series.map(function(s){var c=sv('circle',{r:4,fill:s.color,stroke:'#fff','stroke-width':2,visibility:'hidden'});svg.appendChild(c);return c;});
+  var hit=sv('rect',{x:m.l,y:m.t,width:iw,height:ih,fill:'transparent'});
+  hit.addEventListener('pointermove',function(e){var r=svg.getBoundingClientRect(),px=(e.clientX-r.left)*W/r.width,bi=0,bd=1e9;
+    for(var i=0;i<base.length;i++){var dd=Math.abs(X(base[i][0])-px);if(dd<bd){bd=dd;bi=i;}}
+    cross.setAttribute('x1',X(base[bi][0]));cross.setAttribute('x2',X(base[bi][0]));cross.setAttribute('visibility','visible');
+    o.series.forEach(function(s,k){var p=s.pts[Math.min(bi,s.pts.length-1)];if(s.pts.length!==base.length){dots[k].setAttribute('visibility','hidden');return;}dots[k].setAttribute('cx',X(p[0]));dots[k].setAttribute('cy',Y(p[1]));dots[k].setAttribute('visibility','visible');});
+    var tt=o.tip(bi);showTip(e,tt[0],tt[1]);});
+  hit.addEventListener('pointerleave',function(){cross.setAttribute('visibility','hidden');dots.forEach(function(d){d.setAttribute('visibility','hidden');});hideTip();});
+  svg.appendChild(hit);el.replaceChildren(svg);
+}
+
+/* ---------- horizontal bars (one series, optional highlight) ---------- */
+function barsH(el,rows,o){
+  o=o||{};var W=plotW(el),narrow=W<520,two=!narrow&&rows.some(function(r){return r.sub;}),rh=o.rh||(two?40:30),lab=o.lab||(narrow?96:176),m={t:6,r:narrow?56:70,b:o.axis?24:6,l:lab},H=m.t+m.b+rows.length*rh,iw=W-m.l-m.r;
+  var mn=o.min,mx=o.max;function X(v){return m.l+(v-mn)/(mx-mn)*iw;}
+  var svg=sv('svg',{viewBox:'0 0 '+W+' '+H,width:W,height:H,role:'img','aria-label':o.aria||''});
+  (o.ticks||[]).forEach(function(v){svg.appendChild(line(X(v),m.t,X(v),H-m.b,v===0?C.axis:C.grid));if(o.axis)svg.appendChild(txt(X(v),H-6,o.fmt(v),{size:11,anchor:'middle',tab:1}));});
+  if(o.ref){svg.appendChild(line(X(o.ref.v),m.t-2,X(o.ref.v),H-m.b,C.gold,1.5));}
+  rows.forEach(function(r,i){var cy=m.t+rh*(i+0.5),x0=X(Math.max(mn,Math.min(mx,0))),x1=X(Math.max(mn,Math.min(mx,r.v))),w=Math.abs(x1-x0),bh=Math.min(16,rh-12),col=r.hi?C.gold:(r.color||C.navy);
+    if(w>0.5)svg.appendChild(sv('path',{d:r.v>=0?rightBar(x0,cy,w,bh,4):leftBar(x0,cy,w,bh,4),fill:col}));
+    if(two&&r.sub){svg.appendChild(txt(m.l-10,cy-1,r.name,{size:12,fill:C.ink,anchor:'end',weight:r.hi?650:500}));svg.appendChild(txt(m.l-10,cy+12,r.sub,{size:10.5,fill:C.muted,anchor:'end'}));}
+    else svg.appendChild(txt(m.l-10,cy+4,r.name,{size:12,fill:C.ink,anchor:'end',weight:r.hi?650:500}));
+    var lt=r.label||o.fmt(r.v),lw=lt.length*7.4+8,ins=r.v>=0?(W-x1<lw+2):(x1-m.l<lw+2);
+    if(ins&&w>lw+10)svg.appendChild(txt(r.v>=0?x1-7:x1+7,cy+4,lt,{size:12,fill:r.hi?'#0b0b0b':'#fff',anchor:r.v>=0?'end':'start',weight:650,tab:1}));
+    else svg.appendChild(txt(r.v>=0?x1+6:x1-6,cy+4,lt,{size:12,fill:C.ink,anchor:r.v>=0?'start':'end',weight:650,tab:1}));
+    var hit=sv('rect',{x:0,y:cy-rh/2,width:W,height:rh,fill:'transparent',tabindex:0});
+    hover(hit,function(e){showTip(e,r.name,r.tip||[[o.unit||'',r.label||o.fmt(r.v),col]]);});svg.appendChild(hit);});
+  el.replaceChildren(svg);
+}
+
+/* ---------- hero position bars ---------- */
+function renderPos(){
+  var el=$('#pos');if(!el)return;el.replaceChildren();
+  B.forEach(function(b){var z=b.zones,lo=Math.log(z[0]*0.86),hi=Math.log(z[4]*1.12),W=plotW(el),H=46,bx=2,bw=W-4;
+    function X(v){return bx+(Math.log(Math.max(Math.exp(lo),Math.min(Math.exp(hi),v)))-lo)/(hi-lo)*bw;}
+    var zi=zoneIx(b,b.now),row=h('div',{class:'row'});
+    row.appendChild(h('div',{class:'hd'},h('b',{text:b.name+' · '+b.idx}),h('span',{text:ZN[zi].n+'，'+(b.kind==='pe'?(b.nowTxt||lvFmt(b,b.now))+'，'+auxOf(b,b.now):'股息率 '+b.y.toFixed(2)+'%')})));
+    var svg=sv('svg',{viewBox:'0 0 '+W+' '+H,width:W,height:H,role:'img','aria-label':b.name+'现价在'+ZN[zi].n});
+    var edges=[Math.exp(lo)].concat(z).concat([Math.exp(hi)]);
+    for(var i=0;i<6;i++){var x0=X(edges[i]),x1=X(edges[i+1]);svg.appendChild(sv('rect',{x:x0+1,y:8,width:Math.max(1,x1-x0-2),height:14,rx:3,fill:ZN[i].c}));}
+    z.forEach(function(t,i){var lab=b.kind==='pe'?lvFmt(b,t):(b.y*b.now/t).toFixed(1)+'%';var x=X(t),an=i===0?'start':(i===4?'end':'middle');if(W<360&&(i===1||i===3))return;svg.appendChild(txt(x,37,lab,{size:10.5,fill:C.muted,anchor:an,tab:1}));});
+    var xn=X(b.now);svg.appendChild(line(xn,3,xn,27,C.navy,1.5));svg.appendChild(sv('circle',{cx:xn,cy:15,r:6,fill:C.gold,stroke:'#fff','stroke-width':2}));
+    row.appendChild(svg);if(b.posNote)row.appendChild(h('div',{class:'ft',text:b.posNote}));el.appendChild(row);});
+}
+
+/* ---------- scenarios ---------- */
+function cellColor(v){var a=Math.abs(v),i=a<0.03?-1:(a<0.10?0:(a<0.20?1:(a<0.35?2:3)));if(i<0)return {bg:C.mid,fg:'#0b0b0b'};var ramp=v>0?C.b:C.r;return {bg:ramp[i],fg:i>=3?'#fff':'#0b0b0b'};}
+function scnTip(b,s){var a=s[b.id],l=endLv(b,s);var rows=b.kind==='pe'?[['盈利预测',fsp(a[0],0)],['市场给的倍数',a[1].toFixed(1)+' 倍'],['2027 年底',lvFmt(b,l)],['相对现价',fsp(l/b.now-1,0)],['中途最低',fsp(a[2],0)+'，'+lvFmt(b,troughLv(b,s))]]
+  :[['市场要求的股息率',a[0].toFixed(1)+'%'],['股息变化',fsp(a[1],0)],['价格相对现在',fsp(l/b.now-1,1)],['中途最低',fsp(a[2],0)]];return rows;}
+function renderScn(){
+  var t=$('#scn');if(!t)return;t.replaceChildren();var det=!!CFG.scnDetail,b0=B[0];t.classList.toggle('det',det);
+  var hr=h('tr',{},h('th',{text:'剧本'}));
+  if(det)['盈利预测','市场给的市盈率','2027 年底','相对现价','中途最低'].forEach(function(x){hr.appendChild(h('th',{class:'n',text:x}));});
+  else B.forEach(function(b){hr.appendChild(h('th',{class:'n',text:b.idx}));});
+  hr.appendChild(h('th',{text:'概率'}));t.appendChild(h('thead',{},hr));
+  var tb=h('tbody');
+  SC.forEach(function(s,i){var tr=h('tr',{});tr.appendChild(h('td',{class:'st'},h('b',{text:s.n+' '+s.name}),h('small',{text:s.story}),s.why?h('small',{style:'color:var(--ink)',text:s.why}):null));
+    if(det){var a=s[b0.id],l=endLv(b0,s),v=l/b0.now-1,cc=cellColor(v);
+      tr.appendChild(h('td',{class:'c','data-l':'盈利预测',text:fsp(a[0],0)}));tr.appendChild(h('td',{class:'c','data-l':'市盈率',text:a[1].toFixed(1)+' 倍'}));tr.appendChild(h('td',{class:'c','data-l':'2027 年底'},h('strong',{text:lvFmt(b0,l)})));
+      tr.appendChild(h('td',{class:'c','data-l':'相对现价'},h('span',{style:'background:'+cc.bg+';color:'+cc.fg,text:fsp(v,0)})));
+      tr.appendChild(h('td',{class:'c','data-l':'中途最低',text:lvFmt(b0,troughLv(b0,s))+'（'+fsp(a[2],0)+'）'}));}
+    else B.forEach(function(b){var l=endLv(b,s),v=l/b.now-1,cc=cellColor(v),sp=h('span',{style:'background:'+cc.bg+';color:'+cc.fg,text:fsp(v,0),tabindex:0}),td=h('td',{class:'c','data-l':b.idx},sp);
+      hover(sp,function(e){showTip(e,s.n+' '+s.name+' · '+b.idx,scnTip(b,s));});tr.appendChild(td);});
+    var out=h('output',{text:s.p+'%',style:'display:inline-block;min-width:2.6em;text-align:right;font-variant-numeric:tabular-nums;color:var(--navy);font-weight:650'});
+    var inp=h('input',{type:'range',min:0,max:60,step:1,value:s.p,'aria-label':s.name+'的概率'});
+    inp.addEventListener('input',function(){s.p=parseFloat(inp.value);out.textContent=s.p+'%';renderEv();if(window.__afterProb)window.__afterProb();});
+    tr.appendChild(h('td',{class:'pr',style:'white-space:nowrap'},inp,out));tb.appendChild(tr);});
+  t.appendChild(tb);renderEv();
+}
+function renderEv(){
+  var el=$('#ev4');if(!el)return;el.replaceChildren();var tot=0;SC.forEach(function(s){tot+=s.p;});
+  if(CFG.scnDetail){var b0=B[0],e0=evOf(b0);
+    var st=function(k,v,d){el.appendChild(h('div',{class:'stat'},h('div',{class:'k',text:k}),h('div',{class:'v num',text:v}),d?h('div',{class:'d',text:d}):null));};
+    if(!e0){st('到 2027 年底的预期回报','—');}
+    else{st('到 2027 年底的预期回报',fsp(b0.carry?e0.total:e0.ret,1),b0.carry?'其中价格 '+fsp(e0.ret,1)+'，股息约 '+fsp(b0.carry*T,1):'没有算股息');
+      st('八个剧本加权的终点',lvFmt(b0,e0.ev),'现价 '+(b0.nowTxt||lvFmt(b0,b0.now)));
+      st('终点高于现价的概率',fp(e0.up,0),'按你给的概率');
+      st('想要 10% 的预期年回报',lvFmt(b0,e0.buy10),'买入价不高于这个数，比现价 '+fsp(e0.buy10/b0.now-1,0));}
+    var n0=$('#ev-note');if(n0)n0.textContent=(Math.abs(tot-100)>0.5?'现在八个概率加起来是 '+tot+'%，计算时按比例折成 100%。':'八个概率加起来是 100%。')+(CFG.evNote||'');
+    return;}
+  B.forEach(function(b){var e=evOf(b);if(!e){el.appendChild(h('div',{class:'stat'},h('div',{class:'k',text:b.idx}),h('div',{class:'v',text:'—'})));return;}
+    var d=h('div',{class:'d'});
+    d.appendChild(document.createTextNode('加权终点'+(b.fmt==='rel'?'':' ')+lvFmtEv(b,e.ev)+'；'));
+    d.appendChild(document.createTextNode(e.up>=0.995?'所有剧本都高于现价。':(e.up<=0.005?'所有剧本都低于现价。':'高于现价的概率 '+fp(e.up,0)+'。')));
+    d.appendChild(h('br'));d.appendChild(document.createTextNode('想要 10% 的预期年回报，买入价不高于'+(b.fmt==='rel'?'':' ')));d.appendChild(h('b',{text:lvFmtEv(b,e.buy10)}));
+    el.appendChild(h('div',{class:'stat'},h('div',{class:'k',text:b.idx+'：到 2027 年底的预期回报'}),h('div',{class:'v num',text:fsp(b.carry?e.total:e.ret,1)}),b.carry?h('div',{class:'d',text:'其中价格 '+fsp(e.ret,1)+'，股息约 '+fsp(b.carry*T,1)}):null,d));});
+  var n=$('#ev-note');if(n)n.textContent=(Math.abs(tot-100)>0.5?'现在八个概率加起来是 '+tot+'%，计算时按比例折成 100%。':'八个概率加起来是 100%。')+(CFG.scnDetail?'':'把鼠标停在格子上（手机上点一下），能看到这个剧本里的盈利、倍数和中途最低点。')+(CFG.evNote||'');
+}
+function lvFmtEv(b,v){return b.kind==='yield'&&b.fmt==='rel'?'比现价 '+fsp(v/b.now-1,1)+'（股息率 '+(b.y*b.now/v).toFixed(2)+'%）':lvFmt(b,v);}
+
+/* ---------- zones table ---------- */
+function rangeTxt(b,i){var z=b.zones;function f(v){return b.kind==='pe'?lvFmt(b,v):(b.y*b.now/v).toFixed(1)+'%';}
+  if(b.kind==='pe'){if(i===0)return f(z[0])+' 以下';if(i===5)return f(z[4])+' 以上';return f(z[i-1])+' – '+f(z[i]);}
+  if(i===0)return f(z[0])+' 以上';if(i===5)return f(z[4])+' 以下';return f(z[i])+' – '+f(z[i-1]);}
+function renderZones(){
+  var t=$('#zones');if(!t)return;t.replaceChildren();
+  var hr=h('tr',{},h('th',{text:'区域'}));B.forEach(function(b){hr.appendChild(h('th',{text:b.zoneHead||(b.idx+(b.kind==='yield'?'（股息率）':''))}));});hr.appendChild(h('th',{text:'怎么做'}));t.appendChild(h('thead',{},hr));
+  var tb=h('tbody');
+  for(var i=5;i>=0;i--){var tr=h('tr',{});tr.appendChild(h('td',{},h('span',{class:'sw',style:'background:'+ZN[i].c+';border:1px solid rgba(11,11,11,.1)'}),ZN[i].n));
+    B.forEach(function(b){var here=zoneIx(b,b.now)===i,td=h('td',{class:'num',style:here?'background:#fbf8ef;box-shadow:inset 0 0 0 1px var(--gold)':null,text:rangeTxt(b,i)});
+      if(here)td.appendChild(h('div',{style:'font-size:.78rem;color:var(--muted)',text:'现价 '+(b.kind==='pe'?(b.nowTxt||lvFmt(b,b.now)):b.y.toFixed(2)+'%')}));
+      if(b.zoneNote&&b.zoneNote[i])td.appendChild(h('div',{style:'font-size:.78rem;color:var(--muted)',text:b.zoneNote[i]}));tr.appendChild(td);});
+    tr.appendChild(h('td',{style:'color:var(--muted)',text:ZN[i].do}));tb.appendChild(tr);}
+  t.appendChild(tb);
+}
+
+/* ---------- three knobs ---------- */
+var calcB=null,K={k1:0,k2:0,k3:0,r:10};
+function irr(cf){var lo=-0.9,hi=1.5;function npv(r){var s=0;for(var i=0;i<cf.length;i++)s+=cf[i]/Math.pow(1+r,i);return s;}for(var i=0;i<80;i++){var mid=(lo+hi)/2;if(npv(mid)>0)lo=mid;else hi=mid;}return (lo+hi)/2;}
+function calcOut(b,k){
+  if(b.kind==='pe'&&!b.payout){var f=(1-k.k1/100)*Math.pow(1+k.k2/100,5)*k.k3;return {ret:Math.pow(f/(b.now/b.E),0.2)-1,buy:b.E*(1-k.k1/100)*Math.pow((1+k.k2/100)/(1+k.r/100),5)*k.k3};}
+  if(b.kind==='pe'){var E1=b.E*(1-k.k1/100),c2=[-b.now],pv2=0,dv=0;for(var j=1;j<=5;j++){dv=b.payout*E1*Math.pow(1+k.k2/100,j-1);c2.push(dv);pv2+=dv/Math.pow(1+k.r/100,j);}
+    var Px=E1*Math.pow(1+k.k2/100,5)*k.k3;c2[5]+=Px;pv2+=Px/Math.pow(1+k.r/100,5);return {ret:irr(c2),buy:pv2};}
+  var D0=b.y/100*b.now,cf=[-b.now],pv=0,D=0;for(var t=1;t<=5;t++){D=D0*(1-k.k1/100)*Math.pow(1+k.k2/100,t);cf.push(D);pv+=D/Math.pow(1+k.r/100,t);}
+  var P5=D/(k.k3/100);cf[5]+=P5;pv+=P5/Math.pow(1+k.r/100,5);return {ret:irr(cf),buy:pv};
+}
+function setCalcBasket(id){
+  calcB=bk(id);if(!calcB)return;var b=calcB,pe=b.kind==='pe',kn=b.knobs;
+  document.querySelectorAll('#calc [data-b]').forEach(function(c){c.setAttribute('aria-pressed',c.getAttribute('data-b')===id?'true':'false');});
+  $('#k1l').textContent=pe?'盈利预测先被砍掉':'股息先被砍掉';$('#k2l').textContent=pe?'之后盈利每年增长':'之后股息每年增长';$('#k3l').textContent=pe?'五年后市场给的市盈率':'五年后市场要求的股息率';
+  var r1=$('#k1'),r2=$('#k2'),r3=$('#k3');r1.min=0;r1.max=pe?60:40;r1.step=1;r2.min=kn.k2min==null?(pe?0:-3):kn.k2min;r2.max=kn.k2max==null?(pe?20:10):kn.k2max;r2.step=0.5;r3.min=kn.k3min;r3.max=kn.k3max;r3.step=0.1;
+  $('#k1s').textContent=kn.s1;$('#k2s').textContent=kn.s2;$('#k3s').textContent=kn.s3;
+  var ps=$('#presets');ps.replaceChildren(h('span',{text:'预设'}));
+  kn.presets.forEach(function(p){ps.appendChild(h('button',{class:'chip',type:'button',text:p[0],onclick:function(){K.k1=p[1];K.k2=p[2];K.k3=p[3];syncCalc();}}));});
+  var p0=kn.presets[0];K.k1=p0[1];K.k2=p0[2];K.k3=p0[3];syncCalc();
+}
+function syncCalc(){$('#k1').value=K.k1;$('#k2').value=K.k2;$('#k3').value=K.k3;$('#k4').value=K.r;updateCalc();}
+function updateCalc(){
+  var b=calcB,pe=b.kind==='pe',o=calcOut(b,K);
+  $('#k1o').textContent=K.k1.toFixed(0)+'%';$('#k2o').textContent=(K.k2>=0?'+':'−')+Math.abs(K.k2).toFixed(1)+'%';$('#k3o').textContent=pe?K.k3.toFixed(1)+' 倍':K.k3.toFixed(1)+'%';$('#k4o').textContent=K.r.toFixed(0)+'%';
+  $('#c-ret').textContent=fsp(o.ret,1);
+  var gap=o.ret*100-b.bond.y;$('#c-retd').textContent=(gap>=0?'比'+b.bond.name+'高 ':'比'+b.bond.name+'低 ')+Math.abs(gap).toFixed(1)+' 个点'+((pe&&!b.payout)?'。没有算股息。':'。含股息。');
+  $('#c-bondk').textContent=b.bond.name;$('#c-bond').textContent=b.bond.y.toFixed(2)+'%';$('#c-bondd').textContent=b.bond.note||'';
+  $('#c-buy').textContent=b.fmt==='rel'?'比现价 '+fsp(o.buy/b.now-1,0):lvFmt(b,o.buy);
+  $('#c-buyd').textContent=b.fmt==='rel'?'对应股息率 '+(b.y*b.now/o.buy).toFixed(2)+'%':'比现价 '+fsp(o.buy/b.now-1,0)+'，'+auxName(b)+' '+auxOf(b,o.buy);
+  $('#c-note').textContent=b.knobs.note||'';
+  document.querySelectorAll('#presets .chip').forEach(function(c,i){var p=b.knobs.presets[i];c.setAttribute('aria-pressed',(p&&Math.abs(p[1]-K.k1)<1e-9&&Math.abs(p[2]-K.k2)<1e-9&&Math.abs(p[3]-K.k3)<1e-9)?'true':'false');});
+}
+function initCalc(){
+  if(!$('#calc'))return;
+  document.querySelectorAll('#calc [data-b]').forEach(function(c){c.addEventListener('click',function(){setCalcBasket(c.getAttribute('data-b'));});});
+  [['k1','k1'],['k2','k2'],['k3','k3'],['k4','r']].forEach(function(p){$('#'+p[0]).addEventListener('input',function(){K[p[1]]=parseFloat(this.value);updateCalc();});});
+  setCalcBasket(B[0].id);
+}
+
+/* ---------- grid ---------- */
+var gridB=null;
+function gridRows(Bud,top,bot,n,sk){var rows=[],ws=[],sum=0,i;for(i=0;i<n;i++){ws.push(Math.pow(sk,i));sum+=ws[i];}var cumA=0,cumS=0;
+  for(i=0;i<n;i++){var p=n>1?top*Math.pow(bot/top,i/(n-1)):top,a=Bud*ws[i]/sum,s=a/p;cumA+=a;cumS+=s;rows.push({i:i+1,p:p,a:a,w:ws[i]/sum,s:s,cumA:cumA,avg:cumA/cumS});}return rows;}
+function readGrid(){var b=gridB,g=b.grid,Bud=Math.max(0,parseFloat($('#g-b').value)||0),top=parseFloat($('#g-t').value)||g.top,bot=parseFloat($('#g-l').value)||g.bot,n=Math.round(parseFloat($('#g-n').value)||g.n),sk=parseFloat($('#g-s').value)||g.sk;
+  n=Math.max(3,Math.min(12,n));if(bot>top){var t=bot;bot=top;top=t;}bot=Math.max(top*0.05,bot);if(top<=bot)top=bot*1.01;return {B:Bud,top:top,bot:bot,n:n,sk:sk};}
+function setGridBasket(id){gridB=bk(id);if(!gridB)return;var g=gridB.grid;
+  document.querySelectorAll('#gridtool [data-g]').forEach(function(c){c.setAttribute('aria-pressed',c.getAttribute('data-g')===id?'true':'false');});
+  $('#g-tl').textContent='最高一格'+(gridB.fmt==='rel'?'（现价 = 100）':'');$('#g-ll').textContent='最低一格'+(gridB.fmt==='rel'?'（现价 = 100）':'');
+  $('#g-t').value=g.top;$('#g-l').value=g.bot;$('#g-n').value=g.n;$('#g-s').value=g.sk;renderGrid();}
+function money(v){return nf(Math.round(v));}
+function renderGrid(){
+  if(!gridB)return;var b=gridB,g=readGrid(),rows=gridRows(g.B,g.top,g.bot,g.n,g.sk);
+  $('#g-so').textContent='每格的金额是上一格的 '+g.sk.toFixed(2)+' 倍';
+  var t=$('#gridt');t.replaceChildren();
+  t.appendChild(h('thead',{},h('tr',{},h('th',{text:'格'}),h('th',{class:'n',text:b.fmt==='rel'?'价格（现价 = 100）':'价格'}),h('th',{class:'n c-vs',text:'比现价'}),h('th',{text:'区域'}),h('th',{class:'n',text:auxName(b)}),h('th',{text:'这格买入'}),h('th',{class:'n c-cum',text:'累计投入'}),h('th',{class:'n c-avgc',text:'累计均价'}))));
+  var tb=h('tbody');
+  rows.forEach(function(r){var zo=ZN[zoneIx(b,r.p)];
+    tb.appendChild(h('tr',{},h('td',{text:String(r.i)}),h('td',{class:'n'},h('strong',{text:lvFmt(b,r.p)})),h('td',{class:'n c-vs',text:fsp(r.p/b.now-1,0)}),
+      h('td',{},h('span',{class:'sw',style:'background:'+zo.c+';border:1px solid rgba(11,11,11,.1)'}),zo.n),h('td',{class:'n',text:auxOf(b,r.p)}),
+      h('td',{},h('div',{class:'meter'},h('i',{style:'width:'+Math.max(3,Math.round(r.w*200))+'px'}),h('span',{class:'num'},money(r.a),h('span',{class:'c-pct',text:'（'+fp(r.w,1)+'）'})))),
+      h('td',{class:'n c-cum',text:money(r.cumA)}),h('td',{class:'n c-avgc',text:lvFmt(b,r.avg)})));});
+  t.appendChild(tb);
+  var last=rows[rows.length-1],upper=0;rows.forEach(function(r){if(zoneIx(b,r.p)>=2)upper+=r.w;});
+  $('#grid-note').textContent='买入区以上的几格合计占预算的 '+fp(upper,0)+'，其余 '+fp(1-upper,0)+' 留给买入区和深水区。全部买满的平均成本是 '+lvFmt(b,last.avg)+'，比现价低 '+fp(1-last.avg/b.now,0)+'。'+(b.gridNote||'');
+  renderChk(rows,g);
+}
+function renderChk(rows,g){
+  var b=gridB,t=$('#chk');t.replaceChildren();
+  t.appendChild(h('thead',{},h('tr',{},h('th',{text:'剧本'}),h('th',{class:'n c-p',text:'概率'}),h('th',{class:'n',text:'中途最低'}),h('th',{class:'n',text:'买到第几格'}),h('th',{class:'n',text:'用掉预算'}),h('th',{class:'n c-avg',text:'买入均价'}),h('th',{class:'n c-end',text:'2027 年底'}),h('th',{class:'n',text:'买到的部分盈亏'}))));
+  var tb=h('tbody'),tot=0,ed=0,worst=null,epl=0;SC.forEach(function(s){tot+=s.p;});
+  SC.forEach(function(s){var tr=troughLv(b,s),el=endLv(b,s),dep=0,sh=0,k=0;rows.forEach(function(r){if(r.p>=tr-1e-9){dep+=r.a;sh+=r.s;k++;}});
+    var frac=g.B>0?dep/g.B:0,pnl=dep>0?sh*el/dep-1:null;if(tot>0){ed+=s.p/tot*frac;epl+=s.p/tot*(dep>0?(sh*el-dep):0);}
+    if(pnl!=null&&(worst==null||pnl<worst.pnl))worst={pnl:pnl,s:s,frac:frac};
+    var cc=pnl==null?null:cellColor(pnl);
+    tb.appendChild(h('tr',{},h('td',{text:s.n+' '+s.name}),h('td',{class:'n c-p',text:s.p+'%'}),h('td',{class:'n',text:lvFmt(b,tr)}),h('td',{class:'n',text:k?k+' / '+rows.length:'没买到'}),h('td',{class:'n',text:fp(frac,0)}),
+      h('td',{class:'n c-avg',text:dep>0?lvFmt(b,dep/sh):'—'}),h('td',{class:'n c-end',text:lvFmt(b,el)}),h('td',{class:'n'},pnl==null?'—':h('span',{style:'display:inline-block;min-width:3.6em;padding:1px 6px;border-radius:4px;background:'+cc.bg+';color:'+cc.fg,text:fsp(pnl,0)}))));});
+  t.appendChild(tb);
+  var note='按现在的概率，这架梯子平均会用掉预算的 '+fp(ed,0)+'；买到的部分，到 2027 年底的预期盈亏约为总预算的 '+fsp(g.B>0?epl/g.B:0,1)+(ed>0&&g.B>0?'，相当于投进去的钱的 '+fsp(epl/g.B/ed,1):'')+'。';
+  if(worst)note+='最差的是'+worst.s.n+'"'+worst.s.name+'"：用掉 '+fp(worst.frac,0)+' 的预算，这部分 '+fsp(worst.pnl,0)+'。';
+  note+='这是梯子的天性：好剧本里买得少，坏剧本里买得满。所以最下面几格要用几年不动的钱。';
+  note+=b.carry?'盈亏没有加持有期间的股息。':'';
+  $('#chk-note').textContent=note;
+}
+function initGrid(){
+  if(!$('#gridtool'))return;
+  document.querySelectorAll('#gridtool [data-g]').forEach(function(c){c.addEventListener('click',function(){setGridBasket(c.getAttribute('data-g'));});});
+  ['g-b','g-t','g-l','g-n','g-s'].forEach(function(id){$('#'+id).addEventListener('input',renderGrid);});
+  window.__afterProb=function(){if(gridB)renderGrid();};
+  setGridBasket(B[0].id);
+}
+
+window.ML={C:C,ZN:ZN,$:$,sv:sv,h:h,txt:txt,halo:halo,line:line,mkTable:mkTable,plotW:plotW,nf:nf,fp:fp,fsp:fsp,rightBar:rightBar,topBar:topBar,showTip:showTip,hideTip:hideTip,hover:hover,
+  lineChart:lineChart,barsH:barsH,bk:bk,lvFmt:lvFmt,auxOf:auxOf,endLv:endLv,troughLv:troughLv,zoneIx:zoneIx,evOf:evOf,calcOut:calcOut,gridRows:gridRows,
+  renderPos:renderPos,renderScn:renderScn,renderEv:renderEv,renderZones:renderZones,initCalc:initCalc,initGrid:initGrid,setCalcBasket:setCalcBasket,setGridBasket:setGridBasket,K:K};
+})();
+</script>
+<script>
+(function(){
+'use strict';
+var M=window.ML,C=M.C,$=M.$,h=M.h,sv=M.sv,txt=M.txt,halo=M.halo,line=M.line,CH=window.CFG.ch,B0=window.CFG.baskets[0],LIGHT='#a9b6c8';
+function fm(v){return B0.fmt==='cny1'?'¥'+v.toFixed(2):'¥'+M.nf(v,2);}
+function lab(i){return (2020+Math.floor(i/12))+' 年 '+(i%12+1)+' 月';}
+
+function px(){
+  var d=CH.px,n=d.length,pts=d.map(function(v,i){return [i,v];});
+  var marks=CH.pxMarks.map(function(k){return {x:k[0],y:d[k[0]],label:k[1],label2:k[2]||null,dy:k[3],anchor:k[4]||'middle',dx:k[5]||0,wide:k[6]||0};});
+  M.lineChart($('#px'),{aria:CH.pxAria,H:340,
+    x:{min:0,max:n-1,ticks:[[0,'2020'],[12,'2021'],[24,'2022'],[36,'2023'],[48,'2024'],[60,'2025'],[72,'2026']]},
+    y:{min:CH.pxY[0],max:CH.pxY[1],ticks:CH.pxTicks,fmt:function(v){return M.nf(v);}},
+    hlines:CH.pxLines.map(function(l){return {y:l[0],color:C.gold,label:l[1],labelX:l[2]};}),
+    series:[{pts:pts,color:C.navy,end:CH.pxEnd[0],end2:CH.pxEnd[1]}],
+    marks:marks,
+    tip:function(i){return [lab(i)+(i===n-1?'（到 '+CH.pxLast+'）':'底'),[['收盘价',fm(d[i]),C.navy],['预期市盈率（按今天的盈利预测）',(d[i]/B0.E).toFixed(1)+' 倍']]];}});
+  $('#px-t').replaceChildren(M.mkTable(['月末','收盘价'],d.map(function(v,i){return [lab(i)+(i===n-1?'（到 '+CH.pxLast+'）':''),v.toFixed(2)];}),[0,1]));
+}
+
+function earn(){
+  var el=$('#earn'),d=CH.earn,W=M.plotW(el),narrow=W<560,H=290,m={t:26,r:12,b:44,l:44},iw=W-m.l-m.r,ih=H-m.t-m.b,ymax=CH.earnMax;
+  function Y(v){return m.t+(ymax-v)/ymax*ih;}
+  var step=iw/d.length,bw=Math.min(24,step*0.5);
+  var svg=sv('svg',{viewBox:'0 0 '+W+' '+H,width:W,height:H,role:'img','aria-label':CH.earnAria});
+  CH.earnTicks.forEach(function(v){svg.appendChild(line(m.l,Y(v),W-m.r,Y(v),v===0?C.axis:C.grid));svg.appendChild(txt(m.l-8,Y(v)+4,M.nf(v),{size:11.5,anchor:'end',tab:1}));});
+  d.forEach(function(r,i){var cx=m.l+step*(i+0.5),est=r[3]===1,fill=est?LIGHT:C.navy,yoy=r[2];
+    svg.appendChild(sv('path',{d:M.topBar(cx-bw/2,Y(0),bw,Y(0)-Y(r[1]),4),fill:fill}));
+    svg.appendChild(halo(txt(cx,Y(r[1])-7,r[1].toFixed(r[1]<200?1:0),{size:11.5,fill:C.ink,anchor:'middle',weight:650,tab:1})));
+    svg.appendChild(txt(cx,H-m.b+17,r[0],{size:11.5,anchor:'middle',fill:C.muted,tab:1}));
+    if(yoy!=null)svg.appendChild(txt(cx,H-m.b+32,M.fsp(yoy/100,yoy>-10&&yoy<10?1:0),{size:11,anchor:'middle',fill:C.ink,tab:1}));
+    var hit=sv('rect',{x:cx-step/2,y:m.t,width:step,height:ih,fill:'transparent',tabindex:0});
+    M.hover(hit,function(e){M.showTip(e,r[0]+(est?'（券商预测均值）':''),[['归母净利润',r[1].toFixed(1)+' 亿元',fill]].concat(yoy!=null?[['同比',M.fsp(yoy/100,1)]]:[]));});svg.appendChild(hit);});
+  el.replaceChildren(svg);
+  var lg=$('#earn-lg');lg.replaceChildren(h('span',{},h('i',{class:'box',style:'background:'+C.navy}),'年报数字'),h('span',{},h('i',{class:'box',style:'background:'+LIGHT}),'券商预测的均值（年份后带 E）'),h('span',{style:'color:var(--muted)'},'柱子下面一行是同比'));
+  $('#earn-t').replaceChildren(M.mkTable(['年份','归母净利润（亿元）','同比'],d.map(function(r){return [r[0],r[1].toFixed(1),r[2]==null?'—':M.fsp(r[2]/100,1)];}),[0,1,1]));
+}
+
+function x3(){
+  var o=CH.x3;
+  M.barsH($('#x3'),o.rows.map(function(r){return {name:r[0],sub:r[2],v:r[1],hi:r[3]===1,label:o.fmtPct?M.fsp(r[1]/100,1):M.nf(r[1])+o.unit,tip:[[o.tipName,o.fmtPct?M.fsp(r[1]/100,1):M.nf(r[1])+o.unit,r[3]===1?C.gold:C.navy]].concat(r[2]?[[r[2],'']]:[])};}),
+    {aria:o.aria,min:o.min,max:o.max,ticks:o.ticks,axis:1,ref:o.ref||null,fmt:function(v){return o.fmtPct?(v===0?'0':(v>0?'+':'−')+Math.abs(v)+'%'):M.nf(v);}});
+}
+
+function charts(){[px,earn,x3,M.renderPos].forEach(function(f){try{f();}catch(e){console.error(f.name,e);}});}
+charts();M.renderScn();M.renderZones();M.initCalc();M.initGrid();
+var rt=null,lastW=window.innerWidth;window.addEventListener('resize',function(){if(window.innerWidth===lastW)return;lastW=window.innerWidth;clearTimeout(rt);rt=setTimeout(charts,160);});
+})();
+</script>
+</body>
+</html>

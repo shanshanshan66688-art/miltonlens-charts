@@ -1,0 +1,1285 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>潮汐抄底地图：中美科技与红利 | Milton Lens</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme:light;
+  --navy:#0E2340;--gold:#B8A57A;--ink:#1d2430;--muted:#5f6670;--faint:#8a9099;
+  --line:#e3e1dc;--grid:#ebe9e3;--axis:#c9c6bd;--bg:#ffffff;--panel:#faf9f6;
+  --b1:#cde2fb;--b2:#9ec5f4;--b3:#6da7ec;--b4:#3987e5;--b5:#1c5cab;
+  --r1:#fbd5d1;--r2:#f3ada6;--r3:#e7837b;--r4:#da544f;--r5:#a1302f;--mid:#f0efec;
+  --s1:#2a78d6;--s2:#eb6834;--s3:#1baf7a;
+  --serif:"Libre Baskerville","Songti SC","Noto Serif CJK SC","Noto Serif SC","Source Han Serif SC","STSong",Georgia,serif;
+  --sans:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Noto Sans CJK SC","Noto Sans SC","Microsoft YaHei","Segoe UI",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:56px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--ink);font:16.5px/1.75 var(--sans);-webkit-font-smoothing:antialiased;-webkit-text-size-adjust:100%}
+a{color:var(--navy)}
+:focus-visible{outline:2px solid var(--navy);outline-offset:2px}
+
+header.site{display:flex;justify-content:space-between;align-items:baseline;gap:12px;border-bottom:1px solid var(--line);padding:14px 20px}
+header.site a{color:var(--navy);text-decoration:none;font-family:var(--serif);font-weight:700;letter-spacing:.02em}
+header.site span{color:var(--faint);font-size:.8rem}
+
+nav.toc{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch}
+nav.toc div{max-width:920px;margin:0 auto;padding:0 12px}
+nav.toc a{display:inline-block;padding:11px 9px;color:var(--muted);text-decoration:none;font-size:.86rem}
+nav.toc a:hover{color:var(--navy)}
+
+main{max-width:920px;margin:0 auto;padding:0 20px 90px}
+.prose{max-width:41em}
+.hero{display:grid;grid-template-columns:minmax(0,1fr) 420px;gap:44px;align-items:start;padding:46px 0 6px}
+h1{font-family:var(--serif);color:var(--navy);font-size:2.9rem;line-height:1.15;margin:6px 0 20px;letter-spacing:.01em;font-weight:700}
+.dek{font-size:1.14rem;line-height:1.85;margin:0 0 18px}
+.meta{color:var(--muted);font-size:.86rem;line-height:1.7;margin:0 0 22px}
+.readme{border-left:3px solid var(--gold);padding:2px 0 2px 16px;margin:0;font-size:.95rem;line-height:1.8}
+.readme li{list-style:none;margin:0}
+.readme ul{margin:0;padding:0}
+.sw{display:inline-block;width:.85em;height:.85em;border-radius:2px;vertical-align:-.08em;margin-right:.45em}
+dl.facts{display:grid;grid-template-columns:1fr 1fr;gap:0 28px;margin:30px 0 0}
+dl.facts div{border-top:1px solid var(--line);padding:11px 0 12px}
+dl.facts dt{font-size:.82rem;color:var(--muted);line-height:1.4}
+dl.facts dd{margin:0;font-size:1.3rem;font-weight:650;color:var(--navy);line-height:1.35}
+dl.facts dd.s{font-size:.82rem;font-weight:400;color:var(--muted);line-height:1.5}
+
+section{padding-top:58px}
+h2{font-family:var(--serif);color:var(--navy);font-size:1.6rem;line-height:1.3;margin:0 0 20px;padding-top:20px;border-top:1px solid var(--line);display:flex;gap:14px;align-items:baseline;font-weight:700}
+h2 .no{color:var(--gold);font-size:1.5rem;flex:none;font-weight:400;min-width:.9em}
+h3{font-family:var(--serif);color:var(--navy);font-size:1.14rem;line-height:1.4;margin:34px 0 10px;font-weight:700}
+p{margin:0 0 14px}
+strong{font-weight:650;color:var(--navy)}
+.num{font-variant-numeric:tabular-nums}
+
+ol.verdict{margin:0;padding:0;counter-reset:v;max-width:43em}
+ol.verdict li{list-style:none;counter-increment:v;position:relative;padding:0 0 18px 46px}
+ol.verdict li::before{content:counter(v);position:absolute;left:0;top:.05em;width:30px;height:30px;border-radius:50%;border:1px solid var(--gold);color:var(--navy);font-family:var(--serif);font-weight:700;display:flex;align-items:center;justify-content:center;font-size:.95rem;line-height:1}
+ol.verdict b{color:var(--navy);font-weight:650}
+
+.aside{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:18px 22px;margin:22px 0 0;max-width:43em}
+.aside h3{margin:0 0 8px}
+.aside ul{margin:0;padding-left:1.15em}
+.aside li{margin:0 0 8px}
+
+ol.steps{margin:24px 0 6px;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:0;counter-reset:s}
+ol.steps li{list-style:none;counter-increment:s;padding:14px 16px 14px 0;border-top:2px solid var(--navy);margin-right:14px;font-size:.93rem;line-height:1.65}
+ol.steps li::before{content:counter(s);display:block;font-family:var(--serif);font-weight:700;color:var(--gold);font-size:1.1rem;margin-bottom:4px}
+
+figure{margin:28px 0 32px}
+figcaption{margin-bottom:12px}
+figcaption b{display:block;font-family:var(--serif);color:var(--navy);font-size:1.06rem;line-height:1.45;font-weight:700}
+figcaption span{display:block;color:var(--muted);font-size:.88rem;line-height:1.55;margin-top:3px}
+.plot{position:relative}
+.plot svg{display:block;max-width:100%;overflow:visible}
+svg text{font-family:var(--sans)}
+.src{color:var(--faint);font-size:.78rem;line-height:1.55;margin:10px 0 0}
+details.tv{margin-top:10px;font-size:.86rem}
+details.tv summary{cursor:pointer;color:var(--muted);display:inline-block}
+details.tv .table-wrap{margin-top:8px;max-height:320px;overflow:auto}
+.legend{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:.86rem;color:var(--ink);margin:0 0 10px}
+.legend i{display:inline-block;width:16px;height:3px;border-radius:2px;vertical-align:middle;margin-right:6px}
+.legend i.box{width:.85em;height:.85em;border-radius:2px;vertical-align:-.08em}
+
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.table-wrap+.prose,.src+.prose,.table-wrap+.table-wrap,.prose+.table-wrap,.src+.table-wrap,.table-wrap+p.note{margin-top:22px}
+table{border-collapse:collapse;width:100%;font-size:.9rem;line-height:1.55}
+th,td{border-bottom:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{color:var(--muted);font-weight:500;font-size:.82rem;white-space:nowrap}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+table td:first-child{color:var(--navy);font-weight:650}
+table.plain td:first-child,table.tide td:first-child{white-space:nowrap}
+tr.now td{background:#fbf8ef;border-top:1px solid var(--gold);border-bottom:1px solid var(--gold)}
+.swipe{display:none;color:var(--faint);font-size:.78rem;margin:0 0 6px}
+.tagk{display:inline-block;border:1px solid var(--axis);border-radius:3px;padding:0 6px;font-size:.76rem;color:var(--muted);white-space:nowrap;font-weight:400}
+.formula{font-family:var(--serif);color:var(--navy);font-size:1.02rem;line-height:1.7;border-top:1px solid var(--gold);border-bottom:1px solid var(--gold);padding:14px 2px;margin:22px 0 14px;max-width:43em}
+
+/* two seas */
+.seas{display:grid;grid-template-columns:1fr .82fr 1fr;gap:12px;margin:22px 0 8px}
+.seas.two{grid-template-columns:1fr 1fr}
+.seas.two .sea{min-height:350px}
+.sea{position:relative;border:1px solid var(--line);border-radius:10px;overflow:hidden;min-height:430px;background:#fff}
+.sea .water{position:absolute;left:0;right:0;bottom:0;height:var(--h);background:linear-gradient(to top,#b7d3f6,#dcebfc);border-top:2px solid var(--b3)}
+.sea .in{position:relative;padding:14px 16px 12px}
+.sea h4{margin:0 0 2px;font-family:var(--serif);color:var(--navy);font-size:1.06rem}
+.sea .dir{font-size:.84rem;color:var(--muted);margin:0 0 10px}
+.sea ul{margin:0;padding:0;font-size:.86rem;line-height:1.6}
+.sea li{list-style:none;display:flex;justify-content:space-between;gap:10px;border-bottom:1px solid rgba(14,35,64,.08);padding:3px 0}
+.sea li b{font-weight:650;color:var(--navy);white-space:nowrap;font-variant-numeric:tabular-nums}
+.sea .boats{position:absolute;left:14px;right:14px;bottom:calc(var(--h) - 9px);display:flex;flex-wrap:wrap;gap:6px}
+.boat{background:#fff;border:1px solid var(--navy);color:var(--navy);border-radius:999px;padding:2px 10px;font-size:.8rem;line-height:1.5;white-space:nowrap}
+.boat::before{content:"⛵ "}
+
+/* hero position bars */
+.pos{margin:0}
+.pos .row{padding:11px 0 13px;border-top:1px solid var(--line)}
+.pos .row:first-of-type{border-top:0;padding-top:2px}
+.pos .hd{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:6px}
+.pos .hd b{color:var(--navy);font-weight:650;font-size:.95rem}
+.pos .hd span{color:var(--muted);font-size:.8rem;white-space:nowrap}
+.pos .ft{font-size:.78rem;color:var(--muted);line-height:1.45;margin-top:5px}
+
+.tool{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:22px}
+.presets{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px;align-items:center}
+.presets span{font-size:.84rem;color:var(--muted);margin-right:2px}
+.chip{border:1px solid var(--axis);background:#fff;color:var(--navy);border-radius:999px;padding:5px 13px;font:inherit;font-size:.84rem;cursor:pointer;line-height:1.5}
+.chip:hover{border-color:var(--navy)}
+.chip[aria-pressed=true]{background:var(--navy);color:#fff;border-color:var(--navy)}
+.knobs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.knob label{display:block;font-size:.86rem;color:var(--muted)}
+.knob output{display:block;font-size:1.55rem;font-weight:650;color:var(--navy);line-height:1.35}
+.knob input[type=range]{width:100%;accent-color:var(--navy);margin:4px 0 2px;height:22px}
+.knob small{display:block;color:var(--faint);font-size:.76rem;line-height:1.45}
+.out{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:20px;padding-top:18px;border-top:1px solid var(--line);align-items:start}
+.stat .k{font-size:.84rem;color:var(--muted);line-height:1.4}
+.stat .v{font-size:1.4rem;font-weight:650;color:var(--navy);line-height:1.3}
+.stat.big .v{font-size:2.6rem;line-height:1.1;margin:2px 0 4px}
+.stat .d{font-size:.84rem;line-height:1.5;color:var(--muted)}
+.note{font-size:.84rem;color:var(--muted);line-height:1.6;margin-top:12px}
+
+table.scn{min-width:820px}
+table.scn th,table.scn td{padding-left:7px;padding-right:7px}
+table.scn td.st{min-width:13em;font-weight:400;color:var(--ink)}
+table.scn td.st b{color:var(--navy);font-weight:650}
+table.scn td.st small{display:block;color:var(--muted);font-size:.8rem;line-height:1.5;font-weight:400}
+table.scn input[type=range]{width:78px;accent-color:var(--navy);vertical-align:middle}
+table.scn td.c{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+table.scn td.c span{display:inline-block;min-width:3.6em;padding:1px 6px;border-radius:4px}
+.ev4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;margin-top:18px;padding-top:16px;border-top:1px solid var(--line)}
+.ev4 .stat .v{font-size:1.5rem}
+.ev4 .stat .d b{color:var(--navy);font-weight:650}
+
+.rulers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin:22px 0 6px}
+.rulers div{border-top:2px solid var(--navy);padding:14px 18px 6px 0;margin-right:14px;font-size:.93rem;line-height:1.65}
+.rulers b{display:block;font-family:var(--serif);color:var(--navy);font-size:1rem;margin-bottom:4px}
+.rulers .big{display:block;font-size:1.45rem;font-weight:650;color:var(--navy);line-height:1.3;margin:2px 0 4px}
+
+table.zones{min-width:640px}
+table.zones td:first-child{white-space:nowrap;font-weight:400;color:var(--ink)}
+.gridform{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px;margin-bottom:18px}
+.gridform label{display:block;font-size:.82rem;color:var(--muted);line-height:1.4;margin-bottom:4px}
+.gridform input[type=number]{width:100%;font:inherit;font-size:1rem;padding:6px 8px;border:1px solid var(--axis);border-radius:5px;background:#fff;color:var(--navy);font-variant-numeric:tabular-nums}
+.gridform input[type=range]{width:100%;accent-color:var(--navy)}
+.gridform output{font-size:.84rem;color:var(--navy)}
+table.grid{min-width:700px}
+table.grid th,table.grid td{padding-left:7px;padding-right:7px}
+table.grid td{vertical-align:middle;white-space:nowrap}
+table.grid td:first-child{font-weight:400;color:var(--muted)}
+.meter{display:flex;align-items:center;gap:8px}
+.meter i{display:block;height:8px;border-radius:4px;background:var(--navy)}
+table.chk{min-width:700px}
+table.chk td:first-child{white-space:nowrap}
+table.sell{width:auto;min-width:min(100%,560px)}
+table.sell td:first-child{white-space:nowrap}
+.lights{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.lights h3{margin-top:6px;display:flex;align-items:center;gap:8px}
+.lights ul{margin:0;padding-left:1.1em}
+.lights li{margin:0 0 9px;font-size:.94rem}
+.lamp{width:12px;height:12px;border-radius:50%;display:inline-block;flex:none}
+.cal{margin:0;padding:0}
+.cal li{list-style:none;display:grid;grid-template-columns:11.5em 1fr;gap:14px;padding:9px 0;border-bottom:1px solid var(--line);font-size:.94rem}
+.cal li b{color:var(--navy);font-weight:650}
+ul.sources{margin:0;padding-left:1.1em;font-size:.86rem;line-height:1.7;color:var(--muted)}
+ul.sources li{margin-bottom:5px}
+ul.plainlist{margin:0 0 14px;padding-left:1.15em;max-width:41em}
+ul.plainlist li{margin:0 0 8px}
+footer{color:var(--muted);font-size:.84rem;line-height:1.7;border-top:1px solid var(--line);padding-top:16px;margin-top:48px}
+
+table.vt{min-width:860px}
+table.vt td:first-child{white-space:nowrap}
+table.vt td:nth-child(4){white-space:nowrap}
+table.vt.v4{min-width:760px}
+table.vt.v4 td:nth-child(4){white-space:normal}
+table.hist{min-width:780px}
+table.hist td:first-child{white-space:nowrap}
+table.mega{min-width:640px}
+table.mega td:first-child{white-space:nowrap}
+table.mega .meter i{background:var(--navy)}
+
+#tip{position:fixed;left:0;top:0;pointer-events:none;z-index:50;background:#fff;border:1px solid var(--line);box-shadow:0 6px 22px rgba(14,35,64,.16);border-radius:6px;padding:8px 11px;font-size:.82rem;line-height:1.5;max-width:280px;opacity:0;transition:opacity .08s}
+#tip.on{opacity:1}
+#tip .t{color:var(--muted);margin-bottom:2px}
+#tip .r{white-space:nowrap}
+#tip .r i{display:inline-block;width:12px;height:3px;border-radius:2px;vertical-align:middle;margin-right:6px}
+#tip .v{font-weight:650;color:var(--navy);font-variant-numeric:tabular-nums}
+#tip .k{color:var(--muted)}
+
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr;gap:26px;padding-top:30px}
+  h1{font-size:2.2rem}
+  .pos{max-width:520px}
+  .knobs{grid-template-columns:1fr}
+  .out{grid-template-columns:1fr}
+  .ev4{grid-template-columns:1fr 1fr}
+  .gridform{grid-template-columns:1fr 1fr}
+  .lights{grid-template-columns:1fr}
+  .rulers{grid-template-columns:1fr}
+  .cal li{grid-template-columns:1fr;gap:2px}
+  .seas,.seas.two{grid-template-columns:1fr}
+  .seas.two .sea{min-height:0}
+  .sea{min-height:0}
+  .sea .water{height:var(--hm)}
+  .sea .boats{position:relative;left:auto;right:auto;bottom:auto;padding:6px 16px 0;margin-bottom:calc(var(--hm) - 9px)}
+  ol.steps{grid-template-columns:1fr}
+}
+@media (max-width:700px){
+  .swipe{display:block}
+  table.cards,table.cards.vt.v4{min-width:0}
+  table.cards thead{display:none}
+  table.cards,table.cards tbody{display:block}
+  table.cards tr{display:block;padding:12px 0;border-bottom:1px solid var(--line)}
+  table.cards tr.now{padding-left:10px;padding-right:10px;border-top:1px solid var(--gold);border-bottom:1px solid var(--gold);background:#fbf8ef}
+  table.cards tr.now td{background:none;border:0}
+  table.cards td{display:block;border:0;padding:2px 0;white-space:normal!important;text-align:left!important}
+  table.cards td:first-child{font-size:1rem}
+  table.cards td:not(:first-child)::before{content:attr(data-l) '：';color:var(--muted);font-size:.84rem}
+  table.cards td:empty{display:none}
+  .swipe.cardsoff{display:none}
+  table.scn{min-width:0}
+  table.scn,table.scn tbody{display:block}
+  table.scn thead{display:none}
+  table.scn tr{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px 6px;padding:13px 0;border-bottom:1px solid var(--line)}
+  table.scn.det tr{grid-template-columns:repeat(3,minmax(0,1fr))}
+  table.scn td{display:block;border:0;padding:0}
+  table.scn td.st{grid-column:1/-1;min-width:0}
+  table.scn td.c{text-align:left;white-space:normal}
+  table.scn td.c::before{content:attr(data-l);display:block;font-size:.72rem;color:var(--muted);line-height:1.5}
+  table.scn td.c span{min-width:0;display:block;text-align:center}
+  table.scn td.pr{grid-column:1/-1;display:flex;align-items:center;gap:10px}
+  table.scn td.pr::before{content:'概率';font-size:.8rem;color:var(--muted)}
+  table.scn td.pr input[type=range]{flex:1;width:auto}
+  table.grid{min-width:0}
+  table.grid .c-vs,table.grid .c-cum,table.grid .c-avgc,table.grid .c-pct,table.grid .meter i{display:none}
+  table.grid th,table.grid td{padding-left:4px;padding-right:4px}
+  table.grid th{white-space:normal}
+  table.chk{min-width:0}
+  table.chk .c-p,table.chk .c-avg,table.chk .c-end{display:none}
+  table.chk th{white-space:normal}
+  table.chk th,table.chk td{padding-left:4px;padding-right:4px}
+  table.chk td:first-child{white-space:normal}
+}
+@media (max-width:520px){
+  body{font-size:16px}
+  main{padding:0 16px 70px}
+  h2{font-size:1.38rem}
+  .tool{padding:16px}
+  .stat.big .v{font-size:2.2rem}
+  dl.facts{gap:0 18px}
+  dl.facts dd{font-size:1.16rem}
+}
+</style>
+</head>
+<body>
+<header class="site"><a href="../">Milton Lens · Charts</a><span>研究笔记，没有列在首页</span></header>
+<nav class="toc" aria-label="目录"><div>
+<a href="#s1">结论</a><a href="#s2">潮汐</a><a href="#s3">以史为鉴</a><a href="#s4">价格里的预期</a><a href="#s5">变量</a><a href="#s6">剧本</a><a href="#s7">买卖边界</a><a href="#s8">网格</a><a href="#s9">哪天有事</a><a href="#s10">来源</a>
+</div></nav>
+
+<main>
+<div class="hero">
+  <div>
+    <h1>潮汐抄底地图</h1>
+    <p class="dek">纳指 100 六周半跌了两成，恒生科技回到两年前的起点，红利却在涨。这一页回答四件事：美元的潮水退到哪了，价格里已经装了多少坏消息，历史上类似的时刻后来怎样，如果要分批买，梯子架在哪几格、什么时候卖。</p>
+    <p class="meta">行情截至 2026 年 11 月 20 日收盘。四个篮子：美股科技（纳指 100）、中国科技（恒生科技）、A 股红利（中证红利）、美股红利（SCHD）。<br>个人研究笔记，不是投资建议。<br>沿同一组剧本做的个股推演：<a href="../moutai/">贵州茅台</a>、<a href="../mindray/">迈瑞医疗</a>。</p>
+    <div class="readme">
+      <ul>
+        <li><span class="sw" style="background:var(--b4)"></span>蓝色：便宜，只需要相信很少的好事。</li>
+        <li><span class="sw" style="background:var(--mid);border:1px solid var(--axis)"></span>灰色：讲得通，但没有安全边际。</li>
+        <li><span class="sw" style="background:var(--r4)"></span>红色：贵，要相信很多好事同时发生。</li>
+      </ul>
+    </div>
+    <dl class="facts">
+      <div><dt>纳指 100</dt><dd>约 25,010</dd><dd class="s">比 10 月 6 日的高点低 19.9%；预期市盈率约 16.8 倍</dd></div>
+      <div><dt>恒生科技</dt><dd>3,511</dd><dd class="s">比去年 10 月的高点低 47.7%；预期市盈率约 12 倍</dd></div>
+      <div><dt>中证红利股息率</dt><dd>4.39%</dd><dd class="s">中国十年期国债 1.59%，差 2.8 个点</dd></div>
+      <div><dt>美元指数</dt><dd>103.87</dd><dd class="s">年初 98.28；十年期美债 4.92%，扣掉通胀约 2.8%</dd></div>
+    </dl>
+  </div>
+  <figure class="pos" style="margin:0">
+    <figcaption><b>四个篮子，现在各站在哪一区</b><span>每条尺子从便宜（左）到贵（右）。金色圆点是现价。分区的道理见第 7 节。</span></figcaption>
+    <div id="pos"></div>
+    <p class="src">纳指和恒科按"现价要你相信盈利被砍多少"分区，两个红利按股息率分区。</p>
+  </figure>
+</div>
+
+<section id="s1">
+  <h2><span class="no">1</span>先说结论</h2>
+  <ol class="verdict">
+    <li><b>潮水分两片：美元在退，人民币在涨。</b>美联储 9 月加了息，市场认为 12 月 9 日再加一次的概率约 95%。十年期美债扣掉通胀后的利率，从年初的 1.9% 升到 2.8%。美元指数 103.87，是 19 个月的高位。同一时间，中国十年期国债收益率 1.59%，是历史最低；人民币对美元反而升到 6.68。香港夹在中间：公司赚人民币，股价的水位却跟着美元走。</li>
+    <li><b>美股科技跌的不是倍数，是"盈利还信不信"。</b>纳指 100 在 10 月高点时，预期市盈率只有 21 倍左右，接近 25 年的中位数。现在约 16.8 倍，历史上只有大约四分之一的时间比这更便宜。换个说法：现价等于赌未来一年的盈利预期要被砍掉 17%。它不贵了，但还没便宜到不用想，因为美债自己就给 4.9%。</li>
+    <li><b>中国科技便宜得多，但已经便宜了很久。</b>恒生科技约 12 倍预期市盈率，是这个指数 2020 年推出以来最低的一档，离 2022 年的最低点还有两成多。它的麻烦主要不在美元：今年盈利预期被砍了一成多，腾讯一个季度的资本开支是 814 亿元，自由现金流是负的。它过去每次见底，靠的都是政策或美元转向，不是估值本身。</li>
+    <li><b>红利不是一个东西。</b>A 股红利 4.39% 对 1.59% 的国债，相对国债便宜，相对自己的历史偏贵。美股红利（SCHD）今年含分红涨了 27%，股息率只剩 3.1%，比十年期美债低 1.8 个点。港股红利约 6.7%，对拿人民币的人是 5 个点的利差，对拿美元的人不到 2 个点。</li>
+    <li><b>买卖边界按"要相信什么"来定，不按跌了多少。</b>纳指 100：24,100 以下开始认真买，21,100 以下是深水区；22.5 倍以上卖梯子上买的，26 倍以上才动底仓。恒生科技：现价已经在买入区，2,810 以下是深水区，5,560 以上分批卖。A 股红利：股息率 5% 以上买，4% 以下减。美股红利：股息率回到 3.8% 以上再看。</li>
+    <li><b>梯子跟着潮水走，而且大概率买不满。</b>按我给的一组示意概率，纳指和恒科的梯子平均都只会用掉约三分之一的预算，这是正常的。价格通道之外再设一条潮汐通道：两年期美债跌回政策利率之下、美元跌回 100 以下，可以提前一格；信用利差急升，或者盈利预期还在快速下修，价格到了也先不买。</li>
+  </ol>
+  <div class="aside">
+    <h3>和你的思路不一样的四处</h3>
+    <ul>
+      <li><strong>"美元潮汐"这次要分两片海看。</strong>美元走强没有带来人民币走弱，所以"美元强，人民币资产就跌"这张老图不够用了。中国科技今年比美股跌得多得多，主因是内需和盈利，其次才是港元利率跟着美元走。</li>
+      <li><strong>跌幅不能当估值用。</strong>纳指 100 从高点跌了两成，但只比去年底低 1%。恒生科技跌了近一半，其中一部分是盈利预期自己在掉。该问的是"现价要我相信什么"。</li>
+      <li><strong>网格适合来回震荡的资产，不适合一路向上的资产。</strong>恒生科技四年多在 2,700 到 6,700 之间走了三个来回，买了要记得卖。纳指 100 长期向上，梯子只管买，卖出留给极端估值。</li>
+      <li><strong>红利现在是避风港的后半程。</strong>今年还在涨的差不多只剩红利，钱已经挤进来了。它适合当压舱石和子弹库，不适合当成这轮下跌里"也该抄底"的对象。</li>
+    </ul>
+  </div>
+</section>
+
+<section id="s2">
+  <h2><span class="no">2</span>潮汐：五岁也能懂的版本</h2>
+  <div class="prose">
+    <p>把钱想成水，把股票想成船。每种货币是一片海，央行管着水闸。水闸开大（降息），水位上涨，船浮起来；水闸关小（加息），水位下降，吃水最深的船先搁浅。</p>
+  </div>
+  <div class="seas" role="img" aria-label="示意图：美元海水位在降，人民币海水位在涨，香港在两片海之间的河口">
+    <div class="sea" style="--h:17%;--hm:24px">
+      <div class="water"></div>
+      <div class="in">
+        <h4>美元海</h4><p class="dir">水闸在关，水位在降 ↓</p>
+        <ul>
+          <li><span>政策利率</span><b>3.75%–4.00%</b></li>
+          <li><span>十年期美债</span><b>4.92%</b></li>
+          <li><span>扣掉通胀后</span><b>约 2.8%</b></li>
+          <li><span>美元指数</span><b>103.87</b></li>
+        </ul>
+      </div>
+      <div class="boats"><span class="boat">纳指 100</span><span class="boat">美股红利</span></div>
+    </div>
+    <div class="sea" style="--h:31%;--hm:42px">
+      <div class="water"></div>
+      <div class="in">
+        <h4>香港：河口</h4><p class="dir">利率跟美元，生意在内地</p>
+        <ul>
+          <li><span>港元</span><b>钉住美元</b></li>
+          <li><span>公司的收入</span><b>人民币</b></li>
+          <li><span>恒生科技今年</span><b>−36%</b></li>
+        </ul>
+      </div>
+      <div class="boats"><span class="boat">恒生科技</span><span class="boat">港股红利</span></div>
+    </div>
+    <div class="sea" style="--h:46%;--hm:62px">
+      <div class="water"></div>
+      <div class="in">
+        <h4>人民币海</h4><p class="dir">水闸开着，水位在涨 ↑</p>
+        <ul>
+          <li><span>隔夜政策利率</span><b>1.25%</b></li>
+          <li><span>十年期国债</span><b>1.59%</b></li>
+          <li><span>物价同比</span><b>+0.7%</b></li>
+          <li><span>美元兑人民币</span><b>6.68</b></li>
+        </ul>
+      </div>
+      <div class="boats"><span class="boat">A 股红利</span></div>
+    </div>
+  </div>
+  <p class="src">示意图，水位高低只表示松紧的方向。数据：美联储、美国财政部、中国人民银行、中债估值，截至 11 月 20 日；物价为 10 月 CPI。</p>
+  <ol class="steps">
+    <li><b>水位看利率。</b>扣掉通胀以后的利率越高，水越少。美国现在约 2.8%，年初是 1.9%；10 月 5 日到过 2.95%，比 2023 年那轮加息的高点还高。</li>
+    <li><b>潮水的方向看美元。</b>全世界做生意、借钱都要用美元。美元涨，等于水往美国回流，别处的水位跟着降。</li>
+    <li><b>香港是河口。</b>港元钉住美元，利率只能跟美国走；恒生科技里的公司赚的却是人民币。两片海一退一涨的时候，河口的浪最大。</li>
+  </ol>
+
+  <h3>现在的潮位</h3>
+  <figure>
+    <figcaption><b>美元指数：去年跌了一成，今年 1 月见底，现在回到 19 个月高位</b><span>月末收盘。最后一点是 11 月 20 日。</span></figcaption>
+    <div class="plot" id="dxym"></div>
+    <details class="tv"><summary>看数据表</summary><div class="table-wrap" id="dxym-t"></div></details>
+    <p class="src">来源：convextrade.com（2025 年）、portfolio-terminal.com（2025 年 11 月至 2026 年 10 月）、Investing.com（11 月 20 日）。52 周盘中区间 95.55 到 103.97。</p>
+  </figure>
+  <figure>
+    <figcaption><b>十年期美债：名义利率涨了 0.7 个点，几乎全是"扣掉通胀后的利率"在涨</b><span>百分比，周度。灰色带是美联储的政策利率区间。</span></figcaption>
+    <div class="legend" id="rates-lg"></div>
+    <div class="plot" id="rates"></div>
+    <details class="tv"><summary>看数据表</summary><div class="table-wrap" id="rates-t"></div></details>
+    <p class="src">来源：FRED 的 DGS10 和 T10YIE（经 Equibles），11 月 20 日名义利率取自 Yahoo Finance。扣掉通胀后的利率 = 名义利率 − 十年期通胀预期。</p>
+  </figure>
+  <div class="prose">
+    <p>第二张图里有个细节：市场预期的通胀没怎么动，今年大多在 2.2% 到 2.5% 之间，现在是 2.15%。这说明市场相信美联储会把通胀压下去，代价就是那条橙色的线，也就是扣掉通胀后的利率，它是所有长久期资产的地心引力。纳指这种"钱主要在未来才赚到"的资产，对它最敏感。</p>
+  </div>
+  <div class="table-wrap">
+    <table class="tide cards">
+      <thead><tr><th>潮位计</th><th class="n">年初</th><th class="n">现在</th><th>读数的意思</th><th>什么算转向</th></tr></thead>
+      <tbody>
+        <tr><td data-l="潮位计">美元指数</td><td data-l="年初" class="n">98.28</td><td data-l="现在" class="n">103.87</td><td data-l="读数的意思">今年涨 5.7%，1 月最低到过 95.55</td><td data-l="什么算转向">跌回 100 以下</td></tr>
+        <tr><td data-l="潮位计">美联储政策利率</td><td data-l="年初" class="n">3.50%–3.75%</td><td data-l="现在" class="n">3.75%–4.00%</td><td data-l="读数的意思">9 月 16 日加息；10 月按兵不动，两票主张再加</td><td data-l="什么算转向">明确表示加完了</td></tr>
+        <tr><td data-l="潮位计">两年期美债</td><td data-l="年初" class="n">—</td><td data-l="现在" class="n">4.76%</td><td data-l="读数的意思">比政策利率上限高 0.76 个点，约等于市场认为还要加三次</td><td data-l="什么算转向">跌回政策利率之下</td></tr>
+        <tr><td data-l="潮位计">十年期美债</td><td data-l="年初" class="n">4.18%</td><td data-l="现在" class="n">4.92%</td><td data-l="读数的意思">10 月 5 日收在 5.31%；今年已有 29 天收在 5% 之上，和 2007 年全年一样多</td><td data-l="什么算转向">稳定在 4.5% 以下</td></tr>
+        <tr><td data-l="潮位计">扣掉通胀后的十年期利率</td><td data-l="年初" class="n">1.9%</td><td data-l="现在" class="n">2.8%</td><td data-l="读数的意思">高点 2.95%</td><td data-l="什么算转向">回到 2.3% 以下</td></tr>
+        <tr><td data-l="潮位计">布伦特原油</td><td data-l="年初" class="n">—</td><td data-l="现在" class="n">约 $91</td><td data-l="读数的意思">比一年前高 44%；霍尔木兹海峡仍有袭击</td><td data-l="什么算转向">回到 $75 以下</td></tr>
+        <tr><td data-l="潮位计">高收益债利差</td><td data-l="年初" class="n">—</td><td data-l="现在" class="n">3.52%</td><td data-l="读数的意思">信用市场还没喊疼，美联储没有被逼停的理由</td><td data-l="什么算转向">升过 5% 是"出事"的信号</td></tr>
+        <tr><td data-l="潮位计">黄金</td><td data-l="年初" class="n">1 月纪录 $5,589</td><td data-l="现在" class="n">$3,519</td><td data-l="读数的意思">比纪录低 37%；利率涨，不生息的资产先跌</td><td data-l="什么算转向">—</td></tr>
+        <tr><td data-l="潮位计">美元兑日元</td><td data-l="年初" class="n">156.80</td><td data-l="现在" class="n">159.93</td><td data-l="读数的意思">7 月到过约 164，四十年最弱；日本多次入市干预。日本央行利率 1.25%</td><td data-l="什么算转向">日元急升是套息盘平仓的信号</td></tr>
+        <tr><td data-l="潮位计">美元兑人民币</td><td data-l="年初" class="n">约 7.0</td><td data-l="现在" class="n">6.68</td><td data-l="读数的意思">人民币今年升值 4% 多；央行 11 月 15 日起把外汇存款准备金率从 4% 调到 6%，给升值降速</td><td data-l="什么算转向">—</td></tr>
+        <tr><td data-l="潮位计">中国十年期国债</td><td data-l="年初" class="n">约 1.9%</td><td data-l="现在" class="n">1.59%</td><td data-l="读数的意思">年初一栏是 1 月的高点；11 月 6 日到过 1.58%，历史最低</td><td data-l="什么算转向">回到 1.9% 以上，说明内需回来了</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="src">日元、欧元为 11 月 13 日（FRED 最新值）；两年期美债为 11 月 19 日；其余为 11 月 20 日或最近一期。年初一栏的"—"是我没有取到同口径的年初值。</p>
+</section>
+
+<section id="s3">
+  <h2><span class="no">3</span>以史为鉴：做三轮对照</h2>
+  <h3>第一轮：美元的大潮，五十多年里的八段</h3>
+  <figure>
+    <figcaption><b>美元指数 1967 到 2026：三次大涨，三次大跌，现在是第四次下跌里的反弹，还是新一轮上涨的开头？</b><span>年末收盘，加上几个盘中极值。浅色带是美元上涨的阶段。</span></figcaption>
+    <div class="plot" id="dxylong"></div>
+    <details class="tv"><summary>看数据表</summary><div class="table-wrap" id="dxylong-t"></div></details>
+    <p class="src">来源：1967 至 2018 年取自维基百科"U.S. Dollar Index"的年末表（缺 1978 年）；2019 至 2025 年取自 tradersunion.com 和 convextrade.com，维基这几年的数有误，没有采用。1985 年 2 月的 164.72 和 2008 年 3 月的 70.70 是历史最高和最低。</p>
+  </figure>
+  <div class="table-wrap">
+    <table class="hist cards">
+      <thead><tr><th>阶段</th><th>美元</th><th>美元指数</th><th>那些年在发生什么</th><th>科技股和港股</th></tr></thead>
+      <tbody>
+        <tr><td data-l="阶段">1971–1980</td><td data-l="美元">弱</td><td data-l="美元指数" class="n">约 121 → 85</td><td data-l="那些年在发生什么">布雷顿森林体系瓦解，两次石油危机，滞胀</td><td data-l="科技股和港股">"漂亮 50"在 1973–74 年腰斩；恒生指数同期 −91%</td></tr>
+        <tr><td data-l="阶段">1980–1985</td><td data-l="美元">强</td><td data-l="美元指数" class="n">85 → 164.7</td><td data-l="那些年在发生什么">沃尔克把利率加到近 20%</td><td data-l="科技股和港股">1982 年拉美债务危机；美股到 1982 年 8 月才见底</td></tr>
+        <tr><td data-l="阶段">1985–1995</td><td data-l="美元">弱</td><td data-l="美元指数" class="n">164.7 → 约 80</td><td data-l="那些年在发生什么">广场协议，1987 年股灾</td><td data-l="科技股和港股">日本泡沫；恒生指数 1987 年 −52%，之后到 1995 年底涨到五倍多</td></tr>
+        <tr><td data-l="阶段">1995–2001</td><td data-l="美元">强</td><td data-l="美元指数" class="n">约 80 → 121</td><td data-l="那些年在发生什么">互联网热，亚洲金融危机</td><td data-l="科技股和港股">纳指 100 五年多涨到 11 倍多，然后 −83%；恒生指数 1997–98 年 −60%</td></tr>
+        <tr><td data-l="阶段">2002–2008</td><td data-l="美元">弱</td><td data-l="美元指数" class="n">121 → 70.7</td><td data-l="那些年在发生什么">美国双赤字，中国入世，商品牛市</td><td data-l="科技股和港股">恒生指数 2003–07 年涨到近 4 倍；纳指 100 这七年没回到 2000 年高点的一半</td></tr>
+        <tr><td data-l="阶段">2008–2022</td><td data-l="美元">强</td><td data-l="美元指数" class="n">70.7 → 114.8</td><td data-l="那些年在发生什么">美国科技一枝独秀，欧债危机，美联储先于别国收紧</td><td data-l="科技股和港股">纳指 100 从 2010 年底到 2021 年高点涨到 7.5 倍；恒生指数十一年原地踏步</td></tr>
+        <tr><td data-l="阶段">2022.9–2026.1</td><td data-l="美元">弱</td><td data-l="美元指数" class="n">114.8 → 95.6</td><td data-l="那些年在发生什么">美联储降息，关税，金价涨到 5,589 美元</td><td data-l="科技股和港股">纳指 100 涨到 2.9 倍；恒生科技从 2024 年 9 月的低点涨了 94%</td></tr>
+        <tr class="now"><td data-l="阶段">2026.1–现在</td><td data-l="美元">？</td><td data-l="美元指数" class="n">95.6 → 103.9</td><td data-l="那些年在发生什么">伊朗战争推高油价，通胀回升，美联储重新加息</td><td data-l="科技股和港股">纳指 100 −20%，恒生科技 −48%，红利在涨</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="prose">
+    <p>规律只有一条够硬：<strong>美元的大方向，决定钱愿不愿意离开美国。</strong>美元弱的十年，港股和新兴市场是主场；美元强的十年，美国科技是主场。最后一行还没有答案。两种读法：</p>
+    <ul class="plainlist">
+      <li><strong>读法一：下跌途中的反弹。</strong>2005 年就是这样：美联储一路加息，美元指数全年涨了 12%，等加息在 2006 年停下，美元接着跌到 2008 年。如果是这种，美联储停手的那天，就是河口涨水的那天。</li>
+      <li><strong>读法二：新一轮美元牛市。</strong>像 1980 年的沃尔克：为了压通胀把利率加到所有人都受不了，美元五年涨了九成，先倒下的是借美元的新兴市场。如果是这种，潮水要退好几年，便宜的还会更便宜。</li>
+    </ul>
+    <p>两种读法现在分不出来，要看第 2 节那张潮位表。所以梯子不能只看价格。</p>
+  </div>
+
+  <h3>第二轮：加息撞上科技股，历史上跌多深</h3>
+  <figure>
+    <figcaption><b>纳指历次大跌：一般的跌两三成，加息的跌三成多，盈利塌方的跌一半以上</b><span>从最高收盘到最低收盘。带 * 的三次用纳斯达克综合指数，其余用纳指 100。</span></figcaption>
+    <div class="plot" id="dd"></div>
+    <p class="src">来源：公开行情整理，取整。"现在"按 11 月 20 日 QQQ 的收盘折算。</p>
+  </figure>
+  <div class="table-wrap">
+    <table class="hist cards">
+      <thead><tr><th>年份</th><th>起因</th><th class="n">跌幅</th><th>跌了多久</th><th>靠什么止跌</th><th>高点到高点</th></tr></thead>
+      <tbody>
+        <tr><td data-l="年份">1987*</td><td data-l="起因">十年期美债从 7% 涨到 10%，美元危机</td><td data-l="跌幅" class="n">−36%</td><td data-l="跌了多久">2 个月</td><td data-l="靠什么止跌">美联储放水</td><td data-l="高点到高点">约 2 年</td></tr>
+        <tr><td data-l="年份">1990*</td><td data-l="起因">伊拉克入侵科威特，油价翻倍，衰退</td><td data-l="跌幅" class="n">−31%</td><td data-l="跌了多久">3 个月</td><td data-l="靠什么止跌">油价回落，降息</td><td data-l="高点到高点">约 9 个月</td></tr>
+        <tr><td data-l="年份">1994*</td><td data-l="起因">意外加息，一年从 3% 加到 6%</td><td data-l="跌幅" class="n">−14%</td><td data-l="跌了多久">3 个月</td><td data-l="靠什么止跌">加息接近尾声</td><td data-l="高点到高点">约 1 年</td></tr>
+        <tr><td data-l="年份">2000–02</td><td data-l="起因">加息到 6.5%，互联网资本开支泡沫破裂</td><td data-l="跌幅" class="n">−83%</td><td data-l="跌了多久">31 个月</td><td data-l="靠什么止跌">盈利见底。降息救不了</td><td data-l="高点到高点">15 年</td></tr>
+        <tr><td data-l="年份">2007–08</td><td data-l="起因">信用危机</td><td data-l="跌幅" class="n">−54%</td><td data-l="跌了多久">13 个月</td><td data-l="靠什么止跌">量化宽松</td><td data-l="高点到高点">约 3 年</td></tr>
+        <tr><td data-l="年份">2018</td><td data-l="起因">加息、缩表、贸易战</td><td data-l="跌幅" class="n">−23%</td><td data-l="跌了多久">4 个月</td><td data-l="靠什么止跌">鲍威尔改口</td><td data-l="高点到高点">约 7 个半月</td></tr>
+        <tr><td data-l="年份">2020</td><td data-l="起因">疫情</td><td data-l="跌幅" class="n">−28%</td><td data-l="跌了多久">1 个月</td><td data-l="靠什么止跌">无限量宽松</td><td data-l="高点到高点">约 3 个半月</td></tr>
+        <tr><td data-l="年份">2022</td><td data-l="起因">通胀，一年从 0 加到 4.5%</td><td data-l="跌幅" class="n">−36%</td><td data-l="跌了多久">13 个月</td><td data-l="靠什么止跌">通胀、美元、长端利率见顶</td><td data-l="高点到高点">25 个月</td></tr>
+        <tr><td data-l="年份">2025</td><td data-l="起因">对等关税</td><td data-l="跌幅" class="n">−23%</td><td data-l="跌了多久">1 个半月</td><td data-l="靠什么止跌">关税暂停</td><td data-l="高点到高点">约 4 个月</td></tr>
+        <tr class="now"><td data-l="年份">2026</td><td data-l="起因">通胀回升，重新加息，AI 资本开支被怀疑</td><td data-l="跌幅" class="n">−20%</td><td data-l="跌了多久">1 个半月，还在跌</td><td data-l="靠什么止跌">？</td><td data-l="高点到高点">？</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="prose">
+    <p>历史给的不是答案，是三档深度。把它们换成今天的点位：</p>
+    <ul class="plainlist">
+      <li><strong>第一档，跌 15% 到 25%</strong>（1994、2018、2025）：纳指 100 在 26,540 到 23,420。美联储一松口就结束。现在刚走完这一档。</li>
+      <li><strong>第二档，跌 30% 到 36%</strong>（1987、1990、2022）：21,860 到 19,980。美联储不松口，要等利率和美元自己见顶。</li>
+      <li><strong>第三档，跌一半以上</strong>（2000、2008）：15,610 以下。不是利率的事了，是盈利或信用塌了。</li>
+    </ul>
+  </div>
+  <div class="table-wrap">
+    <table class="hist cards">
+      <thead><tr><th>像哪一年</th><th>像在哪</th><th>不像在哪</th><th>当年的底怎么来的</th></tr></thead>
+      <tbody>
+        <tr><td data-l="像哪一年">2022</td><td data-l="像在哪">通胀逼着加息，美元和利率一起涨，科技股杀估值</td><td data-l="不像在哪">那年盈利预期基本没动；这次市场怀疑的是盈利</td><td data-l="当年的底怎么来的">2022 年 9 月底美元见顶，10 月十年期利率见顶，纳指 12 月底见底，比最后一次加息早七个月</td></tr>
+        <tr><td data-l="像哪一年">2000</td><td data-l="像在哪">加息撞上一轮资本开支热潮，大家都在算投下去的钱赚不赚得回来</td><td data-l="不像在哪">2000 年高点的预期市盈率在 50 倍以上，这次约 21 倍；这次花钱的是最赚钱的几家公司</td><td data-l="当年的底怎么来的">美联储 2001 年 1 月就开始降息，纳指又跌了 21 个月，等盈利见底才停</td></tr>
+        <tr><td data-l="像哪一年">2018</td><td data-l="像在哪">加息加到市场受不了，四个月跌 23%</td><td data-l="不像在哪">那年通胀在 2% 上下，美联储说停就能停；现在约 4%，油价 90 美元</td><td data-l="当年的底怎么来的">2019 年 1 月初鲍威尔改口，纳指 4 月回到前高</td></tr>
+        <tr><td data-l="像哪一年">1990</td><td data-l="像在哪">中东打仗，油价翻倍，通胀抬头</td><td data-l="不像在哪">那次美联储在降息，这次在加息</td><td data-l="当年的底怎么来的">油价回落，三个月见底</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>第三轮：中国科技和红利各自的历史</h3>
+  <div class="table-wrap">
+    <table class="hist cards">
+      <thead><tr><th>恒生科技</th><th>起因</th><th class="n">跌幅</th><th>跌了多久</th><th>靠什么止跌</th><th>之后</th></tr></thead>
+      <tbody>
+        <tr><td data-l="恒生科技">2021.2–2022.10</td><td data-l="起因">平台监管，美联储加息，疫情封控</td><td data-l="跌幅" class="n">−75%</td><td data-l="跌了多久">20 个月</td><td data-l="靠什么止跌">防疫政策转向；同一个月美元见顶</td><td data-l="之后">三个月 +77%</td></tr>
+        <tr><td data-l="恒生科技">2023.1–2024.1</td><td data-l="起因">复苏不及预期，地产下行</td><td data-l="跌幅" class="n">−39%</td><td data-l="跌了多久">12 个月</td><td data-l="靠什么止跌">国家队入市，随后是 2024 年 9 月 24 日的政策转向</td><td data-l="之后">到 2024 年 10 月 +84%</td></tr>
+        <tr><td data-l="恒生科技">2025.3–2025.4</td><td data-l="起因">美国对等关税</td><td data-l="跌幅" class="n">−29%</td><td data-l="跌了多久">3 周</td><td data-l="靠什么止跌">关税暂停</td><td data-l="之后">到 2025 年 10 月 +53%</td></tr>
+        <tr class="now"><td data-l="恒生科技">2025.10–现在</td><td data-l="起因">内需走弱，价格战，AI 投入吃掉现金流，美元利率上行</td><td data-l="跌幅" class="n">−48%</td><td data-l="跌了多久">13 个半月</td><td data-l="靠什么止跌">？</td><td data-l="之后">？</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="src">恒生科技的高低点为盘中或收盘极值，取整：11,002（2021 年 2 月）、2,720（2022 年 10 月）、4,825（2023 年 1 月）、2,950（2024 年 1 月）、5,440（2024 年 10 月）、6,195（2025 年 3 月）、4,401（2025 年 4 月）、6,715（2025 年 10 月）。</p>
+  <div class="prose">
+    <p>三次见底都不是因为"够便宜了"，而是政策或者美元转了向。转向之后弹得很猛，三次分别是 +77%、+84%、+53%，然后又跌回去。这是一条来回震荡的河，不是一条向上的路。</p>
+  </div>
+  <figure>
+    <figcaption><b>六年赛跑：2020 年 1 月的 100 块，现在分别是 289、227 和 52</b><span>含分红，2020 年 1 月底 = 100，对数刻度。KWEB 是在美国上市的中概互联网 ETF，和恒生科技成分相近但不相同。</span></figcaption>
+    <div class="legend" id="race-lg"></div>
+    <div class="plot" id="race"></div>
+    <details class="tv"><summary>看数据表</summary><div class="table-wrap" id="race-t"></div></details>
+    <p class="src">来源：Equibles 月线的复权收盘价，最后一点是 11 月 20 日。</p>
+  </figure>
+  <div class="prose">
+    <p>红利的历史有三课：</p>
+    <ul class="plainlist">
+      <li><strong>泡沫破的时候，钱先躲进价值和红利。</strong>2000 到 2002 年，纳指 100 三年分别跌 37%、33%、38%；罗素 1000 价值指数是 +7%、−6%、−16%。2022 年，SCHD 含分红 −3.3%，纳指 100 的 QQQ 是 −32.6%。</li>
+      <li><strong>信用出事的时候，红利不是避风港。</strong>2008 年高股息指数里银行多，先锋高股息 ETF（VYM）那年跌了 32%。</li>
+      <li><strong>利率往下走的年份，是红利的主场；挤的人多了，它也会踩踏。</strong>2021 到 2023 年沪深 300 三年连跌（−5%、−22%、−11%），中证红利是 +13%、−5%、+1%，2024 年再 +12%。但今年 5 月和 6 月，中证红利两个月跌了 14%。</li>
+    </ul>
+  </div>
+</section>
+
+<section id="s4">
+  <h2><span class="no">4</span>价格里已经装了什么预期</h2>
+  <figure>
+    <figcaption><b>今年的成绩单：红利在涨，美股打平，中国科技垫底</b><span>2026 年初至 11 月 20 日。ETF 含分红，指数不含。</span></figcaption>
+    <div class="plot" id="ytd"></div>
+    <p class="src">来源：Equibles（SCHD、QQQ、KWEB 复权价）、FRED、21 经济网、财联社、汇添富基金（中证红利截至 11 月 17 日）。标普 500 去年收盘 6,845.50，恒生指数 25,630.54，恒生科技 5,515.98，沪深 300 为 4,629.94。</p>
+  </figure>
+  <figure>
+    <figcaption><b>纳指 100 今年的路：3 月战争砸了个坑，两个月涨了三成，10 月见顶后六周半跌掉两成</b><span>周收盘加转折点。最后一点按 QQQ 折算。</span></figcaption>
+    <div class="plot" id="ndxpath"></div>
+    <details class="tv"><summary>看数据表</summary><div class="table-wrap" id="ndxpath-t"></div></details>
+    <p class="src">来源：FRED 的 NASDAQ100（经 Equibles），到 11 月 19 日；11 月 20 日按 QQQ 当日 −5.67% 折算，约 25,010。事件见雅虎财经、CNBC、CNN 的报道。</p>
+  </figure>
+  <div class="prose">
+    <p><strong>这六周半里叠了五件事。</strong>一，10 月通胀比预期高，12 月加息几乎被定价。二，11 月 3 日中期选举后，市场担心对 AI 和数据中心的监管变严，分析师 Dan Ives 把它列在这轮下跌原因的第一条；11 月 5 日纳指 100 单日 −6.4%，是 2020 年 3 月以来最大。三，英伟达创始人黄仁勋 11 月 12 日辞任 CEO；11 月 17 日的财报里收入翻倍，股价照跌；11 月 20 日有媒体报道美国证监会在查它的会计处理，当天 −14%。四，Anthropic 11 月 19 日上市，募资约 810 亿美元，是史上最大的 IPO，抽走了一部分科技股的钱。五，有未经证实的报道说谷歌要削减明年的自研芯片出货，博通当天 −12%。</p>
+  </div>
+
+  <h3>谁在赌什么</h3>
+  <div class="table-wrap">
+    <table class="plain cards">
+      <thead><tr><th>谁</th><th>在赌什么</th><th>证据</th></tr></thead>
+      <tbody>
+        <tr><td data-l="谁">利率市场</td><td data-l="在赌什么">美联储还要加大约三次，但通胀会被压住</td><td data-l="证据">两年期美债 4.76%，比政策利率上限高 0.76 个点；12 月 9 日加息的概率约 95%；十年期通胀预期只有 2.15%</td></tr>
+        <tr><td data-l="谁">卖方策略师</td><td data-l="在赌什么">明年是连续第五年上涨</td><td data-l="证据">八家机构给标普 500 的 2027 年底目标平均 8,638，比现在高 25%；高盛和摩根士丹利都是 8,700</td></tr>
+        <tr><td data-l="谁">基金经理</td><td data-l="在赌什么">AI 资本开支要踩刹车</td><td data-l="证据">美银 11 月调查：科技股超配比例从 37% 砍到 12%，是 2006 年以来最大的单月降幅；52% 的人预计半年内至少一家超大厂会宣布削减资本开支；只有 3% 预期明年衰退</td></tr>
+        <tr><td data-l="谁">分析师的盈利预测</td><td data-l="在赌什么">还没动</td><td data-l="证据">标普 500 未来 12 个月的每股盈利预测是 $415.82，今年以来上调了 33.6%</td></tr>
+        <tr><td data-l="谁">股价</td><td data-l="在赌什么">盈利预测要砍掉一成多</td><td data-l="证据">纳指 100 约 16.8 倍；按 25 年的中位数 20.3 倍倒推，等于盈利预测被砍 17%</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="prose">
+    <p>最后两行是关键。分析师的数字和股价对不上，总有一边要动。四家超大厂今年的资本开支指引合计约 7,200 到 7,400 亿美元，市场对明年的一致预期在 9,300 亿到 1 万亿美元之间。美银的测算是，五家公司明年要花 1.31 万亿美元，派完股息后自由现金流的缺口有 2,500 亿美元。钱不够花，要么借，要么砍。</p>
+  </div>
+  <figure>
+    <figcaption><b>纳指 100 的预期市盈率：现在约 16.8 倍，回到了 2018 年底的水平</b><span>年末值。金色是现在。横线是 2001 年以来的中位数 20.3 倍，浅色带是中间一半的区间 17.5 到 26.1 倍。</span></figcaption>
+    <div class="plot" id="pehist"></div>
+    <details class="tv"><summary>看数据表</summary><div class="table-wrap" id="pehist-t"></div></details>
+    <p class="src">来源：年末值取自 historyofmarket.com（CC BY 4.0），2005 年无数据；现值按 dollarliquidity.com 11 月 19 日的 17.86 倍和 11 月 20 日的跌幅折算。两家口径略有不同，取整看。同一天标普 500 约 16.6 倍（FactSet 口径），半导体板块约 12 倍，是五年里最低的 1%。</p>
+  </figure>
+  <div class="prose">
+    <p>注意 2021 年底是 28 倍，2001 年底是 52 倍。这一次的高点只有 21 到 22 倍。所以这不是一个"市盈率泡沫"；如果有泡沫，是在盈利里。下面这张表看得更清楚：便宜的是芯片和要花大钱的那几家，苹果反而成了避风港。</p>
+  </div>
+  <figure>
+    <figcaption><b>八家最大的公司：英伟达和谷歌 13 倍，苹果 36 倍</b><span>11 月 20 日收盘。预期市盈率用的是"今天之后结束的第一个财年"的一致预期。</span></figcaption>
+    <div class="table-wrap"><table class="mega" id="mega"></table></div>
+    <p class="src">来源：Equibles。谷歌和亚马逊过去 12 个月的净利润比经营利润分别高出约 790 亿和 290 亿美元，里面有大笔投资收益，所以它们的市盈率要对着"企业价值 ÷ 经营利润"那一栏一起看。特斯拉的 201 倍超出了条形图的刻度。</p>
+  </figure>
+
+  <h3>中国科技：便宜有三层原因</h3>
+  <div class="prose">
+    <p>恒生科技的预期市盈率约 12 倍。中信证券 11 月 4 日的口径是 13.1 倍，处在指数推出以来 2.4% 的分位，之后指数又跌了一成。滚动市盈率约 19 倍，近十年里只有不到六分之一的时间比它低。</p>
+    <ul class="plainlist">
+      <li><strong>盈利预期在掉。</strong>今年上半年，成分股 2026 年的盈利预测从约 7,000 亿港元降到约 6,000 亿，砍了 14%。原因是内需弱，外卖和汽车在打价格战。</li>
+      <li><strong>AI 投入开始吃现金流。</strong>腾讯三季度收入 +8%，资本开支 814 亿元，是去年同期的 6 倍多；自由现金流 −691 亿元，公司从净现金变成净负债 137 亿元。管理层说投入会在这个高位持续到 2027 年，2028 年起回落。阿里同季的资本开支是 505 亿元。腾讯股价 344 港元，比 52 周高点 633 港元低 46%。</li>
+      <li><strong>买的人少了。</strong>南向资金今年前九个月净买入 4,282 亿港元，去年全年是 1.4 万亿。外资在 2025 年 10 月到 2026 年 5 月净流出约 300 亿美元。</li>
+    </ul>
+    <p>中美关系这次不是主因。两国元首 11 月 19 日在深圳会晤，是今年第三次；关税休战延到了明年 1 月。但芯片在收紧：美国 11 月 16 日把管制扩到海外数据中心的远程算力，英伟达 11 月 17 日说不再向中国卖 H200。</p>
+  </div>
+
+  <h3>红利：和国债比，中美正好相反</h3>
+  <figure>
+    <figcaption><b>同样叫红利，A 股比国债多拿 2.8 个点，美股比国债少拿 1.8 个点</b><span>百分比。空心圆是十年期国债收益率，实心圆是股息率，中间的数是差。</span></figcaption>
+    <div class="legend" id="gap-lg"></div>
+    <div class="plot" id="gap"></div>
+    <p class="src">来源：中证红利为 11 月 18 日（Wind，经 21 经济网）；恒生高股息率指数为 8 月 31 日的官方月报，之后指数有变动；SCHD 按最近四次分红合计 $1.055 和 11 月 20 日收盘 $33.94 计算。港股通买 H 股要扣 20% 红利税，6.68% 税后约 5.3%。</p>
+  </figure>
+  <div class="prose">
+    <p><strong>A 股红利：</strong>中证红利的滚动市盈率 9.36 倍，在近十年里比 89% 的时间都贵。它今年涨了 1%，而沪深 300 跌了近 15%。相对自己偏贵，相对 1.59% 的国债仍然便宜，这两句话同时成立。</p>
+    <p><strong>美股红利：</strong>SCHD 今年含分红涨了 27%，油价和避险的钱都帮了忙。股息率被涨到 3.1%，靠近它五年区间的下沿。在美国，三个月的国库券都给 4.3%。</p>
+    <p><strong>港股红利：</strong>同一只股票，两种利差。拿人民币的人看到 5 个点，所以南向资金一直在买；拿美元的人看到不到 2 个点，没有理由追。它涨不涨，取决于哪一边的钱说了算。</p>
+  </div>
+</section>
+
+<section id="s5">
+  <h2><span class="no">5</span>变量：十四个旋钮，谁在拧</h2>
+  <div class="prose"><p>每个变量只记三件事：现在读数是多少，往哪边走对谁好，盯哪个数。类型一栏里，"周期"会回来，"结构"不一定回来，"事件"是某一天的事，"尾部"是小概率大后果。</p></div>
+  <div class="table-wrap">
+    <table class="vt cards">
+      <thead><tr><th>变量</th><th>现在的读数</th><th>往哪边走对谁好</th><th>类型</th><th>盯什么</th></tr></thead>
+      <tbody>
+        <tr><td data-l="变量">美联储</td><td data-l="现在的读数">3.75%–4.00%。9 月加息是全票，10 月有两票想再加。12 月 9 日加息的概率约 95%</td><td data-l="往哪边走对谁好">停止加息是这一轮最重要的转向信号，对纳指和恒科都是利好；继续加到 4.5% 以上是 2022 年的剧本</td><td data-l="类型"><span class="tagk">周期</span></td><td data-l="盯什么">12 月 9 日的利率预测；两年期美债是否跌回 4% 以下</td></tr>
+        <tr><td data-l="变量">油价和伊朗</td><td data-l="现在的读数">布伦特约 $91，比一年前高 44%。2 月底开战以来，霍尔木兹海峡时断时续，11 月仍有船只遇袭</td><td data-l="往哪边走对谁好">油价是这轮通胀的源头。回到 $75 以下，美联储才有停手的理由；美股红利里能源股多，方向相反</td><td data-l="类型"><span class="tagk">事件</span></td><td data-l="盯什么">海峡通行量；国际能源署预计本季度供应过剩约 200 万桶/日</td></tr>
+        <tr><td data-l="变量">美国通胀</td><td data-l="现在的读数">10 月 CPI 环比 +0.4%，核心 +0.3%，都比预期高。因为去年 10 月政府停摆缺数据，官方没给同比；估算约 4%，核心约 2.8%</td><td data-l="往哪边走对谁好">核心环比回到 0.2% 以下，加息预期才会退</td><td data-l="类型"><span class="tagk">周期</span></td><td data-l="盯什么">11 月 CPI 和 PCE</td></tr>
+        <tr><td data-l="变量">AI 资本开支</td><td data-l="现在的读数">四家超大厂今年指引合计约 7,200 到 7,400 亿美元，明年一致预期 9,300 亿到 1 万亿。美银调查里 52% 的基金经理预计半年内有人削减</td><td data-l="往哪边走对谁好">削减：芯片盈利下修，纳指利空；但平台公司现金流变好。继续加码：芯片受益，现金流和负债是隐患</td><td data-l="类型"><span class="tagk">结构</span></td><td data-l="盯什么">明年 1 月底到 2 月初的四季报，各家给的 2027 年数字</td></tr>
+        <tr><td data-l="变量">盈利预测</td><td data-l="现在的读数">标普 500 未来 12 个月每股盈利 $415.82，今年上调了 33.6%。纳指 100 约 1,485 点</td><td data-l="往哪边走对谁好">这一轮的核心。下调一成，纳指的"便宜"就少一成</td><td data-l="类型"><span class="tagk">周期</span></td><td data-l="盯什么">FactSet 每周更新；下调是否加速</td></tr>
+        <tr><td data-l="变量">英伟达</td><td data-l="现在的读数">创始人 11 月 12 日辞任 CEO；媒体报道证监会在查会计处理；不再向中国卖 H200。股价比高点低 47.5%，预期市盈率 13 倍</td><td data-l="往哪边走对谁好">单一公司，但它是整个半导体板块盈利的锚</td><td data-l="类型"><span class="tagk">事件</span></td><td data-l="盯什么">调查是否正式立案；明年 2 月的财报</td></tr>
+        <tr><td data-l="变量">股票供给</td><td data-l="现在的读数">Anthropic 11 月 19 日上市，募资约 810 亿美元，创纪录；SpaceX 6 月上市</td><td data-l="往哪边走对谁好">大型 IPO 和之后的解禁，会从别的科技股里抽钱</td><td data-l="类型"><span class="tagk">事件</span></td><td data-l="盯什么">解禁日；后面还有谁排队</td></tr>
+        <tr><td data-l="变量">日元</td><td data-l="现在的读数">美元兑日元约 160，7 月到过约 164。日本央行今年两次加息到 1.25%，日本多次入市干预</td><td data-l="往哪边走对谁好">日元突然大涨，说明借日元买全球资产的钱在撤，所有风险资产一起跌，像 2024 年 8 月</td><td data-l="类型"><span class="tagk">尾部</span></td><td data-l="盯什么">日本央行 12 月会议；一周内升值超过 5%</td></tr>
+        <tr><td data-l="变量">信用</td><td data-l="现在的读数">美国高收益债利差 3.52%，金融条件指数仍然偏松</td><td data-l="往哪边走对谁好">利差急升先是坏消息（去杠杆），后是好消息（逼美联储转向）</td><td data-l="类型"><span class="tagk">尾部</span></td><td data-l="盯什么">利差升过 5%；超大厂和私募信贷的发债情况</td></tr>
+        <tr><td data-l="变量">美国政治</td><td data-l="现在的读数">中期选举 11 月 3 日举行。美联社的计票显示：截至太平洋时间 11 月 20 日晚 8:48，参议院民主党合计 56 席、共和党 44 席；截至晚 8:49，众议院民主党已赢得 257 席、共和党 173 席。按这份结果数，另有 5 个众议院席位没有算作任何一党赢得，结果里没有说原因和去向。这些数之后可能有变化</td><td data-l="往哪边走对谁好">分析师 Dan Ives 把"担心对 AI 和数据中心的监管变严"列为这轮下跌的第一条原因</td><td data-l="类型"><span class="tagk">结构</span></td><td data-l="盯什么">明年 1 月新一届国会就任后的 AI、关税立法</td></tr>
+        <tr><td data-l="变量">中国内需和政策</td><td data-l="现在的读数">三季度 GDP 同比 +4.5%，10 月 CPI +0.7%。十年期国债 1.59%。贷款市场报价利率连续 18 个月没动；11 月初央行把隔夜政策利率定在 1.25%</td><td data-l="往哪边走对谁好">扩内需的力度决定恒生科技的盈利。对红利是反的：利率回升、钱去追成长，红利相对吃亏</td><td data-l="类型"><span class="tagk">周期</span></td><td data-l="盯什么">12 月的中央政治局会议和中央经济工作会议</td></tr>
+        <tr><td data-l="变量">中美</td><td data-l="现在的读数">两国元首 11 月 19 日在深圳会晤，今年第三次。关税休战延长两个月，到明年 1 月。美国 11 月 16 日收紧 AI 芯片的远程使用</td><td data-l="往哪边走对谁好">缓和对恒科是利好，但今年的下跌说明它不是主因</td><td data-l="类型"><span class="tagk">事件</span></td><td data-l="盯什么">1 月休战到期后怎么续；实体清单</td></tr>
+        <tr><td data-l="变量">人民币</td><td data-l="现在的读数">6.68，年初约 7.0。央行 11 月 15 日起上调外汇存款准备金率，给升值降速</td><td data-l="往哪边走对谁好">人民币升值，美元资产换回人民币要打折；港股公司的人民币利润换成港元变多</td><td data-l="类型"><span class="tagk">周期</span></td><td data-l="盯什么">中间价；年底的结汇高峰</td></tr>
+        <tr><td data-l="变量">红利的拥挤</td><td data-l="现在的读数">中证红利滚动市盈率 9.36 倍，近十年 89% 分位。11 月中旬它和全部 A 股的 40 日收益差超过 15 个点</td><td data-l="往哪边走对谁好">越挤，回撤越急。今年 5 到 6 月它两个月跌了 14%</td><td data-l="类型"><span class="tagk">结构</span></td><td data-l="盯什么">年报分红有没有下降；煤价和银行息差</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="s6">
+  <h2><span class="no">6</span>剧本：八种走法，概率你来给</h2>
+  <div class="prose">
+    <p>每个剧本回答同一个问题：到 2027 年底，四个篮子各在哪。科技股用"盈利变多少 × 市场给几倍"算；红利用"市场要多高的股息率 × 股息变多少"算。格子里是相对现价的涨跌，蓝色是涨，红色是跌，和 A 股软件的颜色相反。</p>
+    <p>默认概率是我给的一组示意，不是预测。拖动滑块换成你自己的判断，下面四个数会跟着变。</p>
+  </div>
+  <div class="tool">
+    <div class="table-wrap"><table class="scn" id="scn"></table></div>
+    <div class="ev4" id="ev4"></div>
+    <p class="note" id="ev-note"></p>
+  </div>
+  <div class="prose" style="margin-top:18px">
+    <p>按默认概率读这张表，有三点：</p>
+    <ul class="plainlist">
+      <li><strong>纳指 100 的现价大致公平。</strong>八个剧本加权下来和现价差不多，一半剧本在现价之上，一半在之下。它没有被错杀，只是不再贵。</li>
+      <li><strong>恒生科技的赔率最好，分歧也最大。</strong>最好和最坏的剧本之间差了一倍多。它需要的不是美国变好，是中国自己转向。</li>
+      <li><strong>两个红利差得很远。</strong>A 股红利在大多数剧本里都能拿到股息加一点价差。按默认概率，它的预期回报是四个里最高的，靠的是 4.4% 的股息，不是涨价；它没怎么跌过，所以谈不上抄底。美股红利在八个剧本里有五个跑不过一年期国库券。</li>
+    </ul>
+    <p>沿着这八个剧本，我另外给两只股票各做了一页推演：<a href="../moutai/">贵州茅台</a>和<a href="../mindray/">迈瑞医疗</a>。</p>
+  </div>
+</section>
+
+<section id="s7">
+  <h2><span class="no">7</span>买卖边界：模糊的正确</h2>
+  <div class="prose">
+    <p>不求一个精确的数，求几把互相独立的尺子指向同一段。先用纳指 100 示范。</p>
+  </div>
+  <div class="rulers">
+    <div><b>信念的尺子</b>盈利预测被砍四分之一，市场也只给中位数的 20.3 倍<span class="big">22,600</span>不需要概率，只需要一条底线。</div>
+    <div><b>历史的尺子</b>九次大跌里去掉两次盈利塌方，剩下七次的中位数是 −28%<span class="big">22,480</span>1987、1990、1994、2018、2020、2022、2025。</div>
+    <div><b>利率的尺子</b>盈利收益率比扣掉通胀后的利率高 4 个点<span class="big">21,930</span>2022 年底见底时高约 3.4 个点，2018 年底高约 5 个点；现在是 3.2 个点。</div>
+  </div>
+  <div class="prose">
+    <p><strong>三把尺子都落在 22,000 上下。</strong>所以纳指 100 的买入区从 24,100 开始，到 21,100 为止；再往下是为第二档、第三档下跌准备的深水区。现价约 25,010，在买入区的门外一步。</p>
+    <p>同样的办法用到四个篮子上：</p>
+  </div>
+  <figure>
+    <figcaption><b>四个篮子的分区</b><span>纳指 100 和恒生科技是指数点位，两个红利是股息率。金色底的格子是现价所在的区。</span></figcaption>
+    <p class="swipe">左右滑动看全表。</p>
+    <div class="table-wrap"><table class="zones" id="zones"></table></div>
+    <p class="src">纳指 100：按未来 12 个月预期盈利约 1,485 点、中位数 20.3 倍，分界线是盈利预测被砍 30%、20%、10%，以及 22.5 倍和 26.1 倍。恒生科技：按约 12 倍的预期市盈率倒推盈利，参考倍数取 16 倍，分界线是盈利被砍 40%、20%、0，以及 19 倍和 23 倍。中证红利和 SCHD 按股息率分区，SCHD 的每股分红按最近四次合计 $1.055。</p>
+  </figure>
+  <div class="prose">
+    <p><strong>恒生科技已经在买入区里。</strong>现价等于赌：盈利预测再砍四分之一，而且市场只给 16 倍；或者盈利不动，市场永远只给 12 倍。2022 年的最低点 2,720 在深水区的门口。</p>
+    <p><strong>两个红利都在持有区。</strong>A 股红利离买入区差 12% 的跌幅，美股红利差 18%。它们是现在最不需要着急的两个篮子。</p>
+    <p><strong>卖出边界：</strong>纳指 100 在 22.5 倍以上卖掉梯子上买的部分，底仓只在 26 倍以上才谈卖。假设盈利每年涨 10%、五年后回到 20.3 倍，买在 25.7 倍的五年年化回报正好等于现在的十年期美债收益率 4.92%，再贵就不如买国债。恒生科技从 5,560（19 倍）开始卖，2024 和 2025 年的三个高点在 5,440 到 6,715 之间。A 股红利的股息率跌破 4% 开始减，美股红利跌破 3%。</p>
+  </div>
+
+  <h3>三个旋钮，自己拧一拧</h3>
+  <div class="prose"><p>选一个篮子，回答三个问题：盈利（或股息）先被砍多少，之后每年涨多少，五年后市场给什么价。左边是按现价买入的五年年化回报，中间是同期限国债给多少，右边是要拿到你想要的回报，最高能出什么价。</p></div>
+  <div class="tool" id="calc">
+    <div class="presets" role="group" aria-label="篮子"><span>篮子</span>
+      <button class="chip" type="button" data-b="ndx">纳指 100</button>
+      <button class="chip" type="button" data-b="hst">恒生科技</button>
+      <button class="chip" type="button" data-b="zz">中证红利</button>
+      <button class="chip" type="button" data-b="schd">SCHD</button>
+    </div>
+    <div class="presets" role="group" aria-label="预设" id="presets"></div>
+    <div class="knobs">
+      <div class="knob"><label for="k1" id="k1l"></label><output id="k1o"></output><input id="k1" type="range"><small id="k1s"></small></div>
+      <div class="knob"><label for="k2" id="k2l"></label><output id="k2o"></output><input id="k2" type="range"><small id="k2s"></small></div>
+      <div class="knob"><label for="k3" id="k3l"></label><output id="k3o"></output><input id="k3" type="range"><small id="k3s"></small></div>
+    </div>
+    <div class="out">
+      <div class="stat big"><div class="k">按现价买，五年年化回报</div><div class="v" id="c-ret"></div><div class="d" id="c-retd"></div></div>
+      <div class="stat"><div class="k" id="c-bondk"></div><div class="v" id="c-bond"></div><div class="d" id="c-bondd"></div></div>
+      <div class="stat"><div class="k"><label for="k4">想要的年回报 </label><output id="k4o"></output></div><input id="k4" type="range" min="4" max="20" step="1" value="10" style="width:100%;accent-color:var(--navy)"><div class="v" id="c-buy"></div><div class="d" id="c-buyd"></div></div>
+    </div>
+    <p class="note" id="c-note"></p>
+  </div>
+</section>
+
+<section id="s8">
+  <h2><span class="no">8</span>抄底网格</h2>
+  <div class="prose">
+    <p>两条通道。价格通道管"多便宜才买"，潮汐通道管"潮水变了以后，要不要改规则"。</p>
+  </div>
+  <h3>价格通道</h3>
+  <div class="tool" id="gridtool">
+    <div class="presets" role="group" aria-label="篮子"><span>篮子</span>
+      <button class="chip" type="button" data-g="ndx">纳指 100</button>
+      <button class="chip" type="button" data-g="hst">恒生科技</button>
+      <button class="chip" type="button" data-g="zz">中证红利</button>
+      <button class="chip" type="button" data-g="schd">SCHD</button>
+    </div>
+    <div class="gridform">
+      <div><label for="g-b">这个篮子的总预算</label><input id="g-b" type="number" min="0" step="1000" value="100000"></div>
+      <div><label for="g-t" id="g-tl">最高一格</label><input id="g-t" type="number" step="any"></div>
+      <div><label for="g-l" id="g-ll">最低一格</label><input id="g-l" type="number" step="any"></div>
+      <div><label for="g-n">格数</label><input id="g-n" type="number" min="3" max="12" step="1" value="6"></div>
+      <div><label for="g-s">上轻下重</label><input id="g-s" type="range" min="1" max="1.8" step="0.05" value="1.25"><output id="g-so"></output></div>
+    </div>
+    <div class="table-wrap"><table class="grid" id="gridt"></table></div>
+    <p class="note" id="grid-note"></p>
+    <h3 style="margin-top:26px">拿八个剧本给这架梯子体检</h3>
+    <p class="note" style="margin-top:0">每个剧本假设了一个中途的最低点。价格高于最低点的格子算买到。概率用的是第 6 节的滑块。</p>
+    <div class="table-wrap"><table class="chk" id="chk"></table></div>
+    <p class="note" id="chk-note"></p>
+  </div>
+
+  <h3>潮汐通道</h3>
+  <div class="lights">
+    <div>
+      <h3><span class="lamp" style="background:var(--b4)"></span>可以提前一格</h3>
+      <ul>
+        <li>两年期美债收益率跌回政策利率上限以下。现在高 0.76 个点。</li>
+        <li>美元指数跌回 100 以下，或者扣掉通胀后的十年期利率回到 2.3% 以下。</li>
+        <li>布伦特原油回到 $75 以下。</li>
+        <li>超大厂给出明年的资本开支，而且讲清楚钱从哪来；盈利预测不再下调。</li>
+        <li>中国：12 月的会议拿出超预期的扩内需；南向资金重新加速；恒生科技的盈利预测一个季度不再下调。</li>
+      </ul>
+    </div>
+    <div>
+      <h3><span class="lamp" style="background:var(--r4)"></span>价格到了也先不买</h3>
+      <ul>
+        <li>高收益债利差升过 5%，或者有超大厂、私募信贷出信用事件。这是踩踏阶段，只动深水区的格子。</li>
+        <li>盈利预测一个月内下调超过 5%。等它砍完。</li>
+        <li>美元兑日元一周内急跌 5% 以上，说明套息盘在平仓。</li>
+        <li>中美：关税休战破裂，或者出现新的实体清单、退市威胁。只影响恒生科技。</li>
+        <li>红利：成分股分红同比下降，或者中国十年期国债很快回到 2% 以上。</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>卖出阶梯</h3>
+  <div class="table-wrap">
+    <table class="sell cards">
+      <thead><tr><th>篮子</th><th>到这里</th><th>做什么</th></tr></thead>
+      <tbody>
+        <tr><td data-l="篮子">纳指 100</td><td data-l="到这里">预期市盈率回到 20 倍，按现在的盈利预测约 29,690</td><td data-l="做什么">不再买入</td></tr>
+        <tr><td data-l="篮子">纳指 100</td><td data-l="到这里">22.5 到 26 倍，约 33,400 到 38,750</td><td data-l="做什么">梯子上买的部分分三次卖</td></tr>
+        <tr><td data-l="篮子">纳指 100</td><td data-l="到这里">26 倍以上</td><td data-l="做什么">底仓也开始减</td></tr>
+        <tr><td data-l="篮子">恒生科技</td><td data-l="到这里">4,680，约 16 倍</td><td data-l="做什么">卖掉最低两格买的</td></tr>
+        <tr><td data-l="篮子">恒生科技</td><td data-l="到这里">5,560 到 6,730，约 19 到 23 倍</td><td data-l="做什么">梯子上买的部分分三次卖</td></tr>
+        <tr><td data-l="篮子">恒生科技</td><td data-l="到这里">6,730 以上</td><td data-l="做什么">只留底仓</td></tr>
+        <tr><td data-l="篮子">中证红利</td><td data-l="到这里">股息率跌破 4%，价格比现在高约 10%</td><td data-l="做什么">停止买入，梯子上买的卖出</td></tr>
+        <tr><td data-l="篮子">中证红利</td><td data-l="到这里">跌破 3.5%，或者只比十年期国债高不到 2 个点</td><td data-l="做什么">底仓也减</td></tr>
+        <tr><td data-l="篮子">SCHD</td><td data-l="到这里">股息率低于 3%，约 $35.17 以上</td><td data-l="做什么">不买</td></tr>
+        <tr><td data-l="篮子">SCHD</td><td data-l="到这里">低于 2.7%，约 $39.07 以上</td><td data-l="做什么">减</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="src">点位按今天的盈利预测和分红折算。盈利和分红变了，点位跟着变，倍数和股息率的线不变。</p>
+
+  <h3>六条纪律</h3>
+  <ol class="verdict">
+    <li><b>先定每个篮子最多放多少钱，再谈格子。</b>梯子买满，也不该超过这个数。</li>
+    <li><b>一格一格买。</b>不跳格，不补"错过的那一格"。</li>
+    <li><b>红灯亮时，价格到了也不买；绿灯亮时，最多提前一格。</b></li>
+    <li><b>美元资产要另算汇率。</b>人民币今年对美元升了 4% 多。拿人民币或新加坡元的人，纳指涨的要先抵掉这一段。</li>
+    <li><b>每个季度重算一次刻度。</b>盈利预测变了，尺子跟着变。</li>
+    <li><b>买不满是常态。</b>深水区的钱宁可闲着；美元现金一年也有 4% 多的利息。</li>
+  </ol>
+
+  <h3>四个篮子用什么买</h3>
+  <div class="table-wrap">
+    <table class="plain cards">
+      <thead><tr><th>篮子</th><th>看的指数</th><th>常见的工具（举例，不是推荐）</th><th>要留意</th></tr></thead>
+      <tbody>
+        <tr><td data-l="篮子">美股科技</td><td data-l="看的指数">纳斯达克 100</td><td data-l="常见的工具（举例，不是推荐）">美股 QQQ；港股 2834；A 股 513100</td><td data-l="要留意">A 股的跨境 ETF 常有溢价，溢价本身就是成本</td></tr>
+        <tr><td data-l="篮子">中国科技</td><td data-l="看的指数">恒生科技</td><td data-l="常见的工具（举例，不是推荐）">港股 3033；A 股 513130；美股 KWEB</td><td data-l="要留意">KWEB 跟踪的是中概互联网，成分不完全相同</td></tr>
+        <tr><td data-l="篮子">A 股红利</td><td data-l="看的指数">中证红利</td><td data-l="常见的工具（举例，不是推荐）">515080；红利低波 512890</td><td data-l="要留意">每年 6、7 月集中除息，价格指数会"多跌"一截</td></tr>
+        <tr><td data-l="篮子">港股红利</td><td data-l="看的指数">恒生高股息率</td><td data-l="常见的工具（举例，不是推荐）">港股 3110</td><td data-l="要留意">经港股通买 H 股要扣 20% 红利税</td></tr>
+        <tr><td data-l="篮子">美股红利</td><td data-l="看的指数">道琼斯美国红利 100</td><td data-l="常见的工具（举例，不是推荐）">美股 SCHD</td><td data-l="要留意">非美国居民的股息有预扣税</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="s9">
+  <h2><span class="no">9</span>哪天有事</h2>
+  <ul class="cal">
+    <li><b>12 月 9 日</b><span>美联储议息，同时公布新的利率预测。加息 25 个基点的概率约 95%。要看的是明年还打算加几次。</span></li>
+    <li><b>12 月中上旬</b><span>中央政治局会议和中央经济工作会议，定明年的政策基调。去年是 12 月 10 日到 11 日。</span></li>
+    <li><b>12 月</b><span>日本央行会议。日元在 160 附近，再加息或者再干预，都可能引出套息盘平仓。</span></li>
+    <li><b>2027 年 1 月</b><span>中美关税休战到期。11 月 10 日延长了两个月。</span></li>
+    <li><b>1 月下旬到 2 月上旬</b><span>微软、谷歌、亚马逊、Meta 的四季报，给出 2027 年的资本开支。这是 AI 这条线上最重要的一组数字。</span></li>
+    <li><b>2 月下旬</b><span>英伟达财报。</span></li>
+    <li><b>3 月</b><span>全国两会，定增长目标和赤字率；腾讯、阿里的年报和回购计划。</span></li>
+  </ul>
+  <p class="src">日期按往年惯例和已公布的日程整理，后三项可能变动。</p>
+</section>
+
+<section id="s10">
+  <h2><span class="no">10</span>方法、可能错的地方、来源</h2>
+  <div class="aside" style="margin-top:0;max-width:none">
+    <h3 style="margin-top:0">模型怎么算的</h3>
+    <ul>
+      <li><strong>科技股：</strong>点位 = 未来 12 个月的预期盈利 × 预期市盈率。纳指 100 的预期盈利按 11 月 19 日的 26,517.05 点和 17.86 倍倒推，约 1,485 点。恒生科技按现价和约 12 倍倒推。"盈利被砍多少"都是相对这两个数。</li>
+      <li><strong>红利：</strong>价格变化 = 现在的股息率 ÷ 将来市场要求的股息率 ×（1 + 股息变化）− 1。总回报再加上持有期间收到的股息。</li>
+      <li><strong>五年年化回报</strong>（第 7 节的旋钮）：科技股是（1 − 砍掉的比例）×（1 + 增速）的五次方 × 五年后的倍数 ÷ 现在的倍数，再开五次方，没有算股息，纳指 100 的股息约 0.6%。红利是股息率 + 股息增速 + 估值变化的年化。</li>
+      <li><strong>剧本：</strong>终点是 2027 年底，离现在约 1.1 年。期望值是八个剧本终点的概率加权。"想要 10% 的预期回报"的买入价 = 期望值 ÷ 1.10 的 1.1 次方。</li>
+      <li><strong>网格：</strong>价格等比排列，每格的金额是上一格的固定倍数。体检时，价格不低于剧本最低点的格子算成交，盈亏按剧本终点计算，红利没有加股息。</li>
+    </ul>
+    <h3>哪些地方可能错</h3>
+    <ul>
+      <li><strong>纳指 100 在 11 月 20 日的点位是折算的。</strong>我取到的指数数据到 11 月 19 日，11 月 20 日按 QQQ 的跌幅算，约 25,010。</li>
+      <li><strong>预期市盈率各家口径不同。</strong>纳指 100 用的两个网站彼此能差 1 到 2 倍；恒生科技的 12 倍是按中信证券 11 月 4 日的 13.1 倍和之后的跌幅折算的，可能在 11.7 到 12.4 倍之间。</li>
+      <li><strong>中证红利的股息率有几种算法</strong>，彼此差 0.3 到 0.5 个点。这里用的是 Wind 口径的 4.39%。恒生高股息率指数的 6.68% 是 8 月底的数。</li>
+      <li><strong>历史表里的点位取整</strong>，1987 到 1994 年用的是纳斯达克综合指数。几个较早的数字（比如 2008 年先锋高股息 ETF 的跌幅、罗素 1000 价值指数 2000 到 2002 年的回报）是凭公开记录整理的，没有在这次重新取数核对。</li>
+      <li><strong>剧本的概率、每个剧本里的盈利和倍数、中途的最低点，都是我的判断。</strong>它们的用处是让你看到结论对哪些假设敏感，不是预测。</li>
+      <li><strong>没有算汇率、税和交易成本。</strong>没有算恒生科技的股息。没有考虑你的整体仓位。</li>
+    </ul>
+    <h3>来源</h3>
+    <ul class="sources">
+      <li>行情、估值、股息和 FRED 宏观序列：<a href="https://equibles.com/economicdata">Equibles</a>（QQQ、KWEB、SCHD 月线；NASDAQ100、DGS10、T10YIE、汇率；八家公司的估值倍数；SCHD 分红）。</li>
+      <li>美元指数：<a href="https://en.wikipedia.org/wiki/U.S._Dollar_Index">维基百科</a>年末表，<a href="https://tradersunion.com/currencies/price-history/dxy-usd/">Traders Union</a>，<a href="https://convextrade.com/metrics/dxy/history/2025">Convex</a>，<a href="https://portfolio-terminal.com/markets/us-dollar-index/november-2026">Portfolio Terminal</a>，<a href="https://www.investing.com/indices/usdollar-historical-data">Investing.com</a>。</li>
+      <li>美股估值：<a href="https://dollarliquidity.com/en/valuation/nasdaq-100-forward-pe">dollarliquidity.com</a>（纳指 100、标普 500、半导体的预期市盈率，11 月 19 日）；<a href="https://historyofmarket.com/nasdaq/ndx-forward-pe/">History of Market</a>（年末预期市盈率，CC BY 4.0）；<a href="https://insight.factset.com/lowest-forward-12-month-p/e-ratio-for-the-sp-500-in-more-than-3-years">FactSet</a>（标普 500 盈利预测，11 月 6 日）。</li>
+      <li>11 月 20 日的美股：<a href="https://finance.yahoo.com/markets/live/stock-market-today-friday-november-19-dow-sp-500-nasdaq-anthropic-nvidia-141644188.html">雅虎财经</a>，<a href="https://www.fool.com/coverage/stock-market-today/2026/11/20/stock-market-today-nov-20-stocks-plunge-as-ai-trade-unwinds/">The Motley Fool</a>；11 月 5 日和 10 月 6 日的纪录：<a href="https://www.metatradingclub.com/?p=28118">Meta Trading Club</a>，<a href="https://247wallst.com/investing/2026/11/03/the-nasdaq-100-is-now-officially-in-a-correction/">24/7 Wall St.</a></li>
+      <li>美联储和利率：<a href="https://www.cnn.com/2026/09/16/economy/fed-rate-decision-september">CNN</a>（9 月加息），<a href="https://www.cnbc.com/2026/10/28/fed-interest-rate-decision-october-2026.html">CNBC</a>（10 月会议），<a href="https://www.cnbc.com/2026/11/10/cpi-inflation-report-october-2026.html">CNBC</a>（10 月 CPI），<a href="https://www.bloomberg.com/news/articles/2026-11-17/us-10-year-yield-set-for-historic-run-above-5-on-fed-rate-cycle">彭博</a>（十年期美债）。</li>
+      <li>预期和仓位：<a href="https://www.investing.com/news/stock-market-news/no-bear-in-sight-major-wall-st-banks-set-2027-sp-500-targets-5041570">Investing.com</a>（卖方 2027 年目标），<a href="https://www.investing.com/news/stock-market-news/betting-on-chip-stocks-remains-the-most-crowded-trade-by-far-bofas-survey-finds-5032235">Investing.com</a> 和 <a href="https://hedgeco.net/news/11/2026/fund-managers-cut-their-tech-overweight-by-the-most-since-2006-in-bofas-november-survey-as-cash-fell-to-3-6.html">HedgeCo</a>（美银 11 月基金经理调查）。</li>
+      <li>AI 资本开支：<a href="https://www.yieldtheory.app/research/hyperscaler-ai-capex-tracker-2026">Yield Theory</a>，<a href="https://io-fund.com/ai-stocks/ai-capex-1-trillion-estimates-too-low">I/O Fund</a>，<a href="https://456xresearch.substack.com/p/nvidia-expands-purchase-commitments">456x Research</a>（转述美银），<a href="https://cnbc.com/2026/11/17/nvidia-nvda-earnings-report-q3-2027.html">CNBC</a>。</li>
+      <li>油价、黄金、日元：<a href="https://www.cnbc.com/2026/11/12/oil-prices-jump-after-trump-says-no-iran-deal-needed-weve-got-their-strait.html">CNBC</a>，<a href="https://tradingeconomics.com/commodity/brent-crude-oil">Trading Economics</a>，<a href="https://beinsure.com/news/gold-price-crashes-from-record-high/">Beinsure</a>，<a href="https://www.babypips.com/news/headline-boj-rate-hike-september-2026-yen-falls-dovish-ueda">Babypips</a>。</li>
+      <li>港股和恒生科技：<a href="https://www.sohu.com/a/1104193093_222256">财联社</a>（11 月 20 日收评），<a href="https://k.sina.cn/article_6401456461_17d8e794d00101lxc6.html">新浪财经</a> 和 <a href="https://i.ifeng.com/c/8xzIfX4xtyr">凤凰网</a>（估值分位、中信证券口径），<a href="https://www.cls.cn/detail/2412920">财联社</a>（上半年盈利预测下调），<a href="https://finance.sina.com.cn/wm/2026-05-17/doc-inhyerim1857581.shtml">中国银河证券</a>（外资流向），<a href="https://finance.sina.com.cn/jjxw/2026-09-30/doc-initpxxr2435916.shtml">新浪财经</a>（南向资金）。</li>
+      <li>腾讯、阿里三季报：<a href="https://finance.sina.com.cn/tech/roll/2026-11-19/doc-inizhmka7741264.shtml">新浪科技</a>，<a href="https://m.21jingji.com/article/20261120/herald/7bfcdd2799cda535b309ac8e6c603431.html">21 财经</a>，<a href="https://finance.sina.com.cn/jjxw/2026-11-20/doc-iniziafz0762708.shtml">北京商报</a>。</li>
+      <li>A 股和红利：<a href="https://k.sina.com.cn/article_7857201856_1d45362c001908vlrw.html">新浪财经</a>（11 月 20 日收评），<a href="https://www.21jingji.com/article/20261119/herald/d309adfc7cc3f32949bd1164dd276765.html">21 经济网</a>（中证红利估值），<a href="https://k.sina.cn/article_5953189932_162d6782c067054t1u.html">汇添富基金</a>，<a href="https://www.lixinger.com/equity/index/detail/sh/000922/922/monthly-change">理杏仁</a>（历年涨跌），<a href="https://jetsohk101.com/dividend-stocks-hk/">JetsoHK101</a>（恒生高股息率指数 8 月底月报）。</li>
+      <li>中国利率和汇率：<a href="https://finance.cnr.cn/gundong/20261106/t20261106_527864017.shtml">证券时报</a>，<a href="https://tradingeconomics.com/china/government-bond-yield/news/598868">Trading Economics</a>，<a href="https://k.sina.com.cn/article_7857201856_1d45362c001908vk0g.html">新浪财经</a>（人民币和外汇存款准备金率）。</li>
+      <li>中美：<a href="https://www.dotdotnews.com/a/202611/09/AP6af13647e4b091a65a2f22e4.html">点新闻</a>（休战延长），<a href="https://news.sina.com.cn/c/2026-11-18/doc-inizcvvc4851043.shtml">新浪新闻</a>（H200），<a href="https://www.thepaper.cn/newsDetail_forward_34518388">澎湃新闻</a>（深圳会晤）。</li>
+    </ul>
+  </div>
+  <footer>行情截至 2026 年 11 月 20 日。个人研究和观点，不是投资建议；作者不是持牌投资顾问。<a href="https://miltonlens.substack.com/subscribe">订阅 Milton Lens</a>。</footer>
+</section>
+</main>
+<div id="tip" role="status" aria-live="polite"></div>
+<script>window.CFG={"T":1.112329,"baskets":[{"id":"ndx","name":"美股科技","idx":"纳指 100","kind":"pe","now":25012.87,"E":1484.7172,"carry":0,"fmt":"idx10","nowTxt":"约 25,010","zones":[21100,24100,27100,33400,38750],"zoneNote":{"0":"盈利预测被砍 30% 以上","1":"被砍 20% 到 30%","2":"被砍 10% 到 20%","3":"被砍不到 10%，直到 22.5 倍","4":"22.5 到 26.1 倍","5":"26.1 倍以上"},"posNote":"现价等于赌盈利预测被砍 17%。24,100 以下进入买入区。","bond":{"name":"五年期美债","y":4.7,"note":"美元的无风险利率。十年期是 4.92%。"},"knobs":{"k3min":8,"k3max":35,"s1":"现价对应约 17%（按 20.3 倍算）","s2":"每年 10%，五年合计多赚六成","s3":"25 年的中位数是 20.3 倍，中间一半在 17.5 到 26.1 倍","presets":[["股价现在赌的",17,10,20.3],["分析师的版本",0,12,20.3],["资本开支刹车",15,8,18],["盈利塌方",35,6,15]],"note":"没有算股息（纳指 100 约 0.6%）和汇率。\"股价现在赌的\"这一档，砍掉的盈利正好被倍数的修复抵消，所以回报等于增速。"},"grid":{"top":25000,"bot":18000,"n":6,"sk":1.25},"gridNote":"纳指这架梯子只管买，卖出看第 7 节的倍数线。"},{"id":"hst","name":"中国科技","idx":"恒生科技","kind":"pe","now":3511.14,"E":292.595,"carry":0,"fmt":"idx10","nowTxt":"3,511","zones":[2810,3750,4680,5560,6730],"zoneNote":{"0":"盈利被砍 40% 以上（按 16 倍）","1":"被砍 20% 到 40%","2":"被砍不到 20%","3":"16 到 19 倍","4":"19 到 23 倍","5":"23 倍以上"},"posNote":"约 12 倍预期市盈率。2022 年的最低点是 2,720。","bond":{"name":"五年期美债","y":4.7,"note":"港元钉住美元，按美元利率比。拿人民币的人对着的是 1.59% 的中国国债。"},"knobs":{"k3min":6,"k3max":26,"s1":"现价对应约 25%（按 16 倍算）","s2":"每年 8%，五年合计多赚近五成","s3":"现在约 12 倍。这里把 16 倍当参考倍数","presets":[["股价现在赌的",25,8,16],["一切照旧",0,5,12],["中国转向",0,10,17.5],["通缩加深",20,3,10]],"note":"没有算股息、回购和汇率。"},"grid":{"top":3500,"bot":2400,"n":6,"sk":1.2},"gridNote":"恒生科技来回震荡，买到的要按下面的卖出阶梯卖。"},{"id":"zz","name":"A 股红利","idx":"中证红利","kind":"yield","now":100.0,"y":4.39,"carry":0.043899999999999995,"fmt":"rel","zones":[79.8182,87.8,97.5556,109.75,125.4286],"zoneNote":{"0":"比现价低 20%以上","1":"比现价低 12% 到 20%","2":"比现价低 2% 到 12%","3":"比现价低 2% 到高 10%","4":"比现价高 10% 到 25%","5":"比现价高 25% 以上"},"posNote":"股息率到 5% 才进买入区，价格要再跌 12%。","bond":{"name":"中国十年期国债","y":1.59,"note":"人民币的无风险利率，历史最低一档。"},"knobs":{"k3min":3,"k3max":7,"s1":"煤炭和银行占比高，分红跟着盈利走","s2":"2% 接近现在的名义增长","s3":"现在 4.39%。数字越低，价格越贵","presets":[["一切照旧",0,2,4.4],["利率更低，更挤",0,2,3.8],["分红下降",10,0,5.0],["内需回来，钱去追成长",0,4,5.0]],"note":"含股息，按每年年末收到算；没有算红利税。"},"grid":{"top":97.5,"bot":80.0,"n":5,"sk":1.2},"gridNote":"把现价当成 100。A 股红利每年六七月集中除息，价格指数会多跌一截，别把除息当成下跌。"},{"id":"schd","name":"美股红利","idx":"SCHD","kind":"yield","now":33.94,"y":3.1084,"carry":0.031084,"fmt":"usd","zones":[24.5349,27.7632,31.0294,35.1667,39.0741],"zoneNote":{"0":"$24.53 以下","1":"$24.53 – $27.76","2":"$27.76 – $31.03","3":"$31.03 – $35.17","4":"$35.17 – $39.07","5":"$39.07 以上"},"posNote":"股息率到 3.8% 才进买入区，价格要再跌 18%。","bond":{"name":"五年期美债","y":4.7,"note":"三个月国库券是 4.34%。"},"knobs":{"k3min":2,"k3max":5.5,"s1":"能源股占比高，油价回落时分红会慢下来","s2":"每年 6%，五年合计多分三分之一","s3":"现在 3.1%。数字越低，价格越贵","presets":[["一切照旧",0,6,3.1],["回到 3.8%",0,6,3.8],["油价回落",5,4,3.6],["利率下行",0,7,3.0]],"note":"含股息，按每年年末收到算；非美国居民的股息有预扣税，这里没有扣。"},"grid":{"top":31.0,"bot":24.5,"n":5,"sk":1.2},"gridNote":""}],"sc":[{"n":"①","name":"油落鹰止","p":15,"story":"霍尔木兹缓和，油价回到 $70 以下，通胀回落；12 月加完就停，AI 资本开支照常。","ndx":[0.08,20.0,-0.03],"hst":[0.08,15.5,-0.03],"zz":[4.5,0.02,-0.05],"schd":[3.3,0.03,-0.08]},{"n":"②","name":"高位磨","p":25,"story":"美联储加到 4.25%–4.5%，十年期在 5% 上下；不出事，盈利兑现，但倍数上不去。","ndx":[0.08,17.5,-0.08],"hst":[0.0,12.5,-0.1],"zz":[4.3,0.02,-0.05],"schd":[3.1,0.04,-0.06]},{"n":"③","name":"资本开支刹车","p":20,"story":"超大厂 2027 年的资本开支持平或下降，芯片盈利下修；美联储停手，没有衰退。","ndx":[-0.15,18.0,-0.15],"hst":[-0.05,13.0,-0.1],"zz":[4.2,0.02,-0.05],"schd":[3.2,0.03,-0.08]},{"n":"④","name":"2022 重演","p":10,"story":"通胀黏住，利率加到 5% 以上，扣掉通胀后的利率 3% 以上，美元指数 110。","ndx":[0.03,14.5,-0.2],"hst":[-0.05,10.0,-0.22],"zz":[4.6,0.02,-0.1],"schd":[3.7,0.03,-0.16]},{"n":"⑤","name":"先出事，后转向","p":12,"story":"信用、日元或私募信贷出事，全球去杠杆；美联储降息，年底前收复一部分。","ndx":[-0.1,18.5,-0.19],"hst":[-0.03,13.5,-0.2],"zz":[4.2,0.0,-0.12],"schd":[3.4,0.0,-0.15]},{"n":"⑥","name":"2000 式破裂","p":6,"story":"AI 资本开支砍三成以上，盈利塌方，衰退。","ndx":[-0.35,15.0,-0.45],"hst":[-0.2,10.5,-0.32],"zz":[4.6,-0.05,-0.15],"schd":[3.6,-0.03,-0.2]},{"n":"⑦","name":"中国转向","p":6,"story":"中国大规模扩内需，加上中美缓和。美国部分同 ②。","ndx":[0.08,17.5,-0.08],"hst":[0.12,17.5,-0.05],"zz":[4.6,0.05,-0.08],"schd":[3.1,0.04,-0.06]},{"n":"⑧","name":"中国通缩加深","p":6,"story":"内需更弱，盈利再砍，脱钩升级。美国部分同 ②。","ndx":[0.05,17.5,-0.08],"hst":[-0.15,10.0,-0.3],"zz":[3.9,-0.02,-0.03],"schd":[3.1,0.04,-0.06]}],"ch":{"dxym":[["2025-01",108.37],["2025-02",107.61],["2025-03",104.21],["2025-04",99.47],["2025-05",99.33],["2025-06",96.88],["2025-07",100.03],["2025-08",97.77],["2025-09",97.77],["2025-10",99.8],["2025-11",99.46],["2025-12",98.28],["2026-01",96.99],["2026-02",97.61],["2026-03",99.96],["2026-04",98.08],["2026-05",98.91],["2026-06",101.19],["2026-07",99.8],["2026-08",99.43],["2026-09",101.45],["2026-10",101.88],["2026-11",103.87]],"dxylo":95.55,"rates":[["2025-12-31",4.18,2.25],["2026-01-02",4.19,2.25],["2026-01-09",4.18,2.28],["2026-01-16",4.24,2.33],["2026-01-23",4.24,2.32],["2026-01-30",4.26,2.36],["2026-02-06",4.22,2.34],["2026-02-13",4.04,2.27],["2026-02-20",4.08,2.28],["2026-02-27",3.97,2.25],["2026-03-06",4.15,2.35],["2026-03-13",4.28,2.36],["2026-03-20",4.39,2.38],["2026-03-27",4.44,2.31],["2026-04-03",4.35,2.36],["2026-04-10",4.31,2.36],["2026-04-17",4.26,2.36],["2026-04-24",4.31,2.42],["2026-05-01",4.39,2.48],["2026-05-08",4.38,2.45],["2026-05-15",4.59,2.49],["2026-05-22",4.56,2.4],["2026-05-29",4.45,2.38],["2026-06-05",4.55,2.36],["2026-06-12",4.48,2.31],["2026-06-18",4.46,2.25],["2026-06-26",4.38,2.2],["2026-07-02",4.49,2.23],["2026-07-10",4.56,2.24],["2026-07-17",4.55,2.24],["2026-07-24",4.69,2.26],["2026-07-31",4.75,2.28],["2026-08-07",4.65,2.25],["2026-08-14",4.68,2.27],["2026-08-21",4.74,2.34],["2026-08-28",4.73,2.31],["2026-09-04",4.78,2.35],["2026-09-11",4.96,2.36],["2026-09-18",5.01,2.33],["2026-09-25",5.17,2.34],["2026-10-02",5.28,2.36],["2026-10-05",5.31,2.36],["2026-10-09",5.24,2.33],["2026-10-16",5.09,2.35],["2026-10-23",5.0,2.34],["2026-10-30",4.94,2.34],["2026-11-06",4.86,2.23],["2026-11-13",5.15,2.24],["2026-11-19",5.04,2.16],["2026-11-20",4.92,2.15]],"ff":[["2025-12-31",3.5,3.75],["2026-09-16",3.75,4.0]],"dxyye":[[1967,121.79],[1968,121.96],[1969,121.74],[1970,120.64],[1971,111.21],[1972,110.14],[1973,102.39],[1974,97.29],[1975,103.51],[1976,104.56],[1977,96.44],[1979,85.82],[1980,90.39],[1981,104.69],[1982,117.91],[1983,131.79],[1984,151.47],[1985,123.55],[1986,104.24],[1987,85.66],[1988,92.29],[1989,93.93],[1990,83.89],[1991,84.69],[1992,93.87],[1993,97.63],[1994,88.69],[1995,84.83],[1996,87.86],[1997,99.57],[1998,93.95],[1999,101.42],[2000,109.13],[2001,117.21],[2002,102.26],[2003,87.38],[2004,81.0],[2005,90.96],[2006,83.43],[2007,76.7],[2008,82.15],[2009,77.92],[2010,78.96],[2011,80.21],[2012,79.77],[2013,80.04],[2014,90.28],[2015,98.69],[2016,102.21],[2017,92.12],[2018,96.17],[2019,96.39],[2020,89.94],[2021,95.67],[2022,103.52],[2023,101.33],[2024,108.49],[2025,98.28]],"dxyx":[[1985.15,164.72,"1985 年 2 月"],[2008.21,70.7,"2008 年 3 月"],[2022.74,114.78,"2022 年 9 月"],[2026.05,95.55,"2026 年 1 月"],[2026.89,103.87,"2026 年 11 月 20 日"]],"dd":[["2000–02",-83,"加息，互联网泡沫破裂",0],["2007–08",-54,"信用危机",0],["1987*",-36,"利率急升，股灾",0],["2022",-36,"通胀，快速加息",0],["1990*",-31,"海湾战争，油价翻倍",0],["2020",-28,"疫情",0],["2018",-23,"加息、缩表、贸易战",0],["2025",-23,"对等关税",0],["现在",-19.9,"到 11 月 20 日，还没走完",1],["1994*",-14,"意外加息",0]],"race":{"qqq":[100.0,93.94,87.1,100.14,106.75,113.46,121.8,135.13,127.32,123.44,137.3,144.03,144.41,144.22,146.69,155.36,153.49,163.1,167.77,174.85,164.91,177.88,181.43,183.52,167.47,159.98,167.44,144.68,142.38,129.7,145.98,138.49,123.9,128.85,135.99,123.74,136.91,136.41,149.36,150.12,161.95,172.16,178.81,176.16,167.21,163.76,181.47,191.61,195.1,205.41,208.03,198.93,211.16,224.83,221.06,223.5,229.35,227.37,239.54,240.62,245.83,239.18,221.04,224.13,244.7,260.32,266.64,269.18,283.65,297.21,292.57,290.61,294.19,287.29,273.39,316.28,349.71,349.19,326.23,339.87,351.15,327.76,288.82],"kweb":[100.0,101.62,94.13,100.52,109.39,128.8,139.35,146.24,141.77,149.36,156.86,160.15,181.01,187.28,159.26,156.71,146.84,145.54,105.25,106.4,98.7,99.58,91.88,81.66,83.71,74.89,63.8,63.28,65.2,73.32,63.45,67.0,55.13,42.97,63.58,67.6,75.79,65.33,69.8,62.58,55.83,60.28,71.52,64.25,61.25,58.31,62.8,61.45,53.14,57.73,59.76,63.45,66.48,61.5,60.33,58.48,77.44,73.3,70.12,68.85,73.64,79.89,82.21,75.59,77.09,80.84,83.44,89.91,98.93,94.08,88.46,85.06,88.38,77.59,71.02,71.87,66.77,61.13,71.17,64.48,61.23,56.81,51.76],"schd":[100.0,90.63,79.85,89.96,93.24,92.7,97.59,102.61,100.0,100.4,113.65,117.07,116.06,123.09,134.07,137.01,141.43,140.03,140.96,143.91,138.55,144.65,141.7,152.07,147.93,145.05,149.4,143.24,148.8,137.01,142.37,138.49,128.18,142.57,152.34,147.12,150.2,145.18,143.64,142.5,136.68,143.91,149.93,147.72,141.5,136.08,144.71,153.82,154.02,156.83,164.19,156.76,159.97,159.97,169.95,173.96,175.5,175.84,183.94,171.75,174.97,179.38,177.38,163.79,166.0,169.75,169.75,178.85,176.51,172.96,178.45,179.18,194.78,207.56,202.14,211.24,214.12,210.58,222.29,231.66,217.74,239.49,227.18]},"ytd":[["美股红利",26.8,"SCHD，含分红"],["A 股红利",1.17,"中证红利，到 11 月 17 日"],["标普 500",0.9,""],["美股科技",-0.6,"QQQ，含分红"],["恒生指数",-12.6,""],["沪深 300",-14.6,""],["中国科技",-36.3,"恒生科技指数"],["中概互联网",-39.1,"KWEB，含分红"]],"ndx":[["2025-12-31",25249.85],["2026-01-02",25206.17],["2026-01-09",25766.26],["2026-01-16",25529.26],["2026-01-23",25605.47],["2026-01-30",25552.39],["2026-02-06",25075.77],["2026-02-13",24732.73],["2026-02-20",25012.62],["2026-02-27",24960.04],["2026-03-06",24643.01],["2026-03-13",24380.73],["2026-03-20",23898.15],["2026-03-27",23132.77],["2026-03-30",22953.38],["2026-04-02",24045.53],["2026-04-10",25116.34],["2026-04-17",26672.43],["2026-04-24",27303.67],["2026-05-01",27710.36],["2026-05-08",29234.99],["2026-05-15",29125.2],["2026-05-22",29481.64],["2026-05-29",30333.18],["2026-06-02",30660.6],["2026-06-05",28957.6],["2026-06-12",29635.95],["2026-06-18",30406.19],["2026-06-26",29118.24],["2026-07-02",29329.21],["2026-07-10",29825.11],["2026-07-17",28592.66],["2026-07-24",28128.34],["2026-07-29",27192.31],["2026-07-31",28274.2],["2026-08-07",29722.3],["2026-08-14",30046.14],["2026-08-21",29308.86],["2026-08-28",29433.43],["2026-09-04",29544.16],["2026-09-11",29368.44],["2026-09-18",29644.17],["2026-09-25",30608.13],["2026-10-02",30807.93],["2026-10-06",31224.69],["2026-10-09",30883.15],["2026-10-16",29187.55],["2026-10-23",28957.53],["2026-10-30",28384.85],["2026-11-05",26629.81],["2026-11-06",26989.99],["2026-11-13",27943.74],["2026-11-19",26517.05],["2026-11-20",25012.9]],"ndx2025":25249.85,"pe":[[2001,51.9],[2002,27.7],[2003,28.1],[2004,31.5],[2006,22.3],[2007,21.9],[2008,13.3],[2009,17.8],[2010,15.3],[2011,12.2],[2012,12.9],[2013,17.8],[2014,17.8],[2015,18.3],[2016,17.9],[2017,19.6],[2018,16.6],[2019,22.0],[2020,28.8],[2021,28.4],[2022,20.1],[2023,24.8],[2024,26.6],[2025,25.4]],"penow":16.8,"pemed":20.3,"peq":[17.5,26.1],"mega":[["苹果","AAPL",342.56,4.98,38.2,36.3,"2027.9",31.6,-3.9],["微软","MSFT",484.52,3.6,25.3,24.2,"2027.6",21.9,-12.8],["谷歌","GOOGL",265.29,3.26,13.9,13.6,"2026.12",19.9,-34.1],["英伟达","NVDA",125.53,3.03,15.9,13.0,"2027.1",15.2,-47.5],["亚马逊","AMZN",246.82,2.67,20.0,19.3,"2026.12",26.2,-13.1],["博通","AVGO",304.41,1.45,38.8,15.7,"2027.10",34.8,-36.8],["Meta","META",560.84,1.43,19.1,19.3,"2026.12",18.1,-27.9],["特斯拉","TSLA",345.82,1.37,380.0,200.6,"2026.12",383.6,-29.4]],"gap":[["A 股红利","中证红利，对中国十年期国债",1.59,4.39,"中国十年期国债","A 股红利"],["港股红利","恒生高股息率，拿人民币的人看",1.59,6.68,"中国十年期国债","港股·人民币"],["港股红利","恒生高股息率，拿美元的人看",4.92,6.68,"十年期美债","港股·美元"],["美股红利","SCHD，对十年期美债",4.92,3.11,"十年期美债","美股红利"]]}};</script>
+<script>
+(function(){
+'use strict';
+var CFG=window.CFG, B=CFG.baskets, SC=CFG.sc, T=CFG.T;
+var C={navy:'#0E2340',gold:'#B8A57A',ink:'#1d2430',muted:'#5f6670',faint:'#8a9099',line:'#e3e1dc',grid:'#ebe9e3',axis:'#c9c6bd',
+  b:['#cde2fb','#9ec5f4','#6da7ec','#3987e5','#1c5cab'],r:['#fbd5d1','#f3ada6','#e7837b','#da544f','#a1302f'],mid:'#f0efec',
+  s:['#2a78d6','#eb6834','#1baf7a'],grey:'#b9bcc2'};
+var ZN=[{n:'深水区',c:C.b[4],fg:'#fff',do:'留给最坏剧本的钱'},{n:'买入区',c:C.b[2],fg:'#0b0b0b',do:'梯子的主力'},{n:'小额区',c:C.b[0],fg:'#0b0b0b',do:'小额，慢慢买'},
+  {n:'持有区',c:C.mid,fg:'#0b0b0b',do:'不买不卖'},{n:'减仓区',c:C.r[1],fg:'#0b0b0b',do:'分批卖'},{n:'清仓区',c:C.r[3],fg:'#fff',do:'只留底仓'}];
+
+/* ---------- helpers ---------- */
+function $(s,r){return (r||document).querySelector(s);}
+var NS='http://www.w3.org/2000/svg';
+function add(e,kids){for(var i=0;i<kids.length;i++){var c=kids[i];if(c==null)continue;if(Array.isArray(c)){add(e,c);continue;}e.appendChild(typeof c==='string'?document.createTextNode(c):c);}}
+function sv(tag,at){var e=document.createElementNS(NS,tag);for(var k in at){if(at[k]!=null)e.setAttribute(k,at[k]);}add(e,Array.prototype.slice.call(arguments,2));return e;}
+function h(tag,at){var e=document.createElement(tag);at=at||{};for(var k in at){if(at[k]==null)continue;if(k==='class')e.className=at[k];else if(k==='text')e.textContent=at[k];else if(k.slice(0,2)==='on')e.addEventListener(k.slice(2),at[k]);else e.setAttribute(k,at[k]);}add(e,Array.prototype.slice.call(arguments,2));return e;}
+function txt(x,y,s,at){at=at||{};var o={x:x,y:y,'font-size':at.size||12,fill:at.fill||C.muted,'text-anchor':at.anchor||'start','font-weight':at.weight||400};var t=sv('text',o,s);if(at.tab)t.setAttribute('style','font-variant-numeric:tabular-nums');return t;}
+function halo(t){t.setAttribute('stroke','#fff');t.setAttribute('stroke-width','3.5');t.setAttribute('paint-order','stroke');t.setAttribute('stroke-linejoin','round');return t;}
+function line(x1,y1,x2,y2,stroke,w){return sv('line',{x1:x1,y1:y1,x2:x2,y2:y2,stroke:stroke||C.grid,'stroke-width':w||1});}
+function mkTable(heads,rows,num){var t=h('table');var tr=h('tr');heads.forEach(function(x,i){tr.appendChild(h('th',{class:(num&&num[i])?'n':null,text:x}));});t.appendChild(h('thead',{},tr));var tb=h('tbody');rows.forEach(function(r){var row=h('tr');r.forEach(function(x,i){row.appendChild(h('td',{class:(num&&num[i])?'n':null,text:String(x)}));});tb.appendChild(row);});t.appendChild(tb);return t;}
+function plotW(el,min){return Math.max(min||280,Math.floor(el.clientWidth||el.parentNode.clientWidth||600));}
+function nf(v,d){return v.toLocaleString('en-US',{minimumFractionDigits:d||0,maximumFractionDigits:d||0});}
+function fp(v,d){return (v*100).toFixed(d==null?0:d)+'%';}
+function fsp(v,d){var s=Math.abs(v*100).toFixed(d==null?0:d);if(parseFloat(s)===0)return '0%';return (v>=0?'+':'−')+s+'%';}
+function rightBar(x,cy,w,bh,r){r=Math.min(r,w,bh/2);return 'M'+x+','+(cy-bh/2)+' h'+(w-r)+' a'+r+','+r+' 0 0 1 '+r+','+r+' v'+(bh-2*r)+' a'+r+','+r+' 0 0 1 -'+r+','+r+' h-'+(w-r)+' Z';}
+function leftBar(x,cy,w,bh,r){r=Math.min(r,w,bh/2);return 'M'+x+','+(cy-bh/2)+' h-'+(w-r)+' a'+r+','+r+' 0 0 0 -'+r+','+r+' v'+(bh-2*r)+' a'+r+','+r+' 0 0 0 '+r+','+r+' h'+(w-r)+' Z';}
+function topBar(x,y0,w,hh,r){r=Math.min(r,hh,w/2);return 'M'+x+','+y0+' v-'+(hh-r)+' a'+r+','+r+' 0 0 1 '+r+',-'+r+' h'+(w-2*r)+' a'+r+','+r+' 0 0 1 '+r+','+r+' v'+(hh-r)+' Z';}
+
+var tip=$('#tip');
+function showTip(evt,title,rows){tip.replaceChildren();if(title)tip.appendChild(h('div',{class:'t',text:title}));
+  rows.forEach(function(r){var d=h('div',{class:'r'});if(r[2])d.appendChild(h('i',{style:'background:'+r[2]}));d.appendChild(h('span',{class:'v',text:r[1]}));d.appendChild(h('span',{class:'k',text:' '+r[0]}));tip.appendChild(d);});
+  tip.classList.add('on');moveTip(evt);}
+function moveTip(evt){var pad=14,x=evt.clientX+pad,y=evt.clientY+pad,w=tip.offsetWidth,hh=tip.offsetHeight;if(x+w>window.innerWidth-8)x=evt.clientX-w-pad;if(y+hh>window.innerHeight-8)y=evt.clientY-hh-pad;tip.style.left=Math.max(8,x)+'px';tip.style.top=Math.max(8,y)+'px';}
+function hideTip(){tip.classList.remove('on');}
+function centerEvt(el){var r=el.getBoundingClientRect();return {clientX:r.left+r.width/2,clientY:r.top+r.height/2};}
+function hover(el,fn,focusEl){el.addEventListener('pointermove',fn);el.addEventListener('pointerleave',hideTip);var f=focusEl||el;f.addEventListener('focus',function(){fn(centerEvt(f));});f.addEventListener('blur',hideTip);}
+
+/* ---------- basket maths ---------- */
+function bk(id){for(var i=0;i<B.length;i++)if(B[i].id===id)return B[i];return null;}
+function lvFmt(b,v){if(b.fmt==='idx10')return nf(Math.round(v/10)*10);if(b.fmt==='idx')return nf(Math.round(v));if(b.fmt==='usd')return '$'+v.toFixed(2);if(b.fmt==='cny')return '¥'+nf(Math.round(v));if(b.fmt==='cny1')return '¥'+v.toFixed(1);return v.toFixed(1);}
+function auxOf(b,v){return b.kind==='pe'?(v/b.E).toFixed(1)+' 倍':(b.y*b.now/v).toFixed(2)+'%';}
+function auxName(b){return b.kind==='pe'?'预期市盈率':'股息率';}
+function endLv(b,s){var a=s[b.id];return b.kind==='pe'?b.E*(1+a[0])*a[1]:b.now*(b.y/a[0])*(1+a[1]);}
+function troughLv(b,s){return b.now*(1+s[b.id][2]);}
+function zoneIx(b,p){var z=b.zones,i=0;while(i<z.length&&p>=z[i])i++;return i;}
+function evOf(b){var tot=0,e=0,up=0;SC.forEach(function(s){var l=endLv(b,s);tot+=s.p;e+=s.p*l;if(l>b.now)up+=s.p;});
+  if(tot<=0)return null;e/=tot;var carry=(b.carry||0)*T;return {ev:e,ret:e/b.now-1,total:e/b.now-1+carry,up:up/tot,buy10:(e+carry*b.now)/Math.pow(1.10,T)};}
+
+/* ---------- generic line chart ---------- */
+function lineChart(el,o){
+  var W=plotW(el),narrow=W<560,H=o.H||320,m=o.m||{t:18,r:narrow?58:84,b:30,l:46},iw=W-m.l-m.r,ih=H-m.t-m.b;
+  var xmin=o.x.min,xmax=o.x.max,ymin=o.y.min,ymax=o.y.max,lg=!!o.y.log;
+  function X(v){return m.l+(v-xmin)/(xmax-xmin)*iw;}
+  function Y(v){return lg?m.t+(Math.log(ymax)-Math.log(v))/(Math.log(ymax)-Math.log(ymin))*ih:m.t+(ymax-v)/(ymax-ymin)*ih;}
+  var svg=sv('svg',{viewBox:'0 0 '+W+' '+H,width:W,height:H,role:'img','aria-label':o.aria||''});
+  (o.bands||[]).forEach(function(b){svg.appendChild(sv('rect',{x:X(b.x0),y:m.t,width:Math.max(0,X(b.x1)-X(b.x0)),height:ih,fill:b.fill||'#f6f1e4'}));if(b.label&&!narrow)svg.appendChild(txt((X(b.x0)+X(b.x1))/2,o.bandLabelBottom?H-m.b-8:m.t+12,b.label,{size:10.5,fill:C.faint,anchor:'middle'}));});
+  (o.hbands||[]).forEach(function(b){svg.appendChild(sv('rect',{x:m.l,y:Y(b.y1),width:iw,height:Math.max(0,Y(b.y0)-Y(b.y1)),fill:b.fill}));});
+  (o.steps||[]).forEach(function(st){var d='';for(var i=0;i<st.pts.length;i++){var p=st.pts[i],nx=i+1<st.pts.length?st.pts[i+1][0]:xmax;d+='M'+X(p[0])+','+Y(p[2])+' H'+X(nx)+' V'+Y(p[1])+' H'+X(p[0])+' Z ';}svg.appendChild(sv('path',{d:d,fill:st.fill||'#e9e7e1'}));});
+  o.y.ticks.forEach(function(v){svg.appendChild(line(m.l,Y(v),W-m.r,Y(v),C.grid));svg.appendChild(txt(m.l-8,Y(v)+4,o.y.fmt?o.y.fmt(v):String(v),{size:11.5,anchor:'end',tab:1}));});
+  o.x.ticks.forEach(function(t){if(narrow&&t[2])return;svg.appendChild(line(X(t[0]),H-m.b,X(t[0]),H-m.b+5,C.axis,1));svg.appendChild(txt(X(t[0]),H-m.b+19,t[1],{size:11.5,anchor:'middle',tab:1}));});
+  svg.appendChild(line(m.l,H-m.b,W-m.r,H-m.b,C.axis,1));
+  (o.hlines||[]).forEach(function(l){svg.appendChild(line(m.l,Y(l.y),W-m.r,Y(l.y),l.color||C.gold,l.w||1.5));if(l.label)svg.appendChild(halo(txt(l.labelX==null?m.l+6:X(l.labelX),Y(l.y)-5,l.label,{size:11,fill:C.muted,anchor:l.labelX==null?'start':'middle'})));});
+  (o.texts||[]).forEach(function(t){svg.appendChild(halo(txt(X(t.x)+(t.dx||0),Y(t.y)+(t.dy||0),t.s,{size:t.size||11,fill:t.fill||C.muted,anchor:t.anchor||'start'})));});
+  o.series.forEach(function(s){var d=s.pts.map(function(p,i){return (i?'L':'M')+X(p[0]).toFixed(1)+','+Y(p[1]).toFixed(1);}).join(' ');
+    svg.appendChild(sv('path',{d:d,fill:'none',stroke:s.color,'stroke-width':s.width||2,'stroke-linejoin':'round','stroke-linecap':'round'}));
+    if(s.end){var lp=s.pts[s.pts.length-1];svg.appendChild(sv('circle',{cx:X(lp[0]),cy:Y(lp[1]),r:4.5,fill:s.endColor||s.color,stroke:'#fff','stroke-width':2}));
+      svg.appendChild(txt(W-m.r+8,Y(lp[1])+4+(s.dy||0),s.end,{size:11.5,fill:C.ink,weight:650}));if(s.end2)svg.appendChild(txt(W-m.r+8,Y(lp[1])+17+(s.dy||0),s.end2,{size:11,fill:C.muted,tab:1}));}});
+  (o.marks||[]).forEach(function(k){if(narrow&&k.wide)return;var cx=X(k.x),cy=Y(k.y);svg.appendChild(sv('circle',{cx:cx,cy:cy,r:k.r||4,fill:k.color||C.navy,stroke:'#fff','stroke-width':2}));
+    if(k.label){var t=halo(txt(cx+(k.dx||0),cy+(k.dy==null?-9:k.dy),k.label,{size:11,fill:C.ink,anchor:k.anchor||'middle'}));svg.appendChild(t);if(k.label2)svg.appendChild(halo(txt(cx+(k.dx||0),cy+(k.dy==null?-9:k.dy)+13,k.label2,{size:10.5,fill:C.muted,anchor:k.anchor||'middle'})));}});
+  var base=o.series[0].pts,cross=line(0,m.t,0,H-m.b,C.axis,1);cross.setAttribute('visibility','hidden');svg.appendChild(cross);
+  var dots=o.series.map(function(s){var c=sv('circle',{r:4,fill:s.color,stroke:'#fff','stroke-width':2,visibility:'hidden'});svg.appendChild(c);return c;});
+  var hit=sv('rect',{x:m.l,y:m.t,width:iw,height:ih,fill:'transparent'});
+  hit.addEventListener('pointermove',function(e){var r=svg.getBoundingClientRect(),px=(e.clientX-r.left)*W/r.width,bi=0,bd=1e9;
+    for(var i=0;i<base.length;i++){var dd=Math.abs(X(base[i][0])-px);if(dd<bd){bd=dd;bi=i;}}
+    cross.setAttribute('x1',X(base[bi][0]));cross.setAttribute('x2',X(base[bi][0]));cross.setAttribute('visibility','visible');
+    o.series.forEach(function(s,k){var p=s.pts[Math.min(bi,s.pts.length-1)];if(s.pts.length!==base.length){dots[k].setAttribute('visibility','hidden');return;}dots[k].setAttribute('cx',X(p[0]));dots[k].setAttribute('cy',Y(p[1]));dots[k].setAttribute('visibility','visible');});
+    var tt=o.tip(bi);showTip(e,tt[0],tt[1]);});
+  hit.addEventListener('pointerleave',function(){cross.setAttribute('visibility','hidden');dots.forEach(function(d){d.setAttribute('visibility','hidden');});hideTip();});
+  svg.appendChild(hit);el.replaceChildren(svg);
+}
+
+/* ---------- horizontal bars (one series, optional highlight) ---------- */
+function barsH(el,rows,o){
+  o=o||{};var W=plotW(el),narrow=W<520,two=!narrow&&rows.some(function(r){return r.sub;}),rh=o.rh||(two?40:30),lab=o.lab||(narrow?96:176),m={t:6,r:narrow?56:70,b:o.axis?24:6,l:lab},H=m.t+m.b+rows.length*rh,iw=W-m.l-m.r;
+  var mn=o.min,mx=o.max;function X(v){return m.l+(v-mn)/(mx-mn)*iw;}
+  var svg=sv('svg',{viewBox:'0 0 '+W+' '+H,width:W,height:H,role:'img','aria-label':o.aria||''});
+  (o.ticks||[]).forEach(function(v){svg.appendChild(line(X(v),m.t,X(v),H-m.b,v===0?C.axis:C.grid));if(o.axis)svg.appendChild(txt(X(v),H-6,o.fmt(v),{size:11,anchor:'middle',tab:1}));});
+  if(o.ref){svg.appendChild(line(X(o.ref.v),m.t-2,X(o.ref.v),H-m.b,C.gold,1.5));}
+  rows.forEach(function(r,i){var cy=m.t+rh*(i+0.5),x0=X(Math.max(mn,Math.min(mx,0))),x1=X(Math.max(mn,Math.min(mx,r.v))),w=Math.abs(x1-x0),bh=Math.min(16,rh-12),col=r.hi?C.gold:(r.color||C.navy);
+    if(w>0.5)svg.appendChild(sv('path',{d:r.v>=0?rightBar(x0,cy,w,bh,4):leftBar(x0,cy,w,bh,4),fill:col}));
+    if(two&&r.sub){svg.appendChild(txt(m.l-10,cy-1,r.name,{size:12,fill:C.ink,anchor:'end',weight:r.hi?650:500}));svg.appendChild(txt(m.l-10,cy+12,r.sub,{size:10.5,fill:C.muted,anchor:'end'}));}
+    else svg.appendChild(txt(m.l-10,cy+4,r.name,{size:12,fill:C.ink,anchor:'end',weight:r.hi?650:500}));
+    var lt=r.label||o.fmt(r.v),lw=lt.length*7.4+8,ins=r.v>=0?(W-x1<lw+2):(x1-m.l<lw+2);
+    if(ins&&w>lw+10)svg.appendChild(txt(r.v>=0?x1-7:x1+7,cy+4,lt,{size:12,fill:r.hi?'#0b0b0b':'#fff',anchor:r.v>=0?'end':'start',weight:650,tab:1}));
+    else svg.appendChild(txt(r.v>=0?x1+6:x1-6,cy+4,lt,{size:12,fill:C.ink,anchor:r.v>=0?'start':'end',weight:650,tab:1}));
+    var hit=sv('rect',{x:0,y:cy-rh/2,width:W,height:rh,fill:'transparent',tabindex:0});
+    hover(hit,function(e){showTip(e,r.name,r.tip||[[o.unit||'',r.label||o.fmt(r.v),col]]);});svg.appendChild(hit);});
+  el.replaceChildren(svg);
+}
+
+/* ---------- hero position bars ---------- */
+function renderPos(){
+  var el=$('#pos');if(!el)return;el.replaceChildren();
+  B.forEach(function(b){var z=b.zones,lo=Math.log(z[0]*0.86),hi=Math.log(z[4]*1.12),W=plotW(el),H=46,bx=2,bw=W-4;
+    function X(v){return bx+(Math.log(Math.max(Math.exp(lo),Math.min(Math.exp(hi),v)))-lo)/(hi-lo)*bw;}
+    var zi=zoneIx(b,b.now),row=h('div',{class:'row'});
+    row.appendChild(h('div',{class:'hd'},h('b',{text:b.name+' · '+b.idx}),h('span',{text:ZN[zi].n+'，'+(b.kind==='pe'?(b.nowTxt||lvFmt(b,b.now))+'，'+auxOf(b,b.now):'股息率 '+b.y.toFixed(2)+'%')})));
+    var svg=sv('svg',{viewBox:'0 0 '+W+' '+H,width:W,height:H,role:'img','aria-label':b.name+'现价在'+ZN[zi].n});
+    var edges=[Math.exp(lo)].concat(z).concat([Math.exp(hi)]);
+    for(var i=0;i<6;i++){var x0=X(edges[i]),x1=X(edges[i+1]);svg.appendChild(sv('rect',{x:x0+1,y:8,width:Math.max(1,x1-x0-2),height:14,rx:3,fill:ZN[i].c}));}
+    z.forEach(function(t,i){var lab=b.kind==='pe'?lvFmt(b,t):(b.y*b.now/t).toFixed(1)+'%';var x=X(t),an=i===0?'start':(i===4?'end':'middle');if(W<360&&(i===1||i===3))return;svg.appendChild(txt(x,37,lab,{size:10.5,fill:C.muted,anchor:an,tab:1}));});
+    var xn=X(b.now);svg.appendChild(line(xn,3,xn,27,C.navy,1.5));svg.appendChild(sv('circle',{cx:xn,cy:15,r:6,fill:C.gold,stroke:'#fff','stroke-width':2}));
+    row.appendChild(svg);if(b.posNote)row.appendChild(h('div',{class:'ft',text:b.posNote}));el.appendChild(row);});
+}
+
+/* ---------- scenarios ---------- */
+function cellColor(v){var a=Math.abs(v),i=a<0.03?-1:(a<0.10?0:(a<0.20?1:(a<0.35?2:3)));if(i<0)return {bg:C.mid,fg:'#0b0b0b'};var ramp=v>0?C.b:C.r;return {bg:ramp[i],fg:i>=3?'#fff':'#0b0b0b'};}
+function scnTip(b,s){var a=s[b.id],l=endLv(b,s);var rows=b.kind==='pe'?[['盈利预测',fsp(a[0],0)],['市场给的倍数',a[1].toFixed(1)+' 倍'],['2027 年底',lvFmt(b,l)],['相对现价',fsp(l/b.now-1,0)],['中途最低',fsp(a[2],0)+'，'+lvFmt(b,troughLv(b,s))]]
+  :[['市场要求的股息率',a[0].toFixed(1)+'%'],['股息变化',fsp(a[1],0)],['价格相对现在',fsp(l/b.now-1,1)],['中途最低',fsp(a[2],0)]];return rows;}
+function renderScn(){
+  var t=$('#scn');if(!t)return;t.replaceChildren();var det=!!CFG.scnDetail,b0=B[0];t.classList.toggle('det',det);
+  var hr=h('tr',{},h('th',{text:'剧本'}));
+  if(det)['盈利预测','市场给的市盈率','2027 年底','相对现价','中途最低'].forEach(function(x){hr.appendChild(h('th',{class:'n',text:x}));});
+  else B.forEach(function(b){hr.appendChild(h('th',{class:'n',text:b.idx}));});
+  hr.appendChild(h('th',{text:'概率'}));t.appendChild(h('thead',{},hr));
+  var tb=h('tbody');
+  SC.forEach(function(s,i){var tr=h('tr',{});tr.appendChild(h('td',{class:'st'},h('b',{text:s.n+' '+s.name}),h('small',{text:s.story}),s.why?h('small',{style:'color:var(--ink)',text:s.why}):null));
+    if(det){var a=s[b0.id],l=endLv(b0,s),v=l/b0.now-1,cc=cellColor(v);
+      tr.appendChild(h('td',{class:'c','data-l':'盈利预测',text:fsp(a[0],0)}));tr.appendChild(h('td',{class:'c','data-l':'市盈率',text:a[1].toFixed(1)+' 倍'}));tr.appendChild(h('td',{class:'c','data-l':'2027 年底'},h('strong',{text:lvFmt(b0,l)})));
+      tr.appendChild(h('td',{class:'c','data-l':'相对现价'},h('span',{style:'background:'+cc.bg+';color:'+cc.fg,text:fsp(v,0)})));
+      tr.appendChild(h('td',{class:'c','data-l':'中途最低',text:lvFmt(b0,troughLv(b0,s))+'（'+fsp(a[2],0)+'）'}));}
+    else B.forEach(function(b){var l=endLv(b,s),v=l/b.now-1,cc=cellColor(v),sp=h('span',{style:'background:'+cc.bg+';color:'+cc.fg,text:fsp(v,0),tabindex:0}),td=h('td',{class:'c','data-l':b.idx},sp);
+      hover(sp,function(e){showTip(e,s.n+' '+s.name+' · '+b.idx,scnTip(b,s));});tr.appendChild(td);});
+    var out=h('output',{text:s.p+'%',style:'display:inline-block;min-width:2.6em;text-align:right;font-variant-numeric:tabular-nums;color:var(--navy);font-weight:650'});
+    var inp=h('input',{type:'range',min:0,max:60,step:1,value:s.p,'aria-label':s.name+'的概率'});
+    inp.addEventListener('input',function(){s.p=parseFloat(inp.value);out.textContent=s.p+'%';renderEv();if(window.__afterProb)window.__afterProb();});
+    tr.appendChild(h('td',{class:'pr',style:'white-space:nowrap'},inp,out));tb.appendChild(tr);});
+  t.appendChild(tb);renderEv();
+}
+function renderEv(){
+  var el=$('#ev4');if(!el)return;el.replaceChildren();var tot=0;SC.forEach(function(s){tot+=s.p;});
+  if(CFG.scnDetail){var b0=B[0],e0=evOf(b0);
+    var st=function(k,v,d){el.appendChild(h('div',{class:'stat'},h('div',{class:'k',text:k}),h('div',{class:'v num',text:v}),d?h('div',{class:'d',text:d}):null));};
+    if(!e0){st('到 2027 年底的预期回报','—');}
+    else{st('到 2027 年底的预期回报',fsp(b0.carry?e0.total:e0.ret,1),b0.carry?'其中价格 '+fsp(e0.ret,1)+'，股息约 '+fsp(b0.carry*T,1):'没有算股息');
+      st('八个剧本加权的终点',lvFmt(b0,e0.ev),'现价 '+(b0.nowTxt||lvFmt(b0,b0.now)));
+      st('终点高于现价的概率',fp(e0.up,0),'按你给的概率');
+      st('想要 10% 的预期年回报',lvFmt(b0,e0.buy10),'买入价不高于这个数，比现价 '+fsp(e0.buy10/b0.now-1,0));}
+    var n0=$('#ev-note');if(n0)n0.textContent=(Math.abs(tot-100)>0.5?'现在八个概率加起来是 '+tot+'%，计算时按比例折成 100%。':'八个概率加起来是 100%。')+(CFG.evNote||'');
+    return;}
+  B.forEach(function(b){var e=evOf(b);if(!e){el.appendChild(h('div',{class:'stat'},h('div',{class:'k',text:b.idx}),h('div',{class:'v',text:'—'})));return;}
+    var d=h('div',{class:'d'});
+    d.appendChild(document.createTextNode('加权终点'+(b.fmt==='rel'?'':' ')+lvFmtEv(b,e.ev)+'；'));
+    d.appendChild(document.createTextNode(e.up>=0.995?'所有剧本都高于现价。':(e.up<=0.005?'所有剧本都低于现价。':'高于现价的概率 '+fp(e.up,0)+'。')));
+    d.appendChild(h('br'));d.appendChild(document.createTextNode('想要 10% 的预期年回报，买入价不高于'+(b.fmt==='rel'?'':' ')));d.appendChild(h('b',{text:lvFmtEv(b,e.buy10)}));
+    el.appendChild(h('div',{class:'stat'},h('div',{class:'k',text:b.idx+'：到 2027 年底的预期回报'}),h('div',{class:'v num',text:fsp(b.carry?e.total:e.ret,1)}),b.carry?h('div',{class:'d',text:'其中价格 '+fsp(e.ret,1)+'，股息约 '+fsp(b.carry*T,1)}):null,d));});
+  var n=$('#ev-note');if(n)n.textContent=(Math.abs(tot-100)>0.5?'现在八个概率加起来是 '+tot+'%，计算时按比例折成 100%。':'八个概率加起来是 100%。')+(CFG.scnDetail?'':'把鼠标停在格子上（手机上点一下），能看到这个剧本里的盈利、倍数和中途最低点。')+(CFG.evNote||'');
+}
+function lvFmtEv(b,v){return b.kind==='yield'&&b.fmt==='rel'?'比现价 '+fsp(v/b.now-1,1)+'（股息率 '+(b.y*b.now/v).toFixed(2)+'%）':lvFmt(b,v);}
+
+/* ---------- zones table ---------- */
+function rangeTxt(b,i){var z=b.zones;function f(v){return b.kind==='pe'?lvFmt(b,v):(b.y*b.now/v).toFixed(1)+'%';}
+  if(b.kind==='pe'){if(i===0)return f(z[0])+' 以下';if(i===5)return f(z[4])+' 以上';return f(z[i-1])+' – '+f(z[i]);}
+  if(i===0)return f(z[0])+' 以上';if(i===5)return f(z[4])+' 以下';return f(z[i])+' – '+f(z[i-1]);}
+function renderZones(){
+  var t=$('#zones');if(!t)return;t.replaceChildren();
+  var hr=h('tr',{},h('th',{text:'区域'}));B.forEach(function(b){hr.appendChild(h('th',{text:b.zoneHead||(b.idx+(b.kind==='yield'?'（股息率）':''))}));});hr.appendChild(h('th',{text:'怎么做'}));t.appendChild(h('thead',{},hr));
+  var tb=h('tbody');
+  for(var i=5;i>=0;i--){var tr=h('tr',{});tr.appendChild(h('td',{},h('span',{class:'sw',style:'background:'+ZN[i].c+';border:1px solid rgba(11,11,11,.1)'}),ZN[i].n));
+    B.forEach(function(b){var here=zoneIx(b,b.now)===i,td=h('td',{class:'num',style:here?'background:#fbf8ef;box-shadow:inset 0 0 0 1px var(--gold)':null,text:rangeTxt(b,i)});
+      if(here)td.appendChild(h('div',{style:'font-size:.78rem;color:var(--muted)',text:'现价 '+(b.kind==='pe'?(b.nowTxt||lvFmt(b,b.now)):b.y.toFixed(2)+'%')}));
+      if(b.zoneNote&&b.zoneNote[i])td.appendChild(h('div',{style:'font-size:.78rem;color:var(--muted)',text:b.zoneNote[i]}));tr.appendChild(td);});
+    tr.appendChild(h('td',{style:'color:var(--muted)',text:ZN[i].do}));tb.appendChild(tr);}
+  t.appendChild(tb);
+}
+
+/* ---------- three knobs ---------- */
+var calcB=null,K={k1:0,k2:0,k3:0,r:10};
+function irr(cf){var lo=-0.9,hi=1.5;function npv(r){var s=0;for(var i=0;i<cf.length;i++)s+=cf[i]/Math.pow(1+r,i);return s;}for(var i=0;i<80;i++){var mid=(lo+hi)/2;if(npv(mid)>0)lo=mid;else hi=mid;}return (lo+hi)/2;}
+function calcOut(b,k){
+  if(b.kind==='pe'&&!b.payout){var f=(1-k.k1/100)*Math.pow(1+k.k2/100,5)*k.k3;return {ret:Math.pow(f/(b.now/b.E),0.2)-1,buy:b.E*(1-k.k1/100)*Math.pow((1+k.k2/100)/(1+k.r/100),5)*k.k3};}
+  if(b.kind==='pe'){var E1=b.E*(1-k.k1/100),c2=[-b.now],pv2=0,dv=0;for(var j=1;j<=5;j++){dv=b.payout*E1*Math.pow(1+k.k2/100,j-1);c2.push(dv);pv2+=dv/Math.pow(1+k.r/100,j);}
+    var Px=E1*Math.pow(1+k.k2/100,5)*k.k3;c2[5]+=Px;pv2+=Px/Math.pow(1+k.r/100,5);return {ret:irr(c2),buy:pv2};}
+  var D0=b.y/100*b.now,cf=[-b.now],pv=0,D=0;for(var t=1;t<=5;t++){D=D0*(1-k.k1/100)*Math.pow(1+k.k2/100,t);cf.push(D);pv+=D/Math.pow(1+k.r/100,t);}
+  var P5=D/(k.k3/100);cf[5]+=P5;pv+=P5/Math.pow(1+k.r/100,5);return {ret:irr(cf),buy:pv};
+}
+function setCalcBasket(id){
+  calcB=bk(id);if(!calcB)return;var b=calcB,pe=b.kind==='pe',kn=b.knobs;
+  document.querySelectorAll('#calc [data-b]').forEach(function(c){c.setAttribute('aria-pressed',c.getAttribute('data-b')===id?'true':'false');});
+  $('#k1l').textContent=pe?'盈利预测先被砍掉':'股息先被砍掉';$('#k2l').textContent=pe?'之后盈利每年增长':'之后股息每年增长';$('#k3l').textContent=pe?'五年后市场给的市盈率':'五年后市场要求的股息率';
+  var r1=$('#k1'),r2=$('#k2'),r3=$('#k3');r1.min=0;r1.max=pe?60:40;r1.step=1;r2.min=kn.k2min==null?(pe?0:-3):kn.k2min;r2.max=kn.k2max==null?(pe?20:10):kn.k2max;r2.step=0.5;r3.min=kn.k3min;r3.max=kn.k3max;r3.step=0.1;
+  $('#k1s').textContent=kn.s1;$('#k2s').textContent=kn.s2;$('#k3s').textContent=kn.s3;
+  var ps=$('#presets');ps.replaceChildren(h('span',{text:'预设'}));
+  kn.presets.forEach(function(p){ps.appendChild(h('button',{class:'chip',type:'button',text:p[0],onclick:function(){K.k1=p[1];K.k2=p[2];K.k3=p[3];syncCalc();}}));});
+  var p0=kn.presets[0];K.k1=p0[1];K.k2=p0[2];K.k3=p0[3];syncCalc();
+}
+function syncCalc(){$('#k1').value=K.k1;$('#k2').value=K.k2;$('#k3').value=K.k3;$('#k4').value=K.r;updateCalc();}
+function updateCalc(){
+  var b=calcB,pe=b.kind==='pe',o=calcOut(b,K);
+  $('#k1o').textContent=K.k1.toFixed(0)+'%';$('#k2o').textContent=(K.k2>=0?'+':'−')+Math.abs(K.k2).toFixed(1)+'%';$('#k3o').textContent=pe?K.k3.toFixed(1)+' 倍':K.k3.toFixed(1)+'%';$('#k4o').textContent=K.r.toFixed(0)+'%';
+  $('#c-ret').textContent=fsp(o.ret,1);
+  var gap=o.ret*100-b.bond.y;$('#c-retd').textContent=(gap>=0?'比'+b.bond.name+'高 ':'比'+b.bond.name+'低 ')+Math.abs(gap).toFixed(1)+' 个点'+((pe&&!b.payout)?'。没有算股息。':'。含股息。');
+  $('#c-bondk').textContent=b.bond.name;$('#c-bond').textContent=b.bond.y.toFixed(2)+'%';$('#c-bondd').textContent=b.bond.note||'';
+  $('#c-buy').textContent=b.fmt==='rel'?'比现价 '+fsp(o.buy/b.now-1,0):lvFmt(b,o.buy);
+  $('#c-buyd').textContent=b.fmt==='rel'?'对应股息率 '+(b.y*b.now/o.buy).toFixed(2)+'%':'比现价 '+fsp(o.buy/b.now-1,0)+'，'+auxName(b)+' '+auxOf(b,o.buy);
+  $('#c-note').textContent=b.knobs.note||'';
+  document.querySelectorAll('#presets .chip').forEach(function(c,i){var p=b.knobs.presets[i];c.setAttribute('aria-pressed',(p&&Math.abs(p[1]-K.k1)<1e-9&&Math.abs(p[2]-K.k2)<1e-9&&Math.abs(p[3]-K.k3)<1e-9)?'true':'false');});
+}
+function initCalc(){
+  if(!$('#calc'))return;
+  document.querySelectorAll('#calc [data-b]').forEach(function(c){c.addEventListener('click',function(){setCalcBasket(c.getAttribute('data-b'));});});
+  [['k1','k1'],['k2','k2'],['k3','k3'],['k4','r']].forEach(function(p){$('#'+p[0]).addEventListener('input',function(){K[p[1]]=parseFloat(this.value);updateCalc();});});
+  setCalcBasket(B[0].id);
+}
+
+/* ---------- grid ---------- */
+var gridB=null;
+function gridRows(Bud,top,bot,n,sk){var rows=[],ws=[],sum=0,i;for(i=0;i<n;i++){ws.push(Math.pow(sk,i));sum+=ws[i];}var cumA=0,cumS=0;
+  for(i=0;i<n;i++){var p=n>1?top*Math.pow(bot/top,i/(n-1)):top,a=Bud*ws[i]/sum,s=a/p;cumA+=a;cumS+=s;rows.push({i:i+1,p:p,a:a,w:ws[i]/sum,s:s,cumA:cumA,avg:cumA/cumS});}return rows;}
+function readGrid(){var b=gridB,g=b.grid,Bud=Math.max(0,parseFloat($('#g-b').value)||0),top=parseFloat($('#g-t').value)||g.top,bot=parseFloat($('#g-l').value)||g.bot,n=Math.round(parseFloat($('#g-n').value)||g.n),sk=parseFloat($('#g-s').value)||g.sk;
+  n=Math.max(3,Math.min(12,n));if(bot>top){var t=bot;bot=top;top=t;}bot=Math.max(top*0.05,bot);if(top<=bot)top=bot*1.01;return {B:Bud,top:top,bot:bot,n:n,sk:sk};}
+function setGridBasket(id){gridB=bk(id);if(!gridB)return;var g=gridB.grid;
+  document.querySelectorAll('#gridtool [data-g]').forEach(function(c){c.setAttribute('aria-pressed',c.getAttribute('data-g')===id?'true':'false');});
+  $('#g-tl').textContent='最高一格'+(gridB.fmt==='rel'?'（现价 = 100）':'');$('#g-ll').textContent='最低一格'+(gridB.fmt==='rel'?'（现价 = 100）':'');
+  $('#g-t').value=g.top;$('#g-l').value=g.bot;$('#g-n').value=g.n;$('#g-s').value=g.sk;renderGrid();}
+function money(v){return nf(Math.round(v));}
+function renderGrid(){
+  if(!gridB)return;var b=gridB,g=readGrid(),rows=gridRows(g.B,g.top,g.bot,g.n,g.sk);
+  $('#g-so').textContent='每格的金额是上一格的 '+g.sk.toFixed(2)+' 倍';
+  var t=$('#gridt');t.replaceChildren();
+  t.appendChild(h('thead',{},h('tr',{},h('th',{text:'格'}),h('th',{class:'n',text:b.fmt==='rel'?'价格（现价 = 100）':'价格'}),h('th',{class:'n c-vs',text:'比现价'}),h('th',{text:'区域'}),h('th',{class:'n',text:auxName(b)}),h('th',{text:'这格买入'}),h('th',{class:'n c-cum',text:'累计投入'}),h('th',{class:'n c-avgc',text:'累计均价'}))));
+  var tb=h('tbody');
+  rows.forEach(function(r){var zo=ZN[zoneIx(b,r.p)];
+    tb.appendChild(h('tr',{},h('td',{text:String(r.i)}),h('td',{class:'n'},h('strong',{text:lvFmt(b,r.p)})),h('td',{class:'n c-vs',text:fsp(r.p/b.now-1,0)}),
+      h('td',{},h('span',{class:'sw',style:'background:'+zo.c+';border:1px solid rgba(11,11,11,.1)'}),zo.n),h('td',{class:'n',text:auxOf(b,r.p)}),
+      h('td',{},h('div',{class:'meter'},h('i',{style:'width:'+Math.max(3,Math.round(r.w*200))+'px'}),h('span',{class:'num'},money(r.a),h('span',{class:'c-pct',text:'（'+fp(r.w,1)+'）'})))),
+      h('td',{class:'n c-cum',text:money(r.cumA)}),h('td',{class:'n c-avgc',text:lvFmt(b,r.avg)})));});
+  t.appendChild(tb);
+  var last=rows[rows.length-1],upper=0;rows.forEach(function(r){if(zoneIx(b,r.p)>=2)upper+=r.w;});
+  $('#grid-note').textContent='买入区以上的几格合计占预算的 '+fp(upper,0)+'，其余 '+fp(1-upper,0)+' 留给买入区和深水区。全部买满的平均成本是 '+lvFmt(b,last.avg)+'，比现价低 '+fp(1-last.avg/b.now,0)+'。'+(b.gridNote||'');
+  renderChk(rows,g);
+}
+function renderChk(rows,g){
+  var b=gridB,t=$('#chk');t.replaceChildren();
+  t.appendChild(h('thead',{},h('tr',{},h('th',{text:'剧本'}),h('th',{class:'n c-p',text:'概率'}),h('th',{class:'n',text:'中途最低'}),h('th',{class:'n',text:'买到第几格'}),h('th',{class:'n',text:'用掉预算'}),h('th',{class:'n c-avg',text:'买入均价'}),h('th',{class:'n c-end',text:'2027 年底'}),h('th',{class:'n',text:'买到的部分盈亏'}))));
+  var tb=h('tbody'),tot=0,ed=0,worst=null,epl=0;SC.forEach(function(s){tot+=s.p;});
+  SC.forEach(function(s){var tr=troughLv(b,s),el=endLv(b,s),dep=0,sh=0,k=0;rows.forEach(function(r){if(r.p>=tr-1e-9){dep+=r.a;sh+=r.s;k++;}});
+    var frac=g.B>0?dep/g.B:0,pnl=dep>0?sh*el/dep-1:null;if(tot>0){ed+=s.p/tot*frac;epl+=s.p/tot*(dep>0?(sh*el-dep):0);}
+    if(pnl!=null&&(worst==null||pnl<worst.pnl))worst={pnl:pnl,s:s,frac:frac};
+    var cc=pnl==null?null:cellColor(pnl);
+    tb.appendChild(h('tr',{},h('td',{text:s.n+' '+s.name}),h('td',{class:'n c-p',text:s.p+'%'}),h('td',{class:'n',text:lvFmt(b,tr)}),h('td',{class:'n',text:k?k+' / '+rows.length:'没买到'}),h('td',{class:'n',text:fp(frac,0)}),
+      h('td',{class:'n c-avg',text:dep>0?lvFmt(b,dep/sh):'—'}),h('td',{class:'n c-end',text:lvFmt(b,el)}),h('td',{class:'n'},pnl==null?'—':h('span',{style:'display:inline-block;min-width:3.6em;padding:1px 6px;border-radius:4px;background:'+cc.bg+';color:'+cc.fg,text:fsp(pnl,0)}))));});
+  t.appendChild(tb);
+  var note='按现在的概率，这架梯子平均会用掉预算的 '+fp(ed,0)+'；买到的部分，到 2027 年底的预期盈亏约为总预算的 '+fsp(g.B>0?epl/g.B:0,1)+(ed>0&&g.B>0?'，相当于投进去的钱的 '+fsp(epl/g.B/ed,1):'')+'。';
+  if(worst)note+='最差的是'+worst.s.n+'"'+worst.s.name+'"：用掉 '+fp(worst.frac,0)+' 的预算，这部分 '+fsp(worst.pnl,0)+'。';
+  note+='这是梯子的天性：好剧本里买得少，坏剧本里买得满。所以最下面几格要用几年不动的钱。';
+  note+=b.carry?'盈亏没有加持有期间的股息。':'';
+  $('#chk-note').textContent=note;
+}
+function initGrid(){
+  if(!$('#gridtool'))return;
+  document.querySelectorAll('#gridtool [data-g]').forEach(function(c){c.addEventListener('click',function(){setGridBasket(c.getAttribute('data-g'));});});
+  ['g-b','g-t','g-l','g-n','g-s'].forEach(function(id){$('#'+id).addEventListener('input',renderGrid);});
+  window.__afterProb=function(){if(gridB)renderGrid();};
+  setGridBasket(B[0].id);
+}
+
+window.ML={C:C,ZN:ZN,$:$,sv:sv,h:h,txt:txt,halo:halo,line:line,mkTable:mkTable,plotW:plotW,nf:nf,fp:fp,fsp:fsp,rightBar:rightBar,topBar:topBar,showTip:showTip,hideTip:hideTip,hover:hover,
+  lineChart:lineChart,barsH:barsH,bk:bk,lvFmt:lvFmt,auxOf:auxOf,endLv:endLv,troughLv:troughLv,zoneIx:zoneIx,evOf:evOf,calcOut:calcOut,gridRows:gridRows,
+  renderPos:renderPos,renderScn:renderScn,renderEv:renderEv,renderZones:renderZones,initCalc:initCalc,initGrid:initGrid,setCalcBasket:setCalcBasket,setGridBasket:setGridBasket,K:K};
+})();
+</script>
+<script>
+(function(){
+'use strict';
+var M=window.ML,C=M.C,$=M.$,h=M.h,sv=M.sv,txt=M.txt,halo=M.halo,line=M.line,CH=window.CFG.ch,GOLD='#9c8748';
+function day(s){var p=s.split('-');return Date.UTC(+p[0],+p[1]-1,+(p[2]||1))/864e5;}
+function md(s){var p=s.split('-');return (+p[1])+' 月 '+(+p[2])+' 日';}
+function ymd(s){var p=s.split('-');return p[0]+' 年 '+(+p[1])+' 月 '+(+p[2])+' 日';}
+function ym(s){var p=s.split('-');return p[0]+' 年 '+(+p[1])+' 月';}
+function legend(id,items){var el=$(id);if(!el)return;el.replaceChildren();items.forEach(function(it){el.appendChild(h('span',{},h('i',{class:it[2]?'box':null,style:'background:'+it[1]+(it[3]||'')}),it[0]));});}
+
+function dxym(){
+  var d=CH.dxym,pts=d.map(function(r,i){return [i,r[1]];}),n=d.length,lo=12;
+  M.lineChart($('#dxym'),{aria:'美元指数月末收盘，2025 年 1 月到 2026 年 11 月',H:300,
+    x:{min:0,max:n-1,ticks:[[0,'2025 年 1 月'],[6,'7 月',1],[12,'2026 年 1 月'],[18,'7 月',1],[n-1,'11 月 20 日']]},
+    y:{min:94,max:110,ticks:[95,100,105,110]},
+    hlines:[{y:100,color:C.gold,label:'100'}],
+    series:[{pts:pts,color:C.navy,end:d[n-1][1].toFixed(2),end2:'19 个月高位'}],
+    marks:[{x:0,y:d[0][1],label:d[0][1].toFixed(2),dy:-10,anchor:'start',dx:2},{x:lo,y:d[lo][1],label:'2026 年 1 月底 '+d[lo][1].toFixed(2),label2:'月内盘中最低 '+CH.dxylo.toFixed(2),dy:19}],
+    tip:function(i){return [ym(d[i][0])+(i===n-1?'（到 20 日）':'底'),[['美元指数',d[i][1].toFixed(2),C.navy]]];}});
+  $('#dxym-t').replaceChildren(M.mkTable(['月份','美元指数'],d.map(function(r,i){return [r[0]+(i===n-1?'（到 11 月 20 日）':''),r[1].toFixed(2)];}),[0,1]));
+}
+
+function rates(){
+  var d=CH.rates,x0=day(d[0][0]),pn=[],pr=[],pk=0;
+  d.forEach(function(r,i){var x=day(r[0])-x0;pn.push([x,r[1]]);pr.push([x,+(r[1]-r[2]).toFixed(2)]);if(r[1]>d[pk][1])pk=i;});
+  var xmax=pn[pn.length-1][0],ff=CH.ff.map(function(r){return [Math.max(0,day(r[0])-x0),r[1],r[2]];});
+  function mx(m){return day('2026-'+(m<10?'0':'')+m+'-01')-x0;}
+  M.lineChart($('#rates'),{aria:'十年期美债名义利率和扣掉通胀后的利率，2026 年周度',H:330,
+    x:{min:0,max:xmax,ticks:[[mx(1),'2026 年 1 月'],[mx(3),'3 月',1],[mx(5),'5 月'],[mx(7),'7 月',1],[mx(9),'9 月'],[mx(11),'11 月']]},
+    y:{min:1.5,max:5.5,ticks:[2,3,4,5],fmt:function(v){return v+'%';}},
+    steps:[{pts:ff,fill:'#eceae4'}],
+    texts:[{x:ff[1][0],y:ff[1][2],s:'9 月 16 日加息',dy:-6,anchor:'end',dx:-4}],
+    series:[{pts:pn,color:C.s[0],end:pn[pn.length-1][1].toFixed(2)+'%',end2:'名义'},{pts:pr,color:C.s[1],end:pr[pr.length-1][1].toFixed(2)+'%',end2:'扣掉通胀后'}],
+    marks:[{x:pn[pk][0],y:pn[pk][1],color:C.s[0],label:md(d[pk][0])+' '+d[pk][1].toFixed(2)+'%',dy:-10,anchor:'end',dx:6}],
+    tip:function(i){return [ymd(d[i][0]),[['十年期美债',d[i][1].toFixed(2)+'%',C.s[0]],['扣掉通胀后',(d[i][1]-d[i][2]).toFixed(2)+'%',C.s[1]],['通胀预期',d[i][2].toFixed(2)+'%']]];}});
+  legend('#rates-lg',[['十年期美债（名义）',C.s[0]],['扣掉通胀后的利率',C.s[1]],['美联储政策利率区间','#eceae4',1,';border:1px solid #d9d6cd']]);
+  $('#rates-t').replaceChildren(M.mkTable(['日期','十年期美债','通胀预期','扣掉通胀后'],d.map(function(r){return [r[0],r[1].toFixed(2)+'%',r[2].toFixed(2)+'%',(r[1]-r[2]).toFixed(2)+'%'];}),[0,1,1,1]));
+}
+
+function dxylong(){
+  var pts=[],lab=[];CH.dxyye.forEach(function(r){pts.push([r[0]+0.99,r[1]]);lab.push(r[0]+' 年底');});
+  CH.dxyx.forEach(function(e){pts.push([e[0],e[1]]);lab.push(e[2]);});
+  var ord=pts.map(function(p,i){return i;}).sort(function(a,b){return pts[a][0]-pts[b][0];});pts=ord.map(function(i){return pts[i];});lab=ord.map(function(i){return lab[i];});
+  var last=pts[pts.length-1];
+  M.lineChart($('#dxylong'),{aria:'美元指数 1967 年到 2026 年',H:340,
+    x:{min:1967,max:2027.2,ticks:[[1970,'1970'],[1980,'1980'],[1990,'1990'],[2000,'2000'],[2010,'2010'],[2020,'2020']]},
+    y:{min:48,max:178,ticks:[60,80,100,120,140,160]},bandLabelBottom:1,
+    bands:[{x0:1980,x1:1985.15,label:'美元强'},{x0:1995.3,x1:2001.55,label:'美元强'},{x0:2008.21,x1:2022.74,label:'美元强'}],
+    series:[{pts:pts,color:C.navy,end:last[1].toFixed(2),end2:'现在'}],
+    marks:CH.dxyx.slice(0,3).map(function(e,i){return {x:e[0],y:e[1],label:e[2],label2:e[1].toFixed(2),dy:i===1?18:-23,anchor:i===2?'end':'middle',dx:i===2?14:0};}),
+    tip:function(i){return [lab[i],[['美元指数',pts[i][1].toFixed(2),C.navy]]];}});
+  $('#dxylong-t').replaceChildren(M.mkTable(['年份','年末收盘'],CH.dxyye.map(function(r){return [r[0],r[1].toFixed(2)];}),[0,1]));
+}
+
+function dd(){
+  M.barsH($('#dd'),CH.dd.map(function(r){return {name:r[0],sub:r[2],v:r[1],hi:r[3]===1,label:M.fsp(r[1]/100,0),tip:[['从高点到低点',M.fsp(r[1]/100,0),r[3]===1?C.gold:C.navy],[r[2],'']]};}),
+    {aria:'纳指历次大跌的幅度',min:-90,max:0,ticks:[-80,-60,-40,-20,0],axis:1,fmt:function(v){return v===0?'0':'−'+Math.abs(v)+'%';}});
+}
+
+function race(){
+  var r=CH.race,n=r.qqq.length;function mk(a){return a.map(function(v,i){return [i,v];});}
+  function lab(i){return (2020+Math.floor(i/12))+' 年 '+(i%12+1)+' 月'+(i===n-1?'（到 20 日）':'');}
+  var S=[['QQQ（纳指 100）',r.qqq,C.s[0],'QQQ'],['SCHD（美股红利）',r.schd,C.s[2],'SCHD'],['KWEB（中概互联网）',r.kweb,C.s[1],'KWEB']];
+  M.lineChart($('#race'),{aria:'QQQ、SCHD、KWEB 自 2020 年 1 月以来的含分红表现',H:340,
+    x:{min:0,max:n-1,ticks:[[0,'2020'],[12,'2021'],[24,'2022'],[36,'2023'],[48,'2024'],[60,'2025'],[72,'2026']]},
+    y:{min:26,max:380,log:1,ticks:[50,100,200,300]},
+    hlines:[{y:100,color:C.axis,w:1}],
+    series:S.map(function(s){return {pts:mk(s[1]),color:s[2],end:s[3]+' '+Math.round(s[1][n-1])};}),
+    tip:function(i){return [lab(i),S.map(function(s){return [s[3],s[1][i].toFixed(0),s[2]];})];}});
+  legend('#race-lg',S.map(function(s){return [s[0],s[2]];}));
+  var rows=[];for(var i=0;i<n;i++)rows.push([lab(i),r.qqq[i].toFixed(1),r.schd[i].toFixed(1),r.kweb[i].toFixed(1)]);
+  $('#race-t').replaceChildren(M.mkTable(['月末','QQQ','SCHD','KWEB'],rows,[0,1,1,1]));
+}
+
+function ytd(){
+  M.barsH($('#ytd'),CH.ytd.map(function(r){return {name:r[0],sub:r[2],v:r[1],label:M.fsp(r[1]/100,1),tip:[['2026 年初至今',M.fsp(r[1]/100,1),C.navy],[r[2],'']]};}),
+    {aria:'2026 年初至 11 月 20 日的涨跌',min:-46,max:34,ticks:[-40,-20,0,20],axis:1,fmt:function(v){return v===0?'0':(v>0?'+':'−')+Math.abs(v)+'%';}});
+}
+
+function ndxpath(){
+  var d=CH.ndx,x0=day(d[0][0]),pts=d.map(function(r){return [day(r[0])-x0,r[1]];}),n=d.length;
+  function at(s){for(var i=0;i<n;i++)if(d[i][0]===s)return pts[i];return null;}
+  function mx(m){return day('2026-'+(m<10?'0':'')+m+'-01')-x0;}
+  var lo=at('2026-03-30'),hi=at('2026-10-06'),war=at('2026-02-27'),n5=at('2026-11-05'),hk=at('2026-09-18');
+  M.lineChart($('#ndxpath'),{aria:'纳指 100 在 2026 年的走势',H:340,
+    x:{min:0,max:pts[n-1][0],ticks:[[mx(1),'2026 年 1 月'],[mx(3),'3 月',1],[mx(5),'5 月'],[mx(7),'7 月',1],[mx(9),'9 月'],[mx(11),'11 月']]},
+    y:{min:21000,max:32500,ticks:[22000,24000,26000,28000,30000,32000],fmt:function(v){return M.nf(v);}},
+    hlines:[{y:CH.ndx2025,color:C.gold,label:'去年收盘 '+M.nf(Math.round(CH.ndx2025)),labelX:mx(7)-8}],
+    series:[{pts:pts,color:C.navy,end:'约 '+M.nf(Math.round(pts[n-1][1]/10)*10),end2:'11 月 20 日'}],
+    marks:[{x:war[0],y:war[1],label:'2 月 28 日',label2:'伊朗开战',dy:-24,wide:1},{x:lo[0],y:lo[1],label:'3 月 30 日 '+M.nf(Math.round(lo[1])),dy:18},
+      {x:hk[0],y:hk[1],label:'9 月 16 日加息',dy:20,wide:1},{x:hi[0],y:hi[1],label:'10 月 6 日 '+M.nf(Math.round(hi[1])),dy:-10,anchor:'end',dx:10},
+      {x:n5[0],y:n5[1],label:'11 月 5 日',label2:'单日 −6.4%',dy:16,anchor:'end',dx:-8,wide:1}],
+    tip:function(i){return [ymd(d[i][0]),[['纳指 100',(i===n-1?'约 ':'')+M.nf(Math.round(d[i][1])),C.navy],['比去年收盘',M.fsp(d[i][1]/CH.ndx2025-1,1)]]];}});
+  $('#ndxpath-t').replaceChildren(M.mkTable(['日期','纳指 100'],d.map(function(r,i){return [r[0],(i===n-1?'约 ':'')+M.nf(r[1],i===n-1?0:2)];}),[0,1]));
+}
+
+function pehist(){
+  var el=$('#pehist'),d=CH.pe,W=M.plotW(el),narrow=W<560,H=310,m={t:18,r:12,b:30,l:38},iw=W-m.l-m.r,ih=H-m.t-m.b,y0=2001,slots=(2025-y0+1)+1,ymax=55;
+  function Y(v){return m.t+(ymax-v)/ymax*ih;}
+  var step=iw/slots,bw=Math.max(4,Math.min(24,step*0.68));
+  function cx(k){return m.l+step*(k+0.5);}
+  var svg=sv('svg',{viewBox:'0 0 '+W+' '+H,width:W,height:H,role:'img','aria-label':'纳指 100 年末预期市盈率，2001 到 2025 年，以及现在'});
+  svg.appendChild(sv('rect',{x:m.l,y:Y(CH.peq[1]),width:iw,height:Y(CH.peq[0])-Y(CH.peq[1]),fill:'#f7f4ea'}));
+  [0,10,20,30,40,50].forEach(function(v){svg.appendChild(line(m.l,Y(v),W-m.r,Y(v),v===0?C.axis:C.grid));svg.appendChild(txt(m.l-8,Y(v)+4,String(v),{size:11.5,anchor:'end',tab:1}));});
+  function col(k,v,name,fill,bold){var x=cx(k)-bw/2,g=sv('path',{d:M.topBar(x,Y(0),bw,Y(0)-Y(v),4),fill:fill});svg.appendChild(g);
+    var hit=sv('rect',{x:cx(k)-step/2,y:m.t,width:step,height:ih,fill:'transparent',tabindex:0});M.hover(hit,function(e){M.showTip(e,name,[['预期市盈率',v.toFixed(1)+' 倍',fill]]);});svg.appendChild(hit);
+    if(bold)svg.appendChild(halo(txt(cx(k),Y(v)-6,v.toFixed(1),{size:11.5,fill:C.ink,anchor:'middle',weight:650,tab:1})));}
+  d.forEach(function(r){col(r[0]-y0,r[1],r[0]+' 年底',C.navy,r[0]===2001||(!narrow&&(r[0]===2021||r[0]===2018)));});
+  col(slots-1,CH.penow,'现在（11 月 20 日）',GOLD,true);
+  svg.appendChild(line(m.l,Y(CH.pemed),W-m.r,Y(CH.pemed),C.gold,1.5));svg.appendChild(halo(txt(cx(2010-y0),Y(CH.pemed)-7,'中位数 '+CH.pemed+' 倍',{size:11,fill:C.muted,anchor:'middle'})));
+  [2001,2005,2010,2015,2020,2025].forEach(function(y){if(narrow&&(y===2005||y===2015||y===2025))return;svg.appendChild(txt(cx(y-y0),H-m.b+18,String(y),{size:11.5,anchor:'middle',tab:1}));});
+  svg.appendChild(txt(cx(slots-1),H-m.b+18,'现在',{size:11.5,anchor:'middle',fill:C.ink,weight:650}));
+  svg.appendChild(txt(cx(2005-y0),Y(0)-6,'缺',{size:10.5,fill:C.faint,anchor:'middle'}));
+  el.replaceChildren(svg);
+  $('#pehist-t').replaceChildren(M.mkTable(['年末','预期市盈率'],d.map(function(r){return [r[0],r[1].toFixed(1)];}).concat([['现在（11 月 20 日）',CH.penow.toFixed(1)]]),[0,1]));
+}
+
+function mega(){
+  var t=$('#mega');t.replaceChildren();
+  t.appendChild(h('thead',{},h('tr',{},h('th',{text:'公司'}),h('th',{class:'n',text:'市值（万亿美元）'}),h('th',{text:'预期市盈率'}),h('th',{class:'n',text:'过去 12 个月市盈率'}),h('th',{class:'n',text:'企业价值 ÷ 经营利润'}),h('th',{class:'n',text:'比 52 周高点'}))));
+  var tb=h('tbody');
+  CH.mega.forEach(function(r){var w=Math.round(Math.min(r[5],40)/40*110);
+    tb.appendChild(h('tr',{},h('td',{},r[0],h('span',{style:'color:var(--faint);font-weight:400;font-size:.8rem;margin-left:6px',text:r[1]})),h('td',{class:'n',text:r[3].toFixed(2)}),
+      h('td',{},h('div',{class:'meter'},h('i',{style:'width:'+w+'px'}),h('span',{class:'num',text:(r[5]>=100?r[5].toFixed(0):r[5].toFixed(1))+' 倍'}))),
+      h('td',{class:'n',text:(r[4]>=100?r[4].toFixed(0):r[4].toFixed(1))+' 倍'}),h('td',{class:'n',text:(r[7]>=100?r[7].toFixed(0):r[7].toFixed(1))+' 倍'}),h('td',{class:'n',text:'−'+Math.abs(r[8]).toFixed(1)+'%'})));});
+  t.appendChild(tb);
+}
+
+function gap(){
+  var el=$('#gap'),rows=CH.gap,W=M.plotW(el),narrow=W<560,rh=50,m={t:10,r:28,b:28,l:narrow?120:230},H=m.t+m.b+rows.length*rh,iw=W-m.l-m.r,mxv=8;
+  function X(v){return m.l+v/mxv*iw;}
+  var svg=sv('svg',{viewBox:'0 0 '+W+' '+H,width:W,height:H,role:'img','aria-label':'四种红利的股息率和十年期国债收益率'});
+  [0,2,4,6,8].forEach(function(v){svg.appendChild(line(X(v),m.t,X(v),H-m.b,v===0?C.axis:C.grid));svg.appendChild(txt(X(v),H-8,v+'%',{size:11.5,anchor:'middle',tab:1}));});
+  rows.forEach(function(r,i){var cy=m.t+rh*(i+0.5),xb=X(r[2]),xy=X(r[3]),up=r[3]>=r[2],col=up?C.b[2]:C.r[2],d=r[3]-r[2];
+    svg.appendChild(sv('rect',{x:Math.min(xb,xy),y:cy-3,width:Math.abs(xy-xb),height:6,fill:col}));
+    svg.appendChild(sv('circle',{cx:xb,cy:cy,r:6.5,fill:'#fff',stroke:C.navy,'stroke-width':2}));
+    svg.appendChild(sv('circle',{cx:xy,cy:cy,r:7,fill:C.navy,stroke:'#fff','stroke-width':2}));
+    svg.appendChild(halo(txt((xb+xy)/2,cy-11,(d>=0?'+':'−')+Math.abs(d).toFixed(2),{size:12.5,fill:C.ink,anchor:'middle',weight:650,tab:1})));
+    svg.appendChild(txt(up?xb-12:xb+12,cy+4,r[2].toFixed(2)+'%',{size:11,anchor:up?'end':'start',tab:1}));
+    svg.appendChild(txt(up?xy+12:xy-12,cy+4,r[3].toFixed(2)+'%',{size:11.5,fill:C.ink,anchor:up?'start':'end',weight:650,tab:1}));
+    svg.appendChild(txt(m.l-16,cy+(narrow||!r[1]?4:-2),narrow&&r[5]?r[5]:r[0],{size:12,fill:C.ink,anchor:'end',weight:650}));
+    if(r[1]&&!narrow)svg.appendChild(txt(m.l-16,cy+12,r[1],{size:10.5,fill:C.muted,anchor:'end'}));
+    var hit=sv('rect',{x:0,y:cy-rh/2,width:W,height:rh,fill:'transparent',tabindex:0});
+    M.hover(hit,function(e){M.showTip(e,r[0]+(r[1]?'，'+r[1]:''),[['股息率',r[3].toFixed(2)+'%',C.navy],[r[4],r[2].toFixed(2)+'%'],['差',(d>=0?'+':'−')+Math.abs(d).toFixed(2)+' 个点',col]]);});svg.appendChild(hit);});
+  el.replaceChildren(svg);
+  var lg=$('#gap-lg');lg.replaceChildren(
+    h('span',{},h('i',{class:'box',style:'background:#fff;border:2px solid '+C.navy+';border-radius:50%'}),'十年期国债收益率'),
+    h('span',{},h('i',{class:'box',style:'background:'+C.navy+';border-radius:50%'}),'股息率'),
+    h('span',{},h('i',{style:'background:'+C.b[2]+';height:6px'}),'股息率更高'),
+    h('span',{},h('i',{style:'background:'+C.r[2]+';height:6px'}),'国债更高'));
+}
+
+function charts(){[dxym,rates,dxylong,dd,race,ytd,ndxpath,pehist,mega,gap,M.renderPos].forEach(function(f){try{f();}catch(e){console.error(f.name,e);}});}
+charts();M.renderScn();M.renderZones();M.initCalc();M.initGrid();
+var rt=null,lastW=window.innerWidth;window.addEventListener('resize',function(){if(window.innerWidth===lastW)return;lastW=window.innerWidth;clearTimeout(rt);rt=setTimeout(charts,160);});
+})();
+</script>
+</body>
+</html>
